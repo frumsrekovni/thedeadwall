@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: #e1e1e1;">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Roboto" rel="stylesheet">
+    <style>
+/* Subtle Minimalist Registration Form Styles */
+.registration-card {
+  background: #f8f8fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  padding: 12px;
+  width: 400px;
+  margin: 28px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.registration-card label {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 4px;
+  font-weight: 500;
+  display: block;
+}
+.registration-card input,
+.registration-card textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  font-size: 0.98rem;
+  margin-bottom: 10px;
+  transition: border-color 0.2s;
+}
+.registration-card input:focus,
+.registration-card textarea:focus {
+  border-color: #b7a6e7;
+  outline: none;
+}
+.registration-card button[type="submit"] {
+  background: #ece9f6;
+  color: #2a1a2a;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 0.98rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(124,58,237,0.04);
+  transition: background 0.2s, transform 0.1s;
+  margin-top: 3%;
+}
+.registration-card button[type="submit"]:hover {
+  background: #e3e0f0;
+  transform: translateY(-1px) scale(1.01);
+}
+.registration-card .form-row {
+  display: flex;
+  gap: 12px;
+}
+.registration-card .form-row > div {
+  flex: 1;
+}
+@keyframes torch {
+    0%, 1%, 2%, 3%, 4%, 5%, 20%, 21%, 60%, 61%, 62%, 100% { background-image:
+      radial-gradient(
+        circle 16vmax at 50vw 50vh,
+        rgba(0,0,0,0) 30%,
+        rgba(0,5,5,.1) 40%,
+        rgba(5,5,0,.5) 60%,
+        rgba(0,0,0,.75) 70%,
+        rgba(0,0,0,.95) 100%
+      ),
+      radial-gradient(
+        circle 12vmax at 50vw 50vh,
+        rgba(255,255,255,1) 30%,
+        rgba(255,255,255,.3) 50%,
+        rgba(255,255,255,.05) 100%
+      ),
+      url(./tunnel\ image.jpg);
+    }
+  
+    0.5%, 1.5%, 60.5% { background-image:
+      radial-gradient(
+        circle 12vmax at 50vw 50vh,
+        rgba(0,0,0,0) 30%,
+        rgba(0,5,5,.1) 40%,
+        rgba(5,5,0,.5) 60%,
+        rgba(0,0,0,.75) 70%,
+        rgba(0,0,0,.95) 100%
+      ),
+      radial-gradient(
+        circle 8vmax at 50vw 50vh,
+        rgba(255,255,255,1) 30%,
+        rgba(255,255,255,.3) 50%,
+        rgba(255,255,255,.05) 100%
+      ),
+      url(./tunnel\ image.jpg);
+    }
+  
+    2.5%, 3.5%, 4.5%, 20.5%, 61.5% { background-image:
+      radial-gradient(
+        circle 8vmax at 50vw 50vh,
+        rgba(0,0,0,0) 30%,
+        rgba(0,5,5,.1) 40%,
+        rgba(5,5,0,.5) 60%,
+        rgba(0,0,0,.75) 70%,
+        rgba(0,0,0,.95) 100%
+      ),
+      radial-gradient(
+        circle 4vmax at 50vw 50vh,
+        rgba(255,255,255,1) 0%,
+        rgba(255,255,255,.5) 50%,
+        rgba(255,255,255,.05) 100%
+      ),
+      url(./tunnel\ image.jpg);
+    }
+}
+
+    </style>
+    
+    <meta name="description" content="Survive Count Doracula's riichi mansion">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" type="image/svg+xml" href="coffinico.ico">
+    <meta name="author" content="WRC">
+    <meta name="theme-color" content="#fff">
+    <meta property="og:title" content="The Dead Wall 2025">
+    <meta property="og:description" content="Survive Count Doracula's riichi mansion">
+    <meta property="og:type" content="website">
+    <title>The Dead Wall 2025</title>
+    <script>
+
+        // var fonts = ['Roboto', 'Open_Sans', 'Raleway'];
+        // var rand = fonts[Math.floor(Math.random() * fonts.length)];
+        // var bodyElement = document.getElementById("logo");
+        // bodyElement.className = rand;
+const W = window.innerWidth;
+const H = window.innerHeight
+
+function updateAnimationTiming() {
+  const animationDuration = 5 + Math.random() * 5;
+  const animationDelay = 5 + Math.random() * 10;
+  
+  window.requestAnimationFrame(() => {
+    document.documentElement.style.setProperty('--animationDuration', animationDuration + 's');
+    document.documentElement.style.setProperty('--animationDelay', animationDelay + 's');
+  });
+  
+  const timeout = (animationDuration + animationDelay) * 1000 - 100;
+  setTimeout(updateAnimationTiming, timeout);
+}
+
+updateAnimationTiming();
+
+document.addEventListener('mousemove', e => {
+  window.requestAnimationFrame(() => {
+    const X = e.clientX;
+    const Y = e.clientY;
+
+    document.documentElement.style.setProperty('--cursorX', X + 'px');
+    document.documentElement.style.setProperty('--cursorY', Y + 'px');
+
+    const X2 = X - (12 * W / 100) * (X / W - 0.5);
+    const Y2 = Y - (12 * W / 100) * (Y / H - 0.5);
+
+    document.documentElement.style.setProperty('--cursorX2', X2 + 'px');
+    document.documentElement.style.setProperty('--cursorY2', Y2 + 'px');
+  });
+});
+
+    </script>
+        </script><link rel="stylesheet" href="../files/index.C5_7h7bT.css"><script type="module" src="../files/hoisted.ucgshFj1.js.nedladdning"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="../files/css2" rel="stylesheet">
+    <link rel="stylesheet" href="../files/index.C5_7h7bT.css">
+    <style>
+
+    .breathing {
+      animation: fade 7s ease-out forwards infinite;
+    }
+    .containing-box {
+    border: 0px solid rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 24px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 40px rgba(255, 255, 255, 0.05), inset 0 0 40px rgba(255, 255, 255, 0.02);
+    padding:45px 135px 45px 135px;
+    }
+    .containing-box p{
+    font-weight: bold;
+    font-size: 62px;
+    color: whitesmoke;
+    }
+
+    @keyframes fade {
+      0%   { opacity: 0.8; }
+      50%  { opacity: 1.0; transform: scale(1.02) translateY(-4px)}
+      90%  { opacity: 0.8; transform: translateY(0);}
+    }
+    </style>
+    <script>
+</script>
+</head>
+<body style="overflow: visible;">
+    <main data-astro-cid-dhfotatx="" style="justify-content: center;">
+        <div id="rule" class="rule content-wrapper" data-astro-cid-vlihtyhp="" style="padding: 15%;justify-content: center;background: transparent"> 
+           <h2 class="title undefined" data-astro-cid-azbpcp4f=""> <a href="../index.html#map"><img src="../the dead wall.gif" alt="The Dead Wall 2025 logo"></a> <br> The Dead Wall 2025 <br>Event Registration</h2>
+           <div style="width: 100%; display: flex; justify-content: center; align-items: center; flex-direction: row;">
+<div class="registration-card">
+  <form action="https://formspree.io/f/mqkvaewl" method="POST">
+    <div class="form-row">
+      <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required autocomplete="name">
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required autocomplete="email">
+      </div>
+    </div>
+    <label for="message">Additional Information (optional)</label>
+    <textarea id="message" name="message" rows="3" placeholder="Anything you'd like us to know? Allergies?"></textarea>
+    <!-- Add more fields as needed -->
+    <button type="submit">Register!</button>
+  </form>
+</div>
+
+
+              <a href="../index.html#map">
+             <img src="../files/three_bats.svg" class="dice js-scroll-animation active" data-astro-cid-vlihtyhp=""></a>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
