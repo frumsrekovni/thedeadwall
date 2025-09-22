@@ -6,6 +6,7 @@
     <style>
         html{
             scroll-behavior: smooth;
+            cursor: default;
         }
 .demands{
     justify-content: center;
@@ -24,9 +25,34 @@
     }
     .demand img{
         
-        width: 300px;
-        height: auto;
+    width: 300px;
+    height: auto;
+    border-radius: 18px;
+    border: 4px solid rgba(40, 0, 40, 0.25);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.45), 0 0 24px rgba(255,0,80,0.12), 0 2px 8px rgba(255,255,255,0.08);
+    transition: box-shadow 0.3s, filter 0.3s;
+    position: relative;
+    z-index: 2;
+}
+
+.demand img:hover {
+    box-shadow: 0 0 8px 2px rgba(255,0,120,0.05), 0 0 16px 4px rgba(255,255,255,0.04), 0 2px 8px rgba(0,0,0,0.22);
+    filter: brightness(1.01) drop-shadow(0 0 2px #ff00a0) drop-shadow(0 0 1px #fff);
+    animation: shimmerGlow 3s linear infinite;
+    cursor: pointer;
+}
+
+@keyframes shimmerGlow {
+    0% {
+        filter: brightness(1.01) drop-shadow(0 0 2px #ff00a0) drop-shadow(0 0 1px #fff);
     }
+    50% {
+        filter: brightness(1.03) drop-shadow(0 0 4px #ff00a0) drop-shadow(0 0 2px #fff);
+    }
+    100% {
+        filter: brightness(1.01) drop-shadow(0 0 2px #ff00a0) drop-shadow(0 0 1px #fff);
+    }
+}
     .demand .description{
         width: 330px;
         color: #ffffff;
@@ -270,10 +296,17 @@ document.addEventListener('mousemove', e => {
     padding:45px 2% 45px 8% !important;
     }
     }
-    @media only screen and (max-width: 400px) {
+    @media only screen and (max-width: 360px) {
         .containing-box {
-    padding:45px 2% 45px 5% !important;
+        padding:5% !important;
     }
+    .containing-box p{
+        font-size: 60px !important;
+    }
+    }
+    #timetable span{
+        font-weight: bold;
+        padding: 3%;
     }
     </style>
 </head>
@@ -285,7 +318,7 @@ document.addEventListener('mousemove', e => {
             <div class="mainVisualTop containing-box breathing" data-astro-cid-ndqbrlb2="">
                 <img src="the dead wall.gif" alt="animation of the dead wall flipping" style="width: 100%;">
                 <p>Doracula's</p>
-                <p>DEAD WALL</p>
+                <p>DEAD&nbsp;WALL</p>
                 <p>2025</p>
                 <div class="second" data-astro-cid-ndqbrlb2=""> 
                 </div>
@@ -303,16 +336,23 @@ document.addEventListener('mousemove', e => {
                 <div class="demand">
                     
                     <p class="description"> <b>Riichi Mahjong</b> <br>Witnessing agony at the hands of dora is a must for Count Doracula. Therefore, the participants must partake in riichi mahjong heavily modified to suit his own needs.</p>
+                    <a href="./pages/Rulecards details.html">
                     <img src="./files/doracula mahjong.gif" alt="playing mahjong">
+                    </a>
+
                 </div>
                 <div class="demand">
                     <p class="description"><b>Costume Contest</b><br>Only the most suitable souls end up in Doracula's dead walls. There must be a judgement of character and soul.</p>
+                    <a href="./pages/Costume contest details.html">
                     <img src="./files/costume contest.gif" alt="costume contest">
+                    </a>
                 </div>
                 
                 <div class="demand";>
                     <p class="description"><b>Moupai Contest</b><br>Nothing marinates the soul better than the deep running anxiety and stress from a failed moupai.</p>
+                    <a href="./pages/Moupai contest details.html">
                     <img src="./files/moupai.gif" alt="moupai contest">
+                    </a>
                 </div>
             </div>
             <div class="bottom" data-astro-cid-s4x4txsv="">  </div>
@@ -321,13 +361,13 @@ document.addEventListener('mousemove', e => {
         <div id="timetable" class="timetable" style="background: transparent;padding: 10% 15% 10% 15%;" data-astro-cid-frvuzgag="">
             <h2 class="title white" data-astro-cid-azbpcp4f="">Schedule</h2>
             <p class="description" data-astro-cid-vlihtyhp="">
-                15:00 - 15:30 Welcome ceremony and mingle. <br>
-                15:30 - 17:00 First hanchan <br>
-                17:00 - 17:45 Costume contest<br>
-                17:45 - 19:15 Second hanchan.<br>
-                19:15 - 20:00 Moupai contest. Announce results of the moupai and costume contest.<br>
-                20:00 - 21:30 Third hanchan<br>
-                21:30 - 22:00 Closing ceremony <br>
+                <span>15:00 - 15:30</span> Welcome ceremony<br>
+                <span>15:30 - 17:00</span> First hanchan <br>
+                <span>17:00- 17:45</span> Costume contest<br>
+                <span>17:45 - 19:15</span> Second hanchan<br>
+                <span>19:15 - 20:00</span> Moupai contest <br>
+                <span>20:00 - 21:30</span> Third hanchan<br>
+                <span>21:30 - 22:00</span> Closing ceremony <br>
             </p>
         </div>
         <div id="map" class="map" style="background: transparent;" data-astro-cid-kbkfje74="">
@@ -339,7 +379,7 @@ document.addEventListener('mousemove', e => {
             </p>
         <img src="./files/tiger.svg" class="sumo js-scroll-animation active" data-astro-cid-kbkfje74=""> </div>
         <div id="rule" class="rule content-wrapper" style="background: transparent;padding: 15%;" data-astro-cid-vlihtyhp="">
-            <h2 class="title undefined" data-astro-cid-azbpcp4f="">Event Details</h2>
+            <h2 class="title white" data-astro-cid-azbpcp4f="">Event Details</h2>
             <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
                 <b>Date:</b> October 25th, 2025
             </p>
