@@ -252,6 +252,9 @@ document.addEventListener('mousemove', e => {
         font-size: 17px;
         line-height: 2.5;
     }
+    #rule {
+        color: #ffffff;
+    }
     #rule .description{
         padding-bottom: 2px;
         text-align: left;
@@ -259,7 +262,14 @@ document.addEventListener('mousemove', e => {
         padding-right: 15%;
         padding-top: 11px;
     }
-    @media only screen and (max-width: 600px) {
+    #timetable span{
+        font-weight: bold;
+        padding: 3%;
+    }
+    #timetable{
+        padding: 10% 15% 10% 15%;
+    }
+    @media only screen and (max-width: 900px) {
         .demands{
             display: flex;
             flex-direction: column;
@@ -296,18 +306,22 @@ document.addEventListener('mousemove', e => {
     padding:45px 2% 45px 8% !important;
     }
     }
-    @media only screen and (max-width: 360px) {
+    @media only screen and (max-width: 380px) {
         .containing-box {
         padding:5% !important;
     }
     .containing-box p{
         font-size: 60px !important;
     }
-    }
     #timetable span{
         font-weight: bold;
         padding: 3%;
     }
+    #timetable{
+        padding: 3% 8% !important;
+    }
+    }
+
     </style>
 </head>
 <body style="overflow: visible;">
@@ -358,12 +372,12 @@ document.addEventListener('mousemove', e => {
             <div class="bottom" data-astro-cid-s4x4txsv="">  </div>
             <img
             src="./files/night.svg" class="sun js-scroll-animation active" data-astro-cid-s4x4txsv=""> <img src="./files/doracula.svg" class="fuji js-scroll-animation active"   data-astro-cid-s4x4txsv=""> </div>
-        <div id="timetable" class="timetable" style="background: transparent;padding: 10% 15% 10% 15%;" data-astro-cid-frvuzgag="">
+        <div id="timetable" class="timetable" style="background: transparent;" data-astro-cid-frvuzgag="">
             <h2 class="title white" data-astro-cid-azbpcp4f="">Schedule</h2>
             <p class="description" data-astro-cid-vlihtyhp="">
                 <span>15:00 - 15:30</span> Welcome ceremony<br>
                 <span>15:30 - 17:00</span> First hanchan <br>
-                <span>17:00- 17:45</span> Costume contest<br>
+                <span>17:00 - 17:45</span> Costume contest<br>
                 <span>17:45 - 19:15</span> Second hanchan<br>
                 <span>19:15 - 20:00</span> Moupai contest <br>
                 <span>20:00 - 21:30</span> Third hanchan<br>
