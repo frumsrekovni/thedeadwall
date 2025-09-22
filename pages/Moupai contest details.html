@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: #ffffff;">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Roboto" rel="stylesheet">
+    <style>
+@keyframes torch {
+    0%, 1%, 2%, 3%, 4%, 5%, 20%, 21%, 60%, 61%, 62%, 100% { background-image:
+      radial-gradient(
+        circle 16vmax at 50vw 50vh,
+        rgba(0,0,0,0) 30%,
+        rgba(0,5,5,.1) 40%,
+        rgba(5,5,0,.5) 60%,
+        rgba(0,0,0,.75) 70%,
+        rgba(0,0,0,.95) 100%
+      ),
+      radial-gradient(
+        circle 12vmax at 50vw 50vh,
+        rgba(255,255,255,1) 30%,
+        rgba(255,255,255,.3) 50%,
+        rgba(255,255,255,.05) 100%
+      ),
+      url(./tunnel\ image.jpg);
+    }
+  
+    0.5%, 1.5%, 60.5% { background-image:
+      radial-gradient(
+        circle 12vmax at 50vw 50vh,
+        rgba(0,0,0,0) 30%,
+        rgba(0,5,5,.1) 40%,
+        rgba(5,5,0,.5) 60%,
+        rgba(0,0,0,.75) 70%,
+        rgba(0,0,0,.95) 100%
+      ),
+      radial-gradient(
+        circle 8vmax at 50vw 50vh,
+        rgba(255,255,255,1) 30%,
+        rgba(255,255,255,.3) 50%,
+        rgba(255,255,255,.05) 100%
+      ),
+      url(./tunnel\ image.jpg);
+    }
+  
+    2.5%, 3.5%, 4.5%, 20.5%, 61.5% { background-image:
+      radial-gradient(
+        circle 8vmax at 50vw 50vh,
+        rgba(0,0,0,0) 30%,
+        rgba(0,5,5,.1) 40%,
+        rgba(5,5,0,.5) 60%,
+        rgba(0,0,0,.75) 70%,
+        rgba(0,0,0,.95) 100%
+      ),
+      radial-gradient(
+        circle 4vmax at 50vw 50vh,
+        rgba(255,255,255,1) 0%,
+        rgba(255,255,255,.5) 50%,
+        rgba(255,255,255,.05) 100%
+      ),
+      url(./tunnel\ image.jpg);
+    }
+}
+
+    </style>
+    
+    <meta name="description" content="Survive Count Doracula's riichi mansion">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" type="image/svg+xml" href="coffinico.ico">
+    <meta name="author" content="WRC">
+    <meta name="theme-color" content="#fff">
+    <meta property="og:title" content="The Dead Wall 2025">
+    <meta property="og:description" content="Survive Count Doracula's riichi mansion">
+    <meta property="og:type" content="website">
+    <title>The Dead Wall 2025</title>
+    <script>
+
+        // var fonts = ['Roboto', 'Open_Sans', 'Raleway'];
+        // var rand = fonts[Math.floor(Math.random() * fonts.length)];
+        // var bodyElement = document.getElementById("logo");
+        // bodyElement.className = rand;
+const W = window.innerWidth;
+const H = window.innerHeight
+
+function updateAnimationTiming() {
+  const animationDuration = 5 + Math.random() * 5;
+  const animationDelay = 5 + Math.random() * 10;
+  
+  window.requestAnimationFrame(() => {
+    document.documentElement.style.setProperty('--animationDuration', animationDuration + 's');
+    document.documentElement.style.setProperty('--animationDelay', animationDelay + 's');
+  });
+  
+  const timeout = (animationDuration + animationDelay) * 1000 - 100;
+  setTimeout(updateAnimationTiming, timeout);
+}
+
+updateAnimationTiming();
+
+document.addEventListener('mousemove', e => {
+  window.requestAnimationFrame(() => {
+    const X = e.clientX;
+    const Y = e.clientY;
+
+    document.documentElement.style.setProperty('--cursorX', X + 'px');
+    document.documentElement.style.setProperty('--cursorY', Y + 'px');
+
+    const X2 = X - (12 * W / 100) * (X / W - 0.5);
+    const Y2 = Y - (12 * W / 100) * (Y / H - 0.5);
+
+    document.documentElement.style.setProperty('--cursorX2', X2 + 'px');
+    document.documentElement.style.setProperty('--cursorY2', Y2 + 'px');
+  });
+});
+
+    </script>
+        </script><link rel="stylesheet" href="./files/index.C5_7h7bT.css"><script type="module" src="./files/hoisted.ucgshFj1.js.nedladdning"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./files/css2" rel="stylesheet">
+    <link rel="stylesheet" href="./files/index.C5_7h7bT.css">
+    <style>
+
+    .breathing {
+      animation: fade 7s ease-out forwards infinite;
+    }
+    .containing-box {
+    border: 0px solid rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 24px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 40px rgba(255, 255, 255, 0.05), inset 0 0 40px rgba(255, 255, 255, 0.02);
+    padding:45px 135px 45px 135px;
+    }
+    .containing-box p{
+    font-weight: bold;
+    font-size: 62px;
+    color: whitesmoke;
+    }
+
+    .mainVisual {
+        justify-content: center;
+        position: relative;
+        width: 100%;
+        min-height: 60vh;
+        overflow: hidden; /* Ensure pseudo-element doesn't overflow */
+    }
+
+    .mainVisual::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        display: block;
+        background-blend-mode: normal, overlay;
+        background-position: center center;
+        background-size: cover;
+        background-image:
+        radial-gradient(
+            circle 16vmax at var(--cursorX) var(--cursorY),
+            rgba(255,255,255,0.15) 0%,
+            rgba(255,255,255,0.05) 30%,
+            rgba(0,0,0,0.5) 60%,
+            rgba(0,0,0,0.85) 100%
+        ),
+        url(./tunnel\ image.jpg);
+        filter: brightness(0.1); /* Darken the background only */
+        transition: background-image 0.2s;
+    }
+    .mainVisual > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    @keyframes fade {
+      0%   { opacity: 0.8; }
+      50%  { opacity: 1.0; transform: scale(1.02) translateY(-4px)}
+      90%  { opacity: 0.8; transform: translateY(0);}
+    }
+    @media only screen and (max-width: 600px) {
+        #rule{
+            padding: 3% !important;
+        }
+        .description{
+            padding: 10% !important;
+        }
+    }
+    </style>
+    <script>
+</script>
+</head>
+<body style="overflow: visible;">
+    <main data-astro-cid-dhfotatx="">
+        <div id="rule" class="rule content-wrapper" data-astro-cid-vlihtyhp="" style="padding: 15%;"> 
+           <h2 class="title undefined" data-astro-cid-azbpcp4f=""> <a href="./index.html"><img src="./the dead wall.gif" alt="The Dead Wall 2025 logo"></a> <br> The Dead Wall 2025 <br> Moupai contest details</h2>
+            <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 11px;" data-astro-cid-vlihtyhp="">
+                Anyone attending the event can enter the moupai contest, including non-players. It is not mandatory. Best of 1 knockout tournament until the final two. The winner will get a prize and 10000 points counted towards the final score of the entire event. Second place gets 5000 points. The rest of the participants will receive 1000 points.<br><br>
+                How it will be performed: <br>
+                Each participant will be randomly called up to moupai a tile while looking into the eyes of Doracula. If you get it correct you survive that round. If you get it wrong you are eliminated. This continues until only two participants remain. The final two will be paired up and moupai simultaneously. The one who gets it correct while the other gets it wrong wins that round. This moupai final will be a best of 5.<br><br>
+
+                Rules: <br>
+                - If you break eye contact with Doracula while moupaiing you are eliminated.<br>
+                - You need to announce your guess out loud before revealing your tile. <br>
+                - If your moupai takes longer than 1 minute, a clock will be called and Doracula will start counting down from 10. If the count reaches 0 you are eliminated.<br>
+                - You can only use your hands and fingers to moupai.<br>
+                - All the tiles in a standard Riichi set will be used except the flowers and white dragon. <br>
+                - Doracula will not cheat. <br>
+                
+            </p>
+             <img src="./files/three_bats.svg" class="dice js-scroll-animation active" data-astro-cid-vlihtyhp="">
+        </div>
+    </main>
+</body>
+
+</html>
