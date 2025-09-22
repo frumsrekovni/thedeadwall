@@ -216,6 +216,64 @@ document.addEventListener('mousemove', e => {
       50%  { opacity: 1.0; transform: scale(1.02) translateY(-4px)}
       90%  { opacity: 0.8; transform: translateY(0);}
     }
+    #timetable .description{
+        padding-bottom: 2px;
+        text-align: left;
+        padding-left:30%;
+        padding-right: 30%;
+        padding-top: 3%;
+        font-size: 17px;
+        line-height: 2.5;
+    }
+    #rule .description{
+        padding-bottom: 2px;
+        text-align: left;
+        padding-left:15%;
+        padding-right: 15%;
+        padding-top: 11px;
+    }
+    @media only screen and (max-width: 600px) {
+        .demands{
+            display: flex;
+            flex-direction: column;
+            padding: 0% 5% 0% 5%;
+            gap: 1em;
+        }
+        .demand {
+      display: flex;
+      flex-direction: column;
+        }
+        .demand img{
+            width: 100%;
+            height: auto;
+        }
+        .demand .description{
+        padding-left:0% !important;
+        padding-right: 11% !important;
+        padding-bottom: 0%;
+        font-size: 16px;
+    }
+    #timetable .description{
+        padding-left:2% !important;
+        padding-right: 0% !important;
+        padding-top: 3% !important;
+    }
+    #rule .description{
+        padding-bottom: 2px;
+        text-align: left;
+        padding-left:2% !important;
+        padding-right: 0% !important;
+        padding-top: 11px;
+    }
+        .containing-box {
+    padding:45px 2% 45px 8% !important;
+    }
+    }
+    @media only screen and (max-width: 400px) {
+        .containing-box {
+    padding:45px 2% 45px 5% !important;
+    }
+    }
     </style>
 </head>
 <body style="overflow: visible;">
@@ -242,8 +300,9 @@ document.addEventListener('mousemove', e => {
             <h2 class="title white" style="color: #ffffff;" data-astro-cid-azbpcp4f="">Count Doracula's demands</h2>
             <div class="demands">
                 <div class="demand">
-                    <img src="-88razzi720ph264-ezgif.com-optimize_1.gif" alt="">
+                    
                     <p class="description"> <b>Riichi Mahjong</b> <br>Witnessing agony at the hands of dora is a must for Count Doracula. Therefore, the participants must partake in riichi mahjong heavily modified to suit his needs.</p>
+                    <img src="-88razzi720ph264-ezgif.com-optimize_1.gif" alt="">
                 </div>
                 <div class="demand">
                     <p class="description"><b>Costume Contest</b><br>Only the most suitable souls end up in Doracula's dead walls. There must be a judgement of character and soul.</p>
@@ -251,32 +310,28 @@ document.addEventListener('mousemove', e => {
                 </div>
                 
                 <div class="demand";>
-                    <img src="-88razzi720ph264-ezgif.com-optimize_1.gif" alt="">
                     <p class="description"><b>Moupai Contest</b><br>Nothing marinates the soul better than the deep running anxiety and stress from a failed moupai.</p>
+                    <img src="-88razzi720ph264-ezgif.com-optimize_1.gif" alt="">
                 </div>
             </div>
             <div class="bottom" data-astro-cid-s4x4txsv="">  </div>
             <img
             src="./files/night.svg" class="sun js-scroll-animation active" data-astro-cid-s4x4txsv=""> <img src="./files/doracula.svg" class="fuji js-scroll-animation active"   data-astro-cid-s4x4txsv=""> </div>
-        <div id="timetable" class="timetable" style="background: transparent;" data-astro-cid-frvuzgag="">
+        <div id="timetable" class="timetable" style="background: transparent;padding: 10% 15% 10% 15%;" data-astro-cid-frvuzgag="">
             <h2 class="title white" data-astro-cid-azbpcp4f="">Schedule</h2>
-            <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px; font-size: 18px;" data-astro-cid-vlihtyhp="">
-                15:00 - 15:15 Welcome ceremony <br>
-15:15 - 15:30 Mingle, drinks, snacks and familiarize with the rules<br>
-15:30 - 16:45 First hanchan <br>
-16:45 - 17:00 Mingle, drinks and snacks<br>
-17:00 - 17:45 Costume contest /w dinner<br>
-17:45 - 19:00 Second hanchan.<br>
-19:00 - 19:15 Mingle, drinks and snacks<br>
-19:15 - 20:00 Moupai contest. Announce winner of the moupai and costume contest.<br>
-20:00 - 21:15 Third hanchan<br>
-21:15 - 21:30 Mingle, drinks and snacks<br>
-21:30 - 22:00 Ending ceremony <br>
+            <p class="description" data-astro-cid-vlihtyhp="">
+                15:00 - 15:30 Welcome ceremony and mingle. <br>
+                15:30 - 17:00 First hanchan <br>
+                17:00 - 17:45 Costume contest<br>
+                17:45 - 19:15 Second hanchan.<br>
+                19:15 - 20:00 Moupai contest. Announce results of the moupai and costume contest.<br>
+                20:00 - 21:30 Third hanchan<br>
+                21:30 - 22:00 Closing ceremony <br>
             </p>
         </div>
         <div id="map" class="map" style="background: transparent;" data-astro-cid-kbkfje74="">
             <h2 class="title white" data-astro-cid-azbpcp4f="">Venue</h2>
-            <h3 class="place" data-astro-cid-kbkfje74="">Tiger Mahjong</h3>
+            <h3 class="place" data-astro-cid-kbkfje74="" style="font-size: 22px;">Tiger Mahjong</h3>
             <p class="address" data-astro-cid-kbkfje74="">
                 Bråvallagatan 12, 113 36
                 <br class="only_mobile">Stockholm, Sweden
@@ -304,6 +359,9 @@ document.addEventListener('mousemove', e => {
                 Anything works. Your torso wrapped in toilet paper as a mummy? Perfect! Just no pedestrian attire.
             </p>
             <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
+                <b>Food & Drinks:</b> Food, snacks and drinks are available at your own discretion throughout the event. Alcohol consumption is allowed within moderation, but, alcohol will not be sold or provided. Bringing your own snacks and drinks is allowed and encouraged.
+            </p>
+            <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
                 <b>Contact:</b> count.doracula@gmail.com
             </p>
             <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
@@ -311,15 +369,15 @@ document.addEventListener('mousemove', e => {
             </p>
             <p class="description" style="text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
               The modifications are: 
-              <br>Red fives, Nagashi Mangan(Counts as a win), Counted yakuman and Uma 30/10
+              <br>Red fives, Nagashi Mangan(Mangan at draw), Counted yakuman, +10 minutes to timer and Uma 30/10
               <br><br>Rulecards:
-              <br>Immediately before the hanchan starts, 3 rulecards are randomly drawn that applies for the duration of that round wind(3 new random cards are drawn at South 1). It is a modification of the Dreamland Odyssey mode released to Mahjong Souls. Familiarize yourself with the details of all the rules <a href="./pages/Rulecards details.html" style="text-decoration: underline;">here</a>.
+              <br>Rulecards are randomly selected additional rules. It is a modification of the Dreamland Odyssey mode released to Mahjong Soul. More details <a href="./pages/Rulecards details.html" style="text-decoration: underline;">here</a>.
             </p>
             <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 11px;" data-astro-cid-vlihtyhp="">
-                <b>Costume Contest:</b> Anyone attending the event can enter the costume contest, including non-players. It is not mandatory. The winner will get a prize and 10000 points counted towards the final score of the entire event. The received points are halved each subsequent place down, stopping at 1000 points. Every costume contest participant will receive points.The voting will be done by all event participants and is anonymous. More in-depth details <a href="./pages/Costume contest details.html" style="text-decoration: underline;">here</a>.
+                <b>Costume Contest:</b> Anyone attending the event can enter the costume contest, including non-players. It is not mandatory. The winner will get a prize and 10000 points counted towards the final score of the entire event. Every costume contest participant will receive points. More details <a href="./pages/Costume contest details.html" style="text-decoration: underline;">here</a>.
             </p>
             <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 11px;" data-astro-cid-vlihtyhp="">
-                <b>Moupai Contest:</b> Anyone attending the event can enter the moupai contest, including non-players. It is not mandatory. Best of 1 knockout tournament until the final two. The winner will get a prize and 10000 points counted towards the final score of the entire event. The received points are halved each subsequent place down, stopping at 1000 points. Every moupai contest participant will receive points. More in-depth details <a href="./pages/Moupai contest details.html" style="text-decoration: underline;">here</a>.
+                <b>Moupai Contest:</b> Anyone attending the event can enter the moupai contest, including non-players. It is not mandatory. The winner will get a prize and 10000 points counted towards the final score of the entire event. Every moupai contest participant will receive points. More details <a href="./pages/Moupai contest details.html" style="text-decoration: underline;">here</a>.
             </p>
             <a href="#top">
             <img src="./files/three_bats.svg" class="dice js-scroll-animation active" data-astro-cid-vlihtyhp=""></a>
