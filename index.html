@@ -42,13 +42,17 @@
 .faq-accordion {
     margin-top: 22px;
     border-radius: 8px;
+    justify-self: center;
+    padding-left:15%;
+    padding-right:15%;
+    width: 100%;
 }
 .faq-item {
     margin-bottom: 14px;
 }
 .faq-question {
     background: #505050;
-    color: #fff;
+    color: #ffffff;
     border: none;
     width: 100%;
     text-align: left;
@@ -57,7 +61,6 @@
     cursor: pointer;
     outline: none;
     border-radius: 8px;
-    opacity: 1.0 !important;
 }
 .faq-question:hover {
     background: #333;
@@ -318,7 +321,9 @@ document.addEventListener('mousemove', e => {
         .faq-accordion {
             padding-left: 0 !important;
             padding-right: 0 !important;
-}
+            max-width: 100% !important;
+        }
+        
         .demands{
             display: flex;
             flex-direction: column;
@@ -333,7 +338,7 @@ document.addEventListener('mousemove', e => {
             width: 100%;
             height: auto;
         }
-        .demand .description{
+    .demand .description{
         padding-left:0% !important;
         padding-right: 11% !important;
         padding-bottom: 0%;
@@ -369,13 +374,24 @@ document.addEventListener('mousemove', e => {
     #timetable{
         padding: 3% 8% !important;
     }
+    .demand .description{
+        text-align: center;
+    }
+    .demand{
+        padding: 0;
+    }   
+    .demand img{
+        margin-bottom: 76px;
+        }
+    #rule {
+        padding-left:3% !important;
+        padding-right: 3% !important;
+    }
     }
 
     </style>
 <script>
-// FAQ Accordion Functionality
 document.addEventListener('DOMContentLoaded', function() {
-    // Hide all answers on page load
     document.querySelectorAll('.faq-answer').forEach(function(a) {
         a.style.display = 'none';
     });
@@ -460,7 +476,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <img src="./files/tiger.svg" class="sumo js-scroll-animation active" data-astro-cid-kbkfje74=""> </div>
         <div id="rule" class="rule content-wrapper" style="background: transparent;padding: 15%;" data-astro-cid-vlihtyhp="">
             <h2 class="title white" data-astro-cid-azbpcp4f="">FAQs</h2>
-            <div class="faq-accordion" style="padding-left:15%;padding-right:15%;">
+            <div class="faq-accordion" >
                 <div class="faq-item">
                     <button class="faq-question">What is The Dead Wall 2025?</button>
                     <div class="faq-answer">The Dead Wall 2025 is a halloween themed one-day event focusing on but not limited to mahjong related activities.</div>
@@ -487,7 +503,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">What is the WRC Rulebook?</button>
-                    <div class="faq-answer">The <a href="https://static1.squarespace.com/static/634a7884c297a25f06589b79/t/6834d67360e19c1da6c0d12c/1748293243651/WRC+Rules+2025.pdf" target="_blank" style="text-decoration: underline;">WRC Rulebook</a> is just one variation of guidelines and rules commonly used for riichi mahjong competitions worldwide. Used as the basis for this event's heavily modified ruleset, this also simplifies the resolution of any potential disagreements or penalties, even though we will be much more lenient than described in the rulebook.</div>
+                    <div class="faq-answer">The <a href="https://static1.squarespace.com/static/634a7884c297a25f06589b79/t/6834d67360e19c1da6c0d12c/1748293243651/WRC+Rules+2025.pdf" target="_blank" style="text-decoration: underline;">WRC Rulebook</a> is just one variation of guidelines and rules commonly used for riichi mahjong competitions worldwide. Used as the basis for this event's heavily modified ruleset, this also simplifies the resolution of any potential disagreements or penalties, even though we will be much more lenient than described in the rulebook when it comes to these kinds of things.</div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">Do I have to read the WRC rulebook?</button>
@@ -533,7 +549,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </p>
             <p class="description" style="text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
               The modifications are: 
-              <br>Red fives, Nagashi Mangan(Mangan at draw), Counted yakuman, 85 minute timer, Uma 30/10 and Audience is allowed
+              <br>Red fives, Nagashi Mangan(Mangan at draw), Counted yakuman, 85 minute timer, Uma 30/10 and Audience is allowed.
               <br><br>Rulecards:
               <br>Rulecards are randomly selected additional rules. It is a modification of the Dreamland Odyssey mode released to Mahjong Soul. More details <a href="./pages/Rulecards details.html" style="text-decoration: underline;">here</a>.
             </p>
