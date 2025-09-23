@@ -7,6 +7,7 @@
         html{
             scroll-behavior: smooth;
             cursor: default;
+            overflow-x: hidden;
         }
 .demands{
     justify-content: center;
@@ -25,7 +26,6 @@
       font-size: 22px;
     }
     .demand img{
-        
     width: 300px;
     height: auto;
     border-radius: 18px;
@@ -49,6 +49,7 @@
 }
 .faq-item {
     margin-bottom: 14px;
+    border-radius: 8px;
 }
 .faq-question {
     background: #505050;
@@ -78,6 +79,7 @@
     padding: 12px;
     font-family: 'Open Sans', 'Raleway', 'Roboto', sans-serif;
     animation: fadeIn 0.3s;
+    
 }
 @keyframes fadeIn {
     from { opacity: 0; }
@@ -294,10 +296,10 @@ document.addEventListener('mousemove', e => {
     #timetable .description{
         padding-bottom: 2px;
         text-align: left;
-        padding-left:30%;
+        padding-left:37%;
         padding-right: 30%;
-        padding-top: 3%;
-        font-size: 17px;
+        padding-top: 0%;
+        font-size: 18px;
         line-height: 2.5;
     }
     #rule {
@@ -310,6 +312,7 @@ document.addEventListener('mousemove', e => {
         padding-right: 15%;
         padding-top: 11px;
     }
+
     #timetable span{
         font-weight: bold;
         padding: 3%;
@@ -349,14 +352,7 @@ document.addEventListener('mousemove', e => {
         padding-right: 0% !important;
         padding-top: 3% !important;
     }
-    #rule .description{
-        padding-bottom: 2px;
-        text-align: left;
-        padding-left:2% !important;
-        padding-right: 0% !important;
-        padding-top: 11px;
-    }
-        .containing-box {
+    .containing-box {
     padding:45px 2% 45px 8% !important;
     }
     }
@@ -372,7 +368,7 @@ document.addEventListener('mousemove', e => {
         padding: 3%;
     }
     #timetable{
-        padding: 3% 8% !important;
+        padding: 3% 3% !important;
     }
     .demand .description{
         text-align: center;
@@ -457,6 +453,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div id="timetable" class="timetable" style="background: transparent;" data-astro-cid-frvuzgag="">
             <h2 class="title white" data-astro-cid-azbpcp4f="">Schedule</h2>
             <p class="description" data-astro-cid-vlihtyhp="">
+                <br>
                 <span>15:00 - 15:30</span> Welcome ceremony<br>
                 <span>15:30 - 17:00</span> First hanchan <br>
                 <span>17:00 - 17:45</span> Costume contest<br>
@@ -475,7 +472,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </p>
         <img src="./files/tiger.svg" class="sumo js-scroll-animation active" data-astro-cid-kbkfje74=""> </div>
         <div id="rule" class="rule content-wrapper" style="background: transparent;padding: 15%;" data-astro-cid-vlihtyhp="">
-            <h2 class="title white" data-astro-cid-azbpcp4f="">FAQs</h2>
+            <h2 class="title white" data-astro-cid-azbpcp4f="">FAQ</h2>
             <div class="faq-accordion" >
                 <div class="faq-item">
                     <button class="faq-question">What is The Dead Wall 2025?</button>
@@ -490,12 +487,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="faq-answer">Yes, there is an expectation that you have played basic riichi mahjong before.</div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">What do I get if I'm registered as non-playing?</button>
-                    <div class="faq-answer">As a non-playing attendee, you can participate in all non-game activities such as watching the matches, contests and social play. Food, snacks and drinks are included too.</div>
+                    <button class="faq-question">What is a non-playing registration?</button>
+                    <div class="faq-answer">
+                        Non-playing attendees do not participate in the riichi mahjong competition games. Besides that, it's the same.<br><br>
+                        
+                        As a non-playing attendee, you can participate in all non-game activities such as watching the matches, participate in the costume and/or moupai contests and play social riichi mahjong. Food, snacks and drinks are included too.</div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">How do I register?</button>
-                    <div class="faq-answer"><a href="./pages/Registration page.html" style="text-decoration: underline;">Click here!</a></div>
+                    <div class="faq-answer">Registration opens October 1st!</div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">What is the prize?</button>
@@ -503,11 +503,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">What is the WRC Rulebook?</button>
-                    <div class="faq-answer">The <a href="https://static1.squarespace.com/static/634a7884c297a25f06589b79/t/6834d67360e19c1da6c0d12c/1748293243651/WRC+Rules+2025.pdf" target="_blank" style="text-decoration: underline;">WRC Rulebook</a> is just one variation of guidelines and rules commonly used for riichi mahjong competitions worldwide. Used as the basis for this event's heavily modified ruleset, this also simplifies the resolution of any potential disagreements or penalties, even though we will be much more lenient than described in the rulebook when it comes to these kinds of things.</div>
+                    <div class="faq-answer">The <a href="https://static1.squarespace.com/static/634a7884c297a25f06589b79/t/6834d67360e19c1da6c0d12c/1748293243651/WRC+Rules+2025.pdf" target="_blank" style="text-decoration: underline;">WRC Rulebook</a> is just one variation of guidelines and rules commonly used for riichi mahjong competitions worldwide. <br><br> It is used as the basis for this event's heavily modified ruleset. Using this rulebook simplifies the resolution of any potential disagreements or penalties, even though we will be much more lenient than described in the rulebook when it comes to these kinds of things.</div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">Do I have to read the WRC rulebook?</button>
-                    <div class="faq-answer">Not really, if you are used to the rules from games like Mahjong Soul or Riichi City you are already 90% there. The only major differences in the context of this event is the existence of a 85 minute game timer, more starting points, going minus doesn't end the game and no abortive draws(途中流局). I still recommend reading the rulebook if you have the energy.</div>
+                    <div class="faq-answer">Not really, if you are used to the rules from games like Mahjong Soul or Riichi City you are already 90% there. <br><br> The only major differences in the context of this event is the existence of a 85 minute game timer, more starting points, going minus doesn't end the game, the game only ever ends due to the game timer or it goes past South 4, no abortive draws(途中流局). I still recommend reading the rulebook if you have the energy. <br><br>
+                    Read more about how a game would flow <a href="./pages/Rulecards details.html" style="text-decoration: underline;">here</a>.
+                    </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">What is moupai?</button>
@@ -520,44 +522,50 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             <br><br>
             <h2 class="title white" style="padding-top: 10%;" data-astro-cid-azbpcp4f="">Event Details</h2>
-            <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
+            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 20px;" data-astro-cid-vlihtyhp="">
                 <b>Date:</b> October 25th, 2025
             </p>
-            <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
+            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
                 <b>Registration:</b> Opens October 1st. Closes October 20th. Register <a href="pages/Registration page.html" style="text-decoration: underline;">here</a>.
             </p>
-            <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
-                <b>Registration fee:</b> The registration fee is 200 SEK/150 CNY. Non-playing fee is 80 SEK/60 CNY. The registration fee includes food, snacks and drinks. The payment deadline is October 20th. The registration fee is non-refundable after registration closes.
+            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
+                <b>Registration fee:</b> Playing fee is 200 SEK/150 CNY. Non-playing fee is 80 SEK/60 CNY. It includes food, snacks and drinks. The registration fee is non-refundable after registration closes.
             </p>
-            <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
+            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
                 <b>Payment:</b> Payment is done by Swish or Wechat. See <a href="./pages/Payment QR codes.html" style="text-decoration: underline;">here</a> for QR-codes.
             </p>
-            <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
-                <b>Number of players:</b> Max 36 players. <br>Having some experience playing basic riichi mahjong is expected, otherwise anyone can register. No max for attending non-players.
+            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
+                <b>Registration and Payment deadline:</b> October 20th, 2025
             </p>
-            <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
+            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
+                <b>Number of players:</b> Max 36 players. <br>Having some experience playing basic riichi mahjong is expected, besides that, anyone can register as playing. No max for attending non-players.
+            </p>
+            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
                 <b>Dress code:</b> Halloween attire is mandatory.<br>
             </p>
-            <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
+            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
                 <b>Food & Drinks:</b> Food, snacks and drinks are available at your own discretion throughout the event. Alcohol consumption is allowed within moderation, but, alcohol will not be sold or provided. Bringing your own snacks and drinks is allowed and encouraged.
             </p>
-            <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
+            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
                 <b>Contact:</b> count.doracula@gmail.com
             </p>
-            <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
-                <b>Mahjong Rules:</b> Modified <a href="https://static1.squarespace.com/static/634a7884c297a25f06589b79/t/6834d67360e19c1da6c0d12c/1748293243651/WRC+Rules+2025.pdf" target="_blank" style="text-decoration: underline;">WRC 2025 Rules</a> + Rulecards
+            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
+                <b>Mahjong rules:</b> Modified <a href="https://static1.squarespace.com/static/634a7884c297a25f06589b79/t/6834d67360e19c1da6c0d12c/1748293243651/WRC+Rules+2025.pdf" target="_blank" style="text-decoration: underline;">WRC 2025 Rules</a> + Rulecards
             </p>
             <p class="description" style="text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
               The modifications are: 
-              <br>Red fives, Nagashi Mangan(Mangan at draw), Counted yakuman, 85 minute timer, Uma 30/10 and Audience is allowed.
+              <br>Red fives, Nagashi Mangan(Mangan at draw), Counted yakuman, 85 minute timer, Uma 30/10 and live audience is allowed.
               <br><br>Rulecards:
-              <br>Rulecards are randomly selected additional rules. It is a modification of the Dreamland Odyssey mode released to Mahjong Soul. More details <a href="./pages/Rulecards details.html" style="text-decoration: underline;">here</a>.
+              <br>Rulecards are additional rules that affects the play of a game. This event uses a modified version of the Dreamland Odyssey mode released to Mahjong Soul. More details <a href="./pages/Rulecards details.html" style="text-decoration: underline;">here</a>.
             </p>
             <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 11px;" data-astro-cid-vlihtyhp="">
-                <b>Costume Contest:</b> Anyone attending the event can enter the costume contest, including non-players. It is not mandatory. The winner will get a prize and 10000 points counted towards the final score of the entire event. Every costume contest participant will receive points. More details <a href="./pages/Costume contest details.html" style="text-decoration: underline;">here</a>.
+                <b>Costume contest:</b> Anyone attending the event can enter the costume contest, including non-players. It is not mandatory. The winner will get a prize and 10000 points counted towards the final score of the entire event. Every costume contest participant will receive points. More details <a href="./pages/Costume contest details.html" style="text-decoration: underline;">here</a>.
             </p>
             <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 11px;" data-astro-cid-vlihtyhp="">
-                <b>Moupai Contest:</b> Anyone attending the event can enter the moupai contest, including non-players. It is not mandatory. The winner will get a prize and 10000 points counted towards the final score of the entire event. Every moupai contest participant will receive points. More details <a href="./pages/Moupai contest details.html" style="text-decoration: underline;">here</a>.
+                <b>Moupai contest:</b> Anyone attending the event can enter the moupai contest, including non-players. It is not mandatory. The winner will get a prize and 10000 points counted towards the final score of the entire event. Every moupai contest participant will receive points. More details <a href="./pages/Moupai contest details.html" style="text-decoration: underline;">here</a>.
+            </p>
+            <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 11px;" data-astro-cid-vlihtyhp="">
+                <b>The Dead Wall Champion 2025:</b> The attendee with the largest total sum of points from the riichi games, costume contest and moupai contest will be crowned The Dead Wall Champion 2025.
             </p>
             <a href="#top">
             <img src="./files/three_bats.svg" class="dice js-scroll-animation active" data-astro-cid-vlihtyhp=""></a>

@@ -4,13 +4,17 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Roboto" rel="stylesheet">
     <style>
+      html{
+        cursor: default;
+      }
+
 /* Subtle Minimalist Registration Form Styles */
 .registration-card {
   background: #f8f8fa;
   border-radius: 8px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   padding: 12px;
-  width: 400px;
+  width: 440px;
   margin: 28px auto;
   display: flex;
   flex-direction: column;
@@ -206,23 +210,65 @@ document.addEventListener('mousemove', e => {
 </head>
 <body style="overflow: visible;">
     <main data-astro-cid-dhfotatx="" style="justify-content: center;">
-        <div id="rule" class="rule content-wrapper" data-astro-cid-vlihtyhp="" style="padding: 15%;justify-content: center;background: transparent"> 
+        <div id="rule" class="rule content-wrapper" data-astro-cid-vlihtyhp="" style="padding: 5%;justify-content: center;background: transparent"> 
            <h2 class="title undefined" data-astro-cid-azbpcp4f=""> <a href="../index.html#map"><img src="../the dead wall.gif" alt="The Dead Wall 2025 logo"></a> <br> The Dead Wall 2025 <br>Event Registration</h2>
            <div style="width: 100%; display: flex; justify-content: center; align-items: center; flex-direction: row;">
 <div class="registration-card">
   <form action="https://formspree.io/f/mqkvaewl" method="POST">
-    <div class="form-row">
-      <div>
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required autocomplete="name">
-      </div>
-      <div>
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required autocomplete="email">
-      </div>
-    </div>
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" required autocomplete="name" oninvalid="this.setCustomValidity('Please enter your name.')" oninput="this.setCustomValidity('')">
+  <span id="nameError" style="color:#e11d48;font-size:0.95em;display:none;">Please enter your name.</span>
+  <label for="email">Email</label>
+  <input type="email" id="email" name="email" required autocomplete="email" oninvalid="this.setCustomValidity('Please enter a valid email address.')" oninput="this.setCustomValidity('')">
+  <span id="emailError" style="color:#e11d48;font-size:0.95em;display:none;">Please enter a valid email address.</span>
     <label for="message">Additional Information (optional)</label>
     <textarea id="message" name="message" rows="3" placeholder="Anything you'd like us to know? Allergies?"></textarea>
+    <div style="display: flex; gap: 24px; align-items: center; margin-bottom: 10px;">
+    <label for="role">Type of attendance</label>
+    <select id="role" name="role" style="width:100%;padding:8px;border-radius:6px;border:1px solid #e0e0e0;background:#fff;font-size:0.98rem;margin-bottom:10px;">
+      <option value="" selected disabled>Not selected</option>
+      <option value="Playing">Playing</option>
+      <option value="Non-playing">Non-playing</option>
+    </select>
+    <span id="roleError" style="color:#e11d48;font-size:0.95em;display:none;">Please select your role.</span>
+    <script>
+      // Custom error messages for all required fields
+      document.querySelector('form').addEventListener('submit', function(e) {
+        var valid = true;
+        var name = document.getElementById('name');
+        var email = document.getElementById('email');
+        var role = document.getElementById('role');
+        var nameError = document.getElementById('nameError');
+        var emailError = document.getElementById('emailError');
+        var roleError = document.getElementById('roleError');
+
+        if (!name.value.trim()) {
+          nameError.style.display = 'inline';
+          valid = false;
+        } else {
+          nameError.style.display = 'none';
+        }
+        if (!email.value.trim()) {
+          emailError.style.display = 'inline';
+          valid = false;
+        } else {
+          emailError.style.display = 'none';
+        }
+        if (!role.value) {
+          roleError.style.display = 'inline';
+          role.setCustomValidity('Please select your role.');
+          valid = false;
+        } else {
+          roleError.style.display = 'none';
+          role.setCustomValidity('');
+        }
+        if (!valid) {
+          e.preventDefault();
+        }
+      });
+    </script>
+    </select>
+    </div>
     <!-- Add more fields as needed -->
     <button type="submit">Register!</button>
   </form>
