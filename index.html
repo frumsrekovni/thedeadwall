@@ -40,14 +40,14 @@
     box-shadow: 0 0 8px 2px rgba(255,0,120,0.05), 0 0 16px 4px rgba(255,255,255,0.04), 0 2px 8px rgba(0,0,0,0.22);
 }
 .faq-accordion {
-    margin-top: 20px;
+    margin-top: 22px;
+    border-radius: 8px;
 }
 .faq-item {
-    margin-bottom: 10px;
-    border-bottom: 1px solid #444;
+    margin-bottom: 14px;
 }
 .faq-question {
-    background: #222;
+    background: #505050;
     color: #fff;
     border: none;
     width: 100%;
@@ -56,10 +56,15 @@
     font-size: 18px;
     cursor: pointer;
     outline: none;
-    transition: background 0.2s;
+    border-radius: 8px;
+    opacity: 1.0 !important;
 }
 .faq-question:hover {
     background: #333;
+    transition: 500ms background ;
+}
+.faq-question:active {
+    background: #000000;
 }
 .faq-answer {
     display: none;
@@ -67,10 +72,7 @@
     color: #fff;
     font-size: 18px;
     text-align: left;
-    padding-bottom: 2px;
-    padding-left: 15%;
-    padding-right: 15%;
-    padding-top: 0px;
+    padding: 12px;
     font-family: 'Open Sans', 'Raleway', 'Roboto', sans-serif;
     animation: fadeIn 0.3s;
 }
@@ -496,7 +498,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="faq-answer">Yes, however, anything works. Your torso wrapped in toilet paper as a mummy? Perfect! Your favorite game character? Go for it! Just no pedestrian attire.</div>
                 </div>
             </div>
-            <h2 class="title white" data-astro-cid-azbpcp4f="">Event Details</h2>
+            <br><br>
+            <h2 class="title white" style="padding-top: 10%;" data-astro-cid-azbpcp4f="">Event Details</h2>
             <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
                 <b>Date:</b> October 25th, 2025
             </p>
