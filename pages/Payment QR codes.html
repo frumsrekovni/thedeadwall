@@ -175,12 +175,15 @@ document.addEventListener('mousemove', e => {
       50%  { opacity: 1.0; transform: scale(1.02) translateY(-4px)}
       90%  { opacity: 0.8; transform: translateY(0);}
     }
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 900px) {
         #rule{
             padding: 3% !important;
         }
         .description{
-            padding: 10% !important;
+            padding: 3% !important;
+        }
+        .qr-container{
+            flex-direction: column !important;
         }
     }
     </style>
@@ -191,9 +194,10 @@ document.addEventListener('mousemove', e => {
     <main data-astro-cid-dhfotatx="" style="justify-content: center;">
         <div id="rule" class="rule content-wrapper" data-astro-cid-vlihtyhp="" style="padding: 15%;justify-content: center;background: transparent"> 
            <h2 class="title undefined" data-astro-cid-azbpcp4f=""> <a href="../index.html#map"><img src="../the dead wall.gif" alt="The Dead Wall 2025 logo"></a> <br> The Dead Wall 2025 <br>Payment QR-codes</h2>
-           <div style="width: 100%; display: flex; justify-content: center; align-items: center; flex-direction: row;">
+           <div class="qr-container" style="width: 100%; display: flex; justify-content: center; align-items: center; flex-direction: row;">
               <img src="../files/swish-QR-small.png" alt="QR code for swish" style="width: 300px;padding: 20px;">
               <img src="../files/wechat qr code.jpg" alt="QR code for wechat" style="width: 300px;padding: 20px;">
+              <br><br>
               <a href="../index.html#map">
              <img src="../files/three_bats.svg" class="dice js-scroll-animation active" data-astro-cid-vlihtyhp=""></a>
             </div>
