@@ -9,6 +9,28 @@
             cursor: default;
             overflow-x: hidden;
         }
+.moupai-popup {
+  position: relative;
+  cursor: pointer;
+  text-decoration: underline dotted;
+}
+.moupai-popup-text {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  background: #fffbe9;
+  color: #222;
+  border: 1px solid #e1c48b;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  padding: 14px 18px;
+  font-size: 1rem;
+  width: 320px;
+  max-width: 90vw;
+  line-height: 1.5;
+  font-family: 'Open Sans', 'Roboto', sans-serif;
+  pointer-events: none;
+}
 .demands{
     justify-content: center;
 }
@@ -320,6 +342,14 @@ document.addEventListener('mousemove', e => {
     #timetable{
         padding: 10% 15% 10% 15%;
     }
+    @media only screen and (max-width: 1200px) {
+    #timetable .description{
+        padding-left:15% !important;
+        padding-right: 15% !important;
+        padding-top: 3% !important;
+    }
+        
+    }
     @media only screen and (max-width: 900px) {
         .faq-accordion {
             padding-left: 0 !important;
@@ -352,10 +382,27 @@ document.addEventListener('mousemove', e => {
         padding-right: 0% !important;
         padding-top: 3% !important;
     }
+    #timetable span{
+        font-weight: bold;
+        padding: 3%;
+    }
+    #timetable{
+        padding: 3% 3% !important;
+    }
+    #rule .description{
+        padding-left:2% !important;
+        padding-right: 0% !important;
+        padding-top: 3% !important;
+
+    }
     .containing-box {
     padding:45px 2% 45px 8% !important;
     }
     }
+
+
+
+    
     @media only screen and (max-width: 380px) {
         .containing-box {
         padding:5% !important;
@@ -400,6 +447,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+document.addEventListener('DOMContentLoaded', function() {
+  var umaPopups = document.querySelectorAll('.moupai-popup');
+  umaPopups.forEach(function(uma) {
+    var popup = uma.querySelector('.moupai-popup-text');
+    if (!popup) return;
+    uma.addEventListener('mousemove', function(e) {
+      popup.style.display = 'block';
+      popup.style.left = (e.clientX + 18) + 'px';
+      popup.style.top = (e.clientY + 18) + 'px';
+    });
+    uma.addEventListener('mouseleave', function() {
+      popup.style.display = 'none';
+    });
+  });
+});
 </script>
 </head>
 <body style="overflow: visible;">
@@ -427,21 +489,22 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="demands">
                 <div class="demand">
                     
-                    <p class="description"> <b>Riichi Mahjong</b> <br>Witnessing agony at the hands of dora is a must for Count Doracula. Therefore, the participants must partake in riichi mahjong heavily modified to suit his own needs.</p>
+                    <p class="description"> <b>Riichi Mahjong</b> <br>Witnessing agony at the hands of dora is a must for Count Doracula. Therefore, the participants must partake in riichi mahjong heavily modified to suit his own needs</p>
                     <a href="./pages/Rulecards details.html">
                     <img src="./files/doracula mahjong.gif" alt="playing mahjong">
                     </a>
 
                 </div>
                 <div class="demand">
-                    <p class="description"><b>Costume Contest</b><br>Only the most suitable souls end up in Doracula's dead walls. There must be a judgement of character and soul.</p>
+                    <p class="description"><b>Costume Contest</b><br>Only the most suitable souls end up in Doracula's dead walls. There must be a judgement of character and soul</p>
                     <a href="./pages/Costume contest details.html">
                     <img src="./files/costume contest.gif" alt="costume contest">
                     </a>
                 </div>
                 
                 <div class="demand">
-                    <p class="description"><b>Moupai Contest</b><br>Nothing marinates the soul better than the deep running anxiety and stress from a moupai.</p>
+                    <p class="description"><b>Moupai Contest</b><br>Nothing marinates the soul better than the deep running anxiety and stress from a <span class="moupai-popup">Moupai<span class="moupai-popup-text">Moupai(盲牌) is the practice of rubbing your fingers on the front of a mahjong tile and only using your sense of touch to figure out which tile it is.</span>
+              </span></p>
                     <a href="./pages/Moupai contest details.html">
                     <img src="./files/moupai.gif" alt="moupai contest">
                     </a>
@@ -455,11 +518,11 @@ document.addEventListener('DOMContentLoaded', function() {
             <p class="description" data-astro-cid-vlihtyhp="">
                 <br>
                 <span>15:00 - 15:30</span> Welcome ceremony<br>
-                <span>15:30 - 17:00</span> First hanchan <br>
+                <span>15:30 - 17:00</span> Riichi game 1 <br>
                 <span>17:00 - 17:45</span> Costume contest<br>
-                <span>17:45 - 19:15</span> Second hanchan<br>
+                <span>17:45 - 19:15</span> Riichi game 2<br>
                 <span>19:15 - 20:00</span> Moupai contest <br>
-                <span>20:00 - 21:30</span> Third hanchan<br>
+                <span>20:00 - 21:30</span> Riichi game 3<br>
                 <span>21:30 - 22:00</span> Closing ceremony <br>
             </p>
         </div>
@@ -491,7 +554,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="faq-answer">
                         Non-playing attendees do not participate in the riichi mahjong competition games. Besides that, it's the same.<br><br>
                         
-                        As a non-playing attendee, you can participate in all non-game activities such as watching the matches, participate in the costume and/or moupai contests and play social riichi mahjong. Food, snacks and drinks are included too.</div>
+                        As a non-playing attendee, you can participate in all other activities such as joining the audience, participate in the costume and/or moupai contests and play social riichi mahjong. Food, snacks and drinks are included too.</div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">How do I register?</button>
@@ -507,7 +570,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">Do I have to read the WRC rulebook?</button>
-                    <div class="faq-answer">Not really, if you are used to the rules from games like Mahjong Soul or Riichi City you are already 90% there. <br><br> The only major differences in the context of this event is the existence of a 85 minute game timer, more starting points, going minus doesn't end the game, the game only ever ends due to the game timer or it goes past South 4, no abortive draws(途中流局). I still recommend reading the rulebook if you have the energy. <br><br>
+                    <div class="faq-answer">Not really, if you are used to the rules from games like Mahjong Soul or Riichi City you are already 90% there. <br><br> The only major differences in the context of this event is the existence of a 80 minute game timer, more starting points, going minus doesn't end the game, the game only ever ends due to the game timer or it goes past South 4, no abortive draws(途中流局). I still recommend reading the rulebook if you have the energy. <br><br>
                     Read more about how a game would flow <a href="./pages/Rulecards details.html" style="text-decoration: underline;">here</a>.
                     </div>
                 </div>
@@ -526,7 +589,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <b>Date:</b> October 25th, 2025
             </p>
             <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
-                <b>Registration:</b> Opens October 1st. Closes October 20th. Register <a href="pages/Registration page.html" style="text-decoration: underline;">here</a>.
+                <b>Registration:</b> Opens October 1st. Closes October 20th.
             </p>
             <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
                 <b>Registration fee:</b> Playing fee is 200 SEK/150 CNY. Non-playing fee is 80 SEK/60 CNY. It includes food, snacks and drinks. The registration fee is non-refundable after registration closes.
@@ -544,29 +607,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 <b>Dress code:</b> Halloween attire is mandatory.<br>
             </p>
             <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
-                <b>Food & Drinks:</b> Food, snacks and drinks are available at your own discretion throughout the event. Alcohol consumption is allowed within moderation, but, alcohol will not be sold or provided. Bringing your own snacks and drinks is allowed and encouraged.
+                <b>Food & Drinks:</b> Food, snacks and drinks are available at your own discretion throughout the event. Alcohol consumption is allowed within moderation, but, alcohol will not be sold at the venue. Bringing your own snacks and drinks is allowed and encouraged.
             </p>
             <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
                 <b>Contact:</b> count.doracula@gmail.com
             </p>
             <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
-                <b>Mahjong rules:</b> Modified <a href="https://static1.squarespace.com/static/634a7884c297a25f06589b79/t/6834d67360e19c1da6c0d12c/1748293243651/WRC+Rules+2025.pdf" target="_blank" style="text-decoration: underline;">WRC 2025 Rules</a> + Rulecards
-            </p>
-            <p class="description" style="text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
-              The modifications are: 
-              <br>Red fives, Nagashi Mangan(Mangan at draw), Counted yakuman, 85 minute timer, Uma 30/10 and live audience is allowed.
-              <br><br>Rulecards:
-              <br>Rulecards are additional rules that affects the play of a game. This event uses a modified version of the Dreamland Odyssey mode released to Mahjong Soul. More details <a href="./pages/Rulecards details.html" style="text-decoration: underline;">here</a>.
+                <b>Mahjong rules:</b> Modified <a href="https://static1.squarespace.com/static/634a7884c297a25f06589b79/t/6834d67360e19c1da6c0d12c/1748293243651/WRC+Rules+2025.pdf" target="_blank" style="text-decoration: underline;">WRC 2025 Rules</a> + Rulecards. More details <b><a href="./pages/Rulecards details.html" style="text-decoration: underline;">here</a></b>.
             </p>
             <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 11px;" data-astro-cid-vlihtyhp="">
-                <b>Costume contest:</b> Anyone attending the event can enter the costume contest, including non-players. It is not mandatory. The winner will get a prize and 10000 points counted towards the final score of the entire event. Every costume contest participant will receive points. More details <a href="./pages/Costume contest details.html" style="text-decoration: underline;">here</a>.
-            </p>
-            <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 11px;" data-astro-cid-vlihtyhp="">
-                <b>Moupai contest:</b> Anyone attending the event can enter the moupai contest, including non-players. It is not mandatory. The winner will get a prize and 10000 points counted towards the final score of the entire event. Every moupai contest participant will receive points. More details <a href="./pages/Moupai contest details.html" style="text-decoration: underline;">here</a>.
+                <b>Contests:</b> Non-mandatory contests that everyone can join, including non-players. Each winner will get a prize and 10000 points counted towards the final score of the entire event. Every participant will receive some points. Read more here: <br><b><a href="./pages/Costume contest details.html" style="text-decoration: underline;">Costume contest</a></b> | <b><a href="./pages/Moupai contest details.html" style="text-decoration: underline;">Moupai contest</a></b></b>.
             </p>
             <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 11px;" data-astro-cid-vlihtyhp="">
                 <b>The Dead Wall Champion 2025:</b> The attendee with the largest total sum of points from the riichi games, costume contest and moupai contest will be crowned The Dead Wall Champion 2025.
             </p>
+            <p><br></p>
             <a href="#top">
             <img src="./files/three_bats.svg" class="dice js-scroll-animation active" data-astro-cid-vlihtyhp=""></a>
         </div>

@@ -4,6 +4,29 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Roboto" rel="stylesheet">
     <style>
+/* Uma hover popup styles */
+.uma-popup {
+  position: relative;
+  cursor: pointer;
+  text-decoration: underline dotted;
+}
+.uma-popup-text {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  background: #fffbe9;
+  color: #222;
+  border: 1px solid #e1c48b;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  padding: 14px 18px;
+  font-size: 1rem;
+  width: 320px;
+  max-width: 90vw;
+  line-height: 1.5;
+  font-family: 'Open Sans', 'Roboto', sans-serif;
+  pointer-events: none;
+}
 @keyframes torch {
     0%, 1%, 2%, 3%, 4%, 5%, 20%, 21%, 60%, 61%, 62%, 100% { background-image:
       radial-gradient(
@@ -175,51 +198,80 @@ document.addEventListener('mousemove', e => {
       50%  { opacity: 1.0; transform: scale(1.02) translateY(-4px)}
       90%  { opacity: 0.8; transform: translateY(0);}
     }
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 900px) {
         #rule{
             padding: 3% !important;
         }
         .description{
-            padding: 10% !important;
+            padding: 3% !important;
         }
     }
     </style>
-    <script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var umaPopups = document.querySelectorAll('.uma-popup');
+  umaPopups.forEach(function(uma) {
+    var popup = uma.querySelector('.uma-popup-text');
+    if (!popup) return;
+    uma.addEventListener('mousemove', function(e) {
+      popup.style.display = 'block';
+      popup.style.left = (e.clientX + 18) + 'px';
+      popup.style.top = (e.clientY + 18) + 'px';
+    });
+    uma.addEventListener('mouseleave', function() {
+      popup.style.display = 'none';
+    });
+  });
+});
 </script>
 </head>
 <body style="overflow: visible;">
     <main data-astro-cid-dhfotatx="">
         <div id="rule" class="rule content-wrapper" data-astro-cid-vlihtyhp="" style="padding: 5% 15% 5% 15%;background: transparent"> 
-           <h2 class="title undefined" data-astro-cid-azbpcp4f=""> <a href="../index.html#schedule"><img src="../the dead wall.gif" alt="The Dead Wall 2025 logo"></a> <br> The Dead Wall 2025 <br> Modified Riichi Mahjong</h2>
+           <h2 class="title undefined" data-astro-cid-azbpcp4f=""> <a href="../index.html#schedule"><img src="../the dead wall.gif" alt="The Dead Wall 2025 logo"></a> <br> The Dead Wall 2025 <br> Doracula's Riichi Mahjong</h2>
             <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 11px;" data-astro-cid-vlihtyhp="">
-              The riichi mahjong games will be played with Modified <a href="https://static1.squarespace.com/static/634a7884c297a25f06589b79/t/6834d67360e19c1da6c0d12c/1748293243651/WRC+Rules+2025.pdf" target="_blank" style="text-decoration: underline;">WRC 2025 rules</a> + Rulecards. The modifications of the WRC 2025 rules are as follows: <i>Red fives, Nagashi Mangan(Mangan at draw), Counted yakuman, 85 minute timer, Uma 30/10 and live audience is allowed.</i><br><br>
-              Additionally, rulecards will be used. It's a modification of the Dreamland Odyssey mode released to Mahjong Souls.
+              In the spirit of halloween and frightening luck, here is Doracula's riichi mahjong.  <br><br>
+              
+              <b>Riichi mahjong rules:</b> <br> The riichi mahjong games will be played with modified <a href="https://static1.squarespace.com/static/634a7884c297a25f06589b79/t/6834d67360e19c1da6c0d12c/1748293243651/WRC+Rules+2025.pdf" target="_blank" style="text-decoration: underline;">WRC 2025 rules</a> + Rulecards. The modifications are: <i>3 Red fives, Nagashi Mangan(Mangan at draw), no head-bump, Uma 30/10, 80 minute game timer, Kokushi(Thirteen Orphans) allows to rob a concealed kan, live audience is allowed and when game timer ends only the current hand is finished.</i>
+              <br><br>
+              <b>I don't want to read the WRC rulebook.</b> <br>
+              That's ok. The main takeaways for this event is: <br>
+              - A game lasts 80 minutes. When the timer ends you only finish the current hand.<br>
+              - A game can never end unless the timer ends or it goes past South 4.<br>
+              - A hand can never end unless someone wins or no more tiles are left to draw.<br>
+              - You start with 30000 points each game. At the end of a game you count your score and subtract 30000. <br>
+              - Winner of a game gets 30000 extra points, 2nd place gets 10000 extra points, 3rd place gets -10000 points and last place gets -30000 points. These points are what players often call "Uma"
+
+              <br><br>
+              <b>Rulecards:</b><br>Every game will be played with rulecards. Rulecards are an additional random 3 rules that are added at East 1 and replaced in South 1 with 3 new random rulecards. <br><br> It's a modification of the Dreamland Odyssey mode released to Mahjong Souls.
               There are 3 decks. <b><span style="color: rgb(218, 186, 8);">Dealer</span></b>, <b><span style="color: rgb(23, 196, 46);">Fortune</span></b> and <b><span style="color: rgb(9, 21, 131);">Curse</span></b>. Dealer only affects the dealer, Fortune has positive effects and Curse has negative effects.
               <br><br>
-               <b>How a game of riichi mahjong will work:</b> <br>
-               There will be 3 separate deck of cards at your table. When the organizer starts the game timer 1 random card from each deck is drawn immediately and placed face up in the middle of the table or wherever is agreed upon amongst the 4 players. After that East 1 may start as normal.<br><br> When the game reaches South 1 the existing cards are discarded and 3 new cards are drawn, one from each deck, and applies until the game ends. <br><br> The organizer will announce when the game timer hits 85 minutes. That means that you finish your current hand and play 1 more hand. After that the game ends. <br><br> When the game ends the score and uma is calculated and written down on the provided scoresheet. The point sticks and rulecards are then reset to their starting position.<br><br> Lastly, the scoresheet is handed to the organizer. <br><br>
+               <b>How a game of Doracula's riichi mahjong will play out:</b> <br>
+               There will be 3 separate deck of cards at your table. When the organizer starts the game timer 1 random card from each deck is drawn immediately and placed face up in the middle of the table or wherever is agreed upon amongst the 4 players. After that East 1 may start as normal.<br><br> When the game reaches South 1 the existing cards are discarded and 3 new cards are drawn, one from each deck, and applies until the game ends. <br><br> The organizer will announce when the game timer hits 80 minutes. That means that you finish your current hand and then end the game.<br><br> When the game ends you sum up all your score and subtract your starting points(30000), this number is written down on the provided scoresheet. Below this number you write down your <span class="uma-popup">Uma<span class="uma-popup-text">Winner of a game gets 30000 extra points, 2nd place gets 10000 extra points, 3rd place gets -10000 points and last place gets -30000 points. These points are what players often call "Uma"</span>
+              </span>. The point sticks and rulecards are then reset to their starting position.<br><br> Lastly, the scoresheet is handed to the organizer.<br><br>
               <b>All rulecards:</b> <br>
               <b style="color: rgb(218, 186, 8);">Dealer deck:</b><br>
-                <span style="text-decoration: underline;">Discipline:</span> Dealer can only Ron when in Riichi or Open hand. Tsumo(Self-draw) is unaffected. <br>
+                <span style="text-decoration: underline;">Discipline:</span> Dama(tenpai with a closed hand) ron is not allowed. Dealer can only Ron when in Riichi or Open hand. Tsumo(Self-draw) is unaffected. <br>
                 <span style="text-decoration: underline;">Long Night:</span> When dealership continues honba(Continuance counter) increases by 5.<br>
-                <span style="text-decoration: underline;">Forfeit:</span> If the dealer is tenpai(one tile away from a complete hand) at exhaustive draw they get all the Riichi bets.<br>
+                <span style="text-decoration: underline;">Forfeit:</span> If the dealer is tenpai at exhaustive draw they get the riichi deposit.<br>
                 <span style="text-decoration: underline;">Speculation:</span> Every time the dealer calls Pon or Kan, an extra Dora indicator will immediately be revealed (maximum 4 can be revealed).<br>
                 <span style="text-decoration: underline;">Freebie:</span> When the dealer wins with Ron, earns an additional 1000 points per Dora.<br>
               <br>
               <b style="color: rgb(23, 196, 46);">Fortune:</b><br>
-                <span style="text-decoration: underline;">Shadow World:</span> When player wins with Riichi, Normal Dora is ignored, but Ura Dora is doubled. (Red Five is unaffected.)<br>
+                <span style="text-decoration: underline;">Shadow World:</span> When player wins with Riichi, Normal Dora is ignored, but Ura Dora is doubled. (Red Five is not affected)<br>
                 <span style="text-decoration: underline;">Open up:</span> Iipeikou(Twin sequences) and Ryanpeikou(Double twin sequences) can be open.<br>
-                <span style="text-decoration: underline;">Goldmine:</span> Dora Indicators are also counted as Dora.<br>
+                <span style="text-decoration: underline;">Goldmine:</span> Dora/Uradora indicators are also counted as Dora.<br>
                 <span style="text-decoration: underline;">Super All Simples:</span> Tanyao(All Simples) is counted as 3-Han.<br>
                 <span style="text-decoration: underline;">Risktaker:</span> Riichi is counted as 2-Han, Ippatsu(Unbroken) as 2-Han, Double Riichi as 4-Han.<br><br>
 
 
                 <b style="color: rgb(9, 21, 131);">Curse:</b><br>
-                <span style="text-decoration: underline;">Boast:</span> No-ten Penalty and winning points for Nagashi Mangan(Mangan at Draw) are doubled.<br>
-                <span style="text-decoration: underline;">Overpreparation:</span> Declaring Riichi costs 2000 points.<br>
-                <span style="text-decoration: underline;">Shibari:</span> Your hand has to be atleast 3 han. Otherwise pay reverse mangan.<br>
-                <span style="text-decoration: underline;">Toll of Love:</span> When a player calls Chii, Pon, and Open Kan on a Dora tile another player discarded, they need to pay 2000 points.<br>
+                <span style="text-decoration: underline;">Boast:</span> Noten payments and winning points for Nagashi Mangan(Mangan at Draw) are doubled.<br>
+                <span style="text-decoration: underline;">Overpreparation:</span> The riichi bet is 2000 points.<br>
+                <span style="text-decoration: underline;">Slow down:</span> Winning hand has to be mangan or higher. If not, then your hand is invalid and you pay everyone 4000 points each and a honba(repeat counter) is added.<br>
+                <span style="text-decoration: underline;">Toll of Love:</span> When a player calls Chii, Pon, or Open Kan on a Dora, the discarder has to pay the caller 2000 points.<br>
             </p>
+            <br><br>
             <a href="../index.html#schedule">
              <img src="../files/three_bats.svg" class="dice js-scroll-animation active" data-astro-cid-vlihtyhp="">
         </div>
