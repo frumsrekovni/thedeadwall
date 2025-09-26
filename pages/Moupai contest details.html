@@ -169,7 +169,9 @@ document.addEventListener('mousemove', e => {
         position: relative;
         z-index: 1;
     }
-
+    .description{
+      padding: 3% 30% 3% 30% !important;
+    }
     @keyframes fade {
       0%   { opacity: 0.8; }
       50%  { opacity: 1.0; transform: scale(1.02) translateY(-4px)}
@@ -183,32 +185,74 @@ document.addEventListener('mousemove', e => {
             padding: 3% !important;
         }
     }
+  .optional-info {
+    display: none;
+    transition: max-height 0.3s ease;
+  }
+  .optional-info.visible {
+    display: flex;
+  }
+  .toggle-optional-btn {
+  background: transparent;
+  border-left: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  width: 20px;
+  height: 20px;
+  font-size: 44px;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto 20px auto;
+  transition: transform 0.3s cubic-bezier(.4,2,.6,1);
+  transform: rotate(-45deg);
+
+}
+.toggle-optional-btn.flipped {
+  transform: rotate(135deg);
+}
     </style>
-    <script>
-</script>
+  <script>
+    var btn = document.getElementById('toggleOptional');
+    var info = document.querySelector('.optional-info');
+    btn.addEventListener('click', function() {
+      info.classList.toggle('visible');
+      btn.classList.toggle('flipped', info.classList.contains('visible'));
+    });
+  </script>
 </head>
 <body style="overflow: visible;">
     <main data-astro-cid-dhfotatx="">
         <div id="rule" class="rule content-wrapper" data-astro-cid-vlihtyhp="" style="padding: 5%;background: transparent"> 
            <h2 class="title undefined" data-astro-cid-azbpcp4f=""> <a href="../index.html#schedule"><img src="../the dead wall.gif" alt="The Dead Wall 2025 logo"></a> <br> The Dead Wall 2025 <br>Moupai contest details</h2>
             <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 11px;" data-astro-cid-vlihtyhp="">
-              <b>Moupai(盲牌) is the practice of rubbing your fingers on the front of a mahjong tile and only using your sense of touch to figure out which tile it is.</b><br><br>
-                Anyone attending the event can enter the moupai contest, including non-players. It is not mandatory. The winner will get a prize and 10000 points counted towards the final score of the entire event. Second place gets 5000 points. The rest of the participants will receive 1000 points.<br><br>
+              <b>Moupai(盲牌) is the practice of rubbing your fingers on the front of a mahjong tile and only using your sense of touch to figure out which tile it is.</b><br><br>Are you fated to draw <img src="../files/3p.png" alt="3 of circles" style="width: 20px; height: auto; padding-bottom: 5px;"> or <img src="../files/1s.png" alt="1 of bamboo" style="width: 20px; height: auto; padding-bottom: 5px;">? See for yourself in the moupai contest.<br><br>
+                Anyone attending the event can enter, including non-playing attendees. It is not mandatory. The winner will get a prize and 10000 points counted towards the final score of the entire event. Second place gets 5000 points. The rest of the participants will receive 1000 points.<br><br>
                 How it will be performed: <br>
-                In rising order starting from who has the least amount of points at this stage of the entire event, you are called up to moupai a tile while looking into the eyes of Doracula. You get 3 chances to get one tile correct. If you get one correct you survive that round. If you guess all 3 wrong, then you are eliminated. This continues until only two participants remain. <br><br> The final two will be paired up and moupai simultaneously. The one who gets it correct while the other gets it wrong wins that round. The first person to win 3 rounds in this final will be the moupai contest winner.<br><br>
-
+                 You will moupai a tile while keeping eye contact with Doracula. You get three chances to get one tile correct and survive. This repeats until two participants remain. They must moupai simultaneously and the one who gets it correct while the other gets it wrong wins that round. The first person to win three rounds wins the contest.<br><br></p>
+      <button class="toggle-optional-btn" id="toggleOptional"></button>
+ <p class="description optional-info" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 11px;" data-astro-cid-vlihtyhp="">
                 Rules: <br>
                 - If you break eye contact with Doracula while moupaiing you are eliminated.<br>
                 - You need to announce your guess out loud before revealing your tile. <br>
                 - You have 30 seconds to moupai each tile.<br>
                 - You can only use your hands and fingers to moupai.<br>
-                - All the tiles in a standard riichi mahjong set will be used except the flowers and white dragon. 
+                - All the tiles in a standard riichi mahjong set will be used except the flowers and white dragon.<br>
+                - Player turns is by rising order starting from the player with the least amount of points at this stage of the entire event
             </p> <br><br>
             <a href="../index.html#schedule">
              <img src="../files/three_bats.svg" class="dice js-scroll-animation active" data-astro-cid-vlihtyhp="">
              </a>
         </div>
     </main>
+      <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var btn = document.getElementById('toggleOptional');
+      var info = document.querySelector('.optional-info');
+      btn.addEventListener('click', function() {
+        info.classList.toggle('visible');
+        btn.classList.toggle('flipped', info.classList.contains('visible'));
+      });
+    });
+  </script>
 </body>
 
 </html>

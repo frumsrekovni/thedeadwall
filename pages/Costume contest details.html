@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" style="background-color: #e1e1e1;">
 <head>
@@ -168,51 +169,90 @@ document.addEventListener('mousemove', e => {
         position: relative;
         z-index: 1;
     }
-
+    .description{
+      padding: 3% 30% 3% 30% !important;
+    }
     @keyframes fade {
       0%   { opacity: 0.8; }
       50%  { opacity: 1.0; transform: scale(1.02) translateY(-4px)}
       90%  { opacity: 0.8; transform: translateY(0);}
     }
-    @media only screen and (max-width: 900px) {
-        #rule{
-            padding: 3% !important;
-        }
-        .description{
-            padding: 3% !important;
-        }
-        
+
+  @media only screen and (max-width: 900px) {
+    #rule{
+      padding: 3% !important;
     }
+    .description{
+      padding: 3% !important;
+    }
+  }
+
+  .optional-info {
+    display: none;
+    transition: max-height 0.3s ease;
+  }
+  .optional-info.visible {
+    display: flex;
+  }
+  .toggle-optional-btn {
+  background: transparent;
+  border-left: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  width: 20px;
+  height: 20px;
+  font-size: 44px;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto 20px auto;
+  transition: transform 0.3s cubic-bezier(.4,2,.6,1);
+  transform: rotate(-45deg);
+
+}
+.toggle-optional-btn.flipped {
+  transform: rotate(135deg);
+}
     </style>
-    <script>
-</script>
+
 </head>
 <body style="overflow: visible; ">
-    <main data-astro-cid-dhfotatx="">
-        <div id="rule" class="rule content-wrapper" data-astro-cid-vlihtyhp="" style="padding: 5%;background: transparent;"> 
-           <h2 class="title undefined" data-astro-cid-azbpcp4f=""> <a href="../index.html#schedule"><img src="../the dead wall.gif" alt="The Dead Wall 2025 logo"></a> <br> The Dead Wall 2025 <br> Costume contest details</h2>
-            <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 11px;" data-astro-cid-vlihtyhp="">
-                The costume contest is an opportunity for you to show off. Anyone is allowed to participate, even non-players and it is super simple. The only requirement is that you show up in costume, any costume, and walk down a short runway in front of all event attendees. <br><br>
-                The scheduled time for the costume contest at 17:00 PM is when the runway walk and voting will be done. The voting criteria is entirely arbitrary and is up to each individual voter to make their reasoning. The judging does not have to be solely based on the runway walk but instead imagine it being a culmination of everything up til this point of the event.<br><br>
-                The costume contest is not mandatory. The winner will get a prize and 10000 points counted towards the final score of the entire event. The received points are halved each subsequent place down, stopping at 1000 points. Every costume contest participant will receive points. <br><br>
-                How it will be performed: <br>
-                Each participant will walk down a runway in front of all event attendees one by one. No longer than half a minute. Accompanied by music and commentary. When everyone has walked the runway the voting begins. The names or numbers of each contestant is written down on a piece of paper and then placed in the ballot box after being confirmed as valid by the organizer. <br><br>
-                Rules: <br>
-                - All event attendees are allowed to vote, including non-players. <br>
-                - Anyone attending the event can enter the costume contest<br>
-                - You can not vote for yourself<br>
-                - You can vote for up to 3 different contestants<br>
-                - You can only cast max 1 vote on each contestant<br>
-                - The vote is anonymous to everyone except the organizer who has to confirm that the vote is readable and that you didn't vote for yourself<br>
-                - The winner is the contestant with the most votes<br>
-                - In the event of a tie for first place, a second round of voting will be held between the tied contestants only<br>
-                - In the event of a tie for any other place than first, all tied contestants will receive full points<br>
-            </p><br><br>
-            <a href="../index.html#schedule">
-             <img src="../files/three_bats.svg" class="dice js-scroll-animation active" data-astro-cid-vlihtyhp="">
-             </a>
-        </div>
-    </main>
+  <main data-astro-cid-dhfotatx="">
+    <div id="rule" class="rule content-wrapper" data-astro-cid-vlihtyhp="" style="padding: 5%;background: transparent;"> 
+       <h2 class="title undefined" data-astro-cid-azbpcp4f=""> <a href="../index.html#schedule"><img src="../the dead wall.gif" alt="The Dead Wall 2025 logo"></a> <br> The Dead Wall 2025 <br> Costume contest details</h2>
+      <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 11px;" data-astro-cid-vlihtyhp="">
+        The costume contest is an opportunity for you to show off and flex your soul. Anyone attending the event can enter, including non-playing attendees. Show up in costume, any costume, and walk down a short runway in front of all event attendees. That's it!<br><br>
+        The costume contest is not mandatory. The winner will get a prize and 10000 points counted towards the final score of the entire event. Every costume contest participant will receive points. <br><br>
+      </p>
+      <button class="toggle-optional-btn" id="toggleOptional"></button>
+      <p class="description optional-info" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 11px;" data-astro-cid-vlihtyhp="">
+        Costume contest rules: <br>
+        - All event attendees are allowed to vote, including non-playing attendees. <br>
+        - Anyone attending the event can enter the costume contest<br>
+        - You can not vote for yourself<br>
+        - You can vote for up to 3 different contestants<br>
+        - You can only cast max 1 vote on each contestant<br>
+        - The vote is anonymous to everyone except the organizer who has to confirm that the vote is readable and that you didn't vote for yourself<br>
+        - The winner is the contestant with the most votes<br>
+        - In the event of a tie for first place, a second round of voting will be held between the tied contestants only<br>
+        - In the event of a tie for any other place than first, all tied contestants will receive full points<br>
+        - The received points are halved each subsequent place down, stopping at 1000 points. <br>
+        - The voting criteria is entirely arbitrary and is up to each individual voter to make their reasoning. <br><br>
+      </p>
+      <br><br>
+      <a href="../index.html#schedule">
+       <img src="../files/three_bats.svg" class="dice js-scroll-animation active" data-astro-cid-vlihtyhp="">
+       </a>
+    </div>
+  </main>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var btn = document.getElementById('toggleOptional');
+      var info = document.querySelector('.optional-info');
+      btn.addEventListener('click', function() {
+        info.classList.toggle('visible');
+        btn.classList.toggle('flipped', info.classList.contains('visible'));
+      });
+    });
+  </script>
 </body>
 
 </html>

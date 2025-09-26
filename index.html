@@ -8,6 +8,7 @@
             scroll-behavior: smooth;
             cursor: default;
             overflow-x: hidden;
+            text-shadow: 1px 1px 2px black;
         }
 .moupai-popup {
   position: relative;
@@ -65,38 +66,44 @@
     margin-top: 22px;
     border-radius: 8px;
     justify-self: center;
-    padding-left:15%;
-    padding-right:15%;
+    padding-left:30%;
+    padding-right:30%;
     width: 100%;
 }
 .faq-item {
-    margin-bottom: 14px;
+    margin-bottom: 4px;
     border-radius: 8px;
+    padding-left: 100px;
+    padding-right: 100px;
 }
 .faq-question {
-    background: #505050;
-    color: #ffffff;
+    background: linear-gradient(120deg, #7a7d85 0%, #bfc2c7 100%);
+    background-size: 100% 100%;
     border: none;
     width: 100%;
     text-align: left;
-    padding: 12px 16px;
-    font-size: 18px;
+    padding: 8px 16px;
+    font-size: 16px;
     cursor: pointer;
     outline: none;
+    text-shadow: 1px 1px 2px black;
     border-radius: 8px;
+    box-shadow: 1px 2px 8px rgba(80,80,80,0.08);
+    font-weight: 600;
+    background-size: 150% 100%;
+    transition: background-position 1.2s cubic-bezier(.4,2,.6,1), color 0.3s;
 }
 .faq-question:hover {
-    background: #333;
-    transition: 500ms background ;
+    box-shadow: 0 2px 12px rgba(180,180,180,0.10);
 }
 .faq-question:active {
-    background: #000000;
+    opacity: 0.8;
 }
 .faq-answer {
     display: none;
     background: transparent;
     color: #fff;
-    font-size: 18px;
+    font-size: 16px;
     text-align: left;
     padding: 12px;
     font-family: 'Open Sans', 'Raleway', 'Roboto', sans-serif;
@@ -342,13 +349,16 @@ document.addEventListener('mousemove', e => {
     #timetable{
         padding: 10% 15% 10% 15%;
     }
-    @media only screen and (max-width: 1200px) {
+    @media only screen and (max-width: 1300px) {
     #timetable .description{
-        padding-left:15% !important;
-        padding-right: 15% !important;
+        padding-left:20vw !important;
+        padding-right: 0% !important;
         padding-top: 3% !important;
     }
-        
+    .faq-item {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
     }
     @media only screen and (max-width: 900px) {
         .faq-accordion {
@@ -366,6 +376,7 @@ document.addEventListener('mousemove', e => {
         .demand {
       display: flex;
       flex-direction: column;
+      padding: 10vw;
         }
         .demand img{
             width: 100%;
@@ -378,7 +389,7 @@ document.addEventListener('mousemove', e => {
         font-size: 16px;
     }
     #timetable .description{
-        padding-left:2% !important;
+        padding-left:20vw !important;
         padding-right: 0% !important;
         padding-top: 3% !important;
     }
@@ -400,10 +411,22 @@ document.addEventListener('mousemove', e => {
     }
     }
 
-
+    @media only screen and (max-width: 530px) {
+    .demand{
+        padding: 10px;
+    }   
+    .demand img{
+        margin-bottom: 76px;
+        }
+    }
 
     
     @media only screen and (max-width: 380px) {
+        #timetable .description{
+        padding-left:1vw !important;
+        padding-right: 0% !important;
+        padding-top: 3% !important;
+    }
         .containing-box {
         padding:5% !important;
     }
@@ -479,9 +502,9 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </div>
         <div class="description" style="background: transparent;" data-astro-cid-c3abghta="">
-            <h1 class="top en" data-astro-cid-c3abghta="">Survive Count Doracula's riichi dungeon here in Stockholm, October 25th 2025</h1>
+            <h1 class="top en" data-astro-cid-c3abghta="">Survive Count Doracula's riichi dungeon here in Stockholm, October&nbsp;25th&nbsp;2025</h1>
             <div class="bottom en" data-astro-cid-c3abghta="">
-                Tempted by everlasting glory, creatures from all over find themselves captured in Count Doracula's dungeon. Many will fail and become eternalized in his dead walls, but if you are up to the task and make it through Doracula's demands, you will forever earn your claim to the title of The Dead Wall champion 2025.
+                Tempted by everlasting glory, creatures from all over find themselves captured in Count Doracula's dungeon. Many will fail and become eternalized in his dead walls, but if you are up to the task and make it through Doracula's demands, you will forever earn your claim to the title of The&nbsp;Dead&nbsp;Wall&nbsp;champion&nbsp;2025.
             </div>
         </div>
         <div id="schedule" class="schedule" style="background: transparent;" data-astro-cid-s4x4txsv="">
@@ -491,7 +514,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     <p class="description"> <b>Riichi Mahjong</b> <br>Witnessing agony at the hands of dora is a must for Count Doracula. Therefore, the participants must partake in riichi mahjong heavily modified to suit his own needs</p>
                     <a href="./pages/Rulecards details.html">
-                    <img src="./files/doracula mahjong.gif" alt="playing mahjong">
+                    <img src="./files/doracula mahjong.gif" alt="playing mahjong" title="only Doracula is allowed to win with 18 tiles">
                     </a>
 
                 </div>
@@ -503,7 +526,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 
                 <div class="demand">
-                    <p class="description"><b>Moupai Contest</b><br>Nothing marinates the soul better than the deep running anxiety and stress from a <span class="moupai-popup">Moupai<span class="moupai-popup-text">Moupai(盲牌) is the practice of rubbing your fingers on the front of a mahjong tile and only using your sense of touch to figure out which tile it is.</span>
+                    <p class="description"><b>Moupai Contest</b><br>Nothing marinates the soul better than the deep running anxiety and stress from a <span class="moupai-popup">Moupai<span class="moupai-popup-text" style="text-shadow: none;">Moupai(盲牌) is the practice of rubbing your fingers on the front of a mahjong tile and only using your sense of touch to figure out which tile it is.</span>
               </span></p>
                     <a href="./pages/Moupai contest details.html">
                     <img src="./files/moupai.gif" alt="moupai contest">
@@ -517,13 +540,13 @@ document.addEventListener('DOMContentLoaded', function() {
             <h2 class="title white" data-astro-cid-azbpcp4f="">Schedule</h2>
             <p class="description" data-astro-cid-vlihtyhp="">
                 <br>
-                <span>15:00 - 15:30</span> Welcome ceremony<br>
-                <span>15:30 - 17:00</span> Riichi game 1 <br>
-                <span>17:00 - 17:45</span> Costume contest<br>
-                <span>17:45 - 19:15</span> Riichi game 2<br>
-                <span>19:15 - 20:00</span> Moupai contest <br>
-                <span>20:00 - 21:30</span> Riichi game 3<br>
-                <span>21:30 - 22:00</span> Closing ceremony <br>
+                <span>15:00 - 15:30</span> Welcome&nbsp;ceremony<br>
+                <span>15:30 - 17:00</span> Riichi&nbsp;game&nbsp;1 <br>
+                <span>17:00 - 17:45</span> Costume&nbsp;contest<br>
+                <span>17:45 - 19:15</span> Riichi&nbsp;game&nbsp;2<br>
+                <span>19:15 - 20:00</span> Moupai&nbsp;contest <br>
+                <span>20:00 - 21:30</span> Riichi&nbsp;game&nbsp;3<br>
+                <span>21:30 - 22:00</span> Closing&nbsp;ceremony <br>
             </p>
         </div>
         <div id="map" class="map" style="background: transparent;" data-astro-cid-kbkfje74="">
@@ -535,23 +558,50 @@ document.addEventListener('DOMContentLoaded', function() {
             </p>
         <img src="./files/tiger.svg" class="sumo js-scroll-animation active" data-astro-cid-kbkfje74=""> </div>
         <div id="rule" class="rule content-wrapper" style="background: transparent;padding: 15%;" data-astro-cid-vlihtyhp="">
+            
+            <h2 class="title white" style="padding-top: 3%;" data-astro-cid-azbpcp4f="">Event Details</h2>
+                        <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 20px;" data-astro-cid-vlihtyhp="">
+                            The&nbsp;Dead&nbsp;Wall&nbsp;2025 is a halloween themed one-day event focusing on but not limited to mahjong related activities. Anyone is allowed to attend the event.<br><br> There is two registration options: playing and non-playing. Non-playing attendance costs less. With playing registrants there is an expectation that you have played basic riichi mahjong before.
+            </p>
+            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 20px;" data-astro-cid-vlihtyhp="">
+                <b>Date:</b> October&nbsp;25th,&nbsp;2025
+            </p>
+            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
+                <b>Registration:</b> Opens October 1st
+            </p>
+            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
+                <b>Registration fee:</b> Playing fee is 200&nbsp;SEK/150&nbsp;CNY. Non-playing fee is 80&nbsp;SEK/60&nbsp;CNY. Both includes food, snacks and drinks. The registration fee is non-refundable after October&nbsp;20th,&nbsp;2025.
+            </p>
+            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
+                <b>Payment:</b> Payment is done by Swish or Wechat. See <a href="./pages/Payment QR codes.html" style="text-decoration: underline;">here</a> for QR-codes.
+            </p>
+            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
+                <b>Max participants:</b> No max for attending non-playing attendees. The maximum playing attendees is 36&nbsp;players, where having some experience playing basic riichi mahjong is expected. Other than that, anyone can register as playing.
+            </p>
+            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
+                <b>Dress code:</b> Halloween attire is mandatory.<br>
+            </p>
+            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
+                <b>Food & Drinks:</b> Food, snacks and drinks are available at your own discretion throughout the event. Alcohol consumption is allowed within moderation, but, alcohol will not be sold at the venue. Bringing your own snacks and drinks is allowed.
+            </p>
+            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
+                <b>Contact:</b> count.doracula@gmail.com
+            </p>
+            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
+                <b>Mahjong games:</b> Modified WRC 2025 Rules + Rulecards. More details <b><a href="./pages/Rulecards details.html" style="text-decoration: underline;">here</a></b>.
+            </p>
+            <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 11px;" data-astro-cid-vlihtyhp="">
+                <b>Contests:</b> Non-mandatory contests that everyone can join, including non-playing attendees. Each winner will get a prize and 10000&nbsp;points counted towards the final score of the entire event. Every participant will receive some points. Read more here: <br><b><a href="./pages/Costume contest details.html" style="text-decoration: underline;">Costume contest</a></b> | <b><a href="./pages/Moupai contest details.html" style="text-decoration: underline;">Moupai contest</a></b></b>.
+            </p>
+            <p class="description" style="padding-bottom: 15%;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 11px; " data-astro-cid-vlihtyhp="">
+                <b>The Dead Wall Champion 2025:</b> The attendee with the largest total sum of points from the riichi games, costume contest and moupai contest will be crowned The Dead Wall Champion 2025.
+            </p>
+            <p><br><br></p>
             <h2 class="title white" data-astro-cid-azbpcp4f="">FAQ</h2>
             <div class="faq-accordion" >
                 <div class="faq-item">
-                    <button class="faq-question">What is The Dead Wall 2025?</button>
-                    <div class="faq-answer">The Dead Wall 2025 is a halloween themed one-day event focusing on but not limited to mahjong related activities.</div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">Do I need to know how to play riichi mahjong to attend?</button>
-                    <div class="faq-answer">No, anyone is allowed to attend the event. There is two registration options: playing and non-playing. Non-playing costs less.</div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">Do I need to know how to play riichi mahjong to register as playing?</button>
-                    <div class="faq-answer">Yes, there is an expectation that you have played basic riichi mahjong before.</div>
-                </div>
-                <div class="faq-item">
                     <button class="faq-question">What is a non-playing registration?</button>
-                    <div class="faq-answer">
+                    <div class="faq-answer" style="text-shadow: 1px 1px 2px black;">
                         Non-playing attendees do not participate in the riichi mahjong competition games. Besides that, it's the same.<br><br>
                         
                         As a non-playing attendee, you can participate in all other activities such as joining the audience, participate in the costume and/or moupai contests and play social riichi mahjong. Food, snacks and drinks are included too.</div>
@@ -562,7 +612,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">What is the prize?</button>
-                    <div class="faq-answer">The winners of the costume contest and moupai contest will receive trophies and points counted towards the total event. The overall winner of the event will receive a trophy, Tiger Mahjong coupon and the title of The Dead Wall 2025 champion.</div>
+                    <div class="faq-answer">The winners of the costume contest and moupai contest will receive prizes and points counted towards the total event. The overall winner of the event will receive a trophy, Tiger Mahjong coupon and the title of The Dead Wall 2025 champion.</div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">What is the WRC Rulebook?</button>
@@ -570,7 +620,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">Do I have to read the WRC rulebook?</button>
-                    <div class="faq-answer">Not really, if you are used to the rules from games like Mahjong Soul or Riichi City you are already 90% there. <br><br> The only major differences in the context of this event is the existence of a 80 minute game timer, more starting points, going minus doesn't end the game, the game only ever ends due to the game timer or it goes past South 4, no abortive draws(途中流局). I still recommend reading the rulebook if you have the energy. <br><br>
+                    <div class="faq-answer">Not really, if you are used to the rules from games like Mahjong Soul or Riichi City you are already 90% there. <br><br>
                     Read more about how a game would flow <a href="./pages/Rulecards details.html" style="text-decoration: underline;">here</a>.
                     </div>
                 </div>
@@ -584,44 +634,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
             <br><br>
-            <h2 class="title white" style="padding-top: 10%;" data-astro-cid-azbpcp4f="">Event Details</h2>
-            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 20px;" data-astro-cid-vlihtyhp="">
-                <b>Date:</b> October 25th, 2025
-            </p>
-            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
-                <b>Registration:</b> Opens October 1st. Closes October 20th.
-            </p>
-            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
-                <b>Registration fee:</b> Playing fee is 200 SEK/150 CNY. Non-playing fee is 80 SEK/60 CNY. It includes food, snacks and drinks. The registration fee is non-refundable after registration closes.
-            </p>
-            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
-                <b>Payment:</b> Payment is done by Swish or Wechat. See <a href="./pages/Payment QR codes.html" style="text-decoration: underline;">here</a> for QR-codes.
-            </p>
-            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
-                <b>Registration and Payment deadline:</b> October 20th, 2025
-            </p>
-            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
-                <b>Number of players:</b> Max 36 players. <br>Having some experience playing basic riichi mahjong is expected, besides that, anyone can register as playing. No max for attending non-players.
-            </p>
-            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
-                <b>Dress code:</b> Halloween attire is mandatory.<br>
-            </p>
-            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
-                <b>Food & Drinks:</b> Food, snacks and drinks are available at your own discretion throughout the event. Alcohol consumption is allowed within moderation, but, alcohol will not be sold at the venue. Bringing your own snacks and drinks is allowed and encouraged.
-            </p>
-            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
-                <b>Contact:</b> count.doracula@gmail.com
-            </p>
-            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
-                <b>Mahjong rules:</b> Modified <a href="https://static1.squarespace.com/static/634a7884c297a25f06589b79/t/6834d67360e19c1da6c0d12c/1748293243651/WRC+Rules+2025.pdf" target="_blank" style="text-decoration: underline;">WRC 2025 Rules</a> + Rulecards. More details <b><a href="./pages/Rulecards details.html" style="text-decoration: underline;">here</a></b>.
-            </p>
-            <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 11px;" data-astro-cid-vlihtyhp="">
-                <b>Contests:</b> Non-mandatory contests that everyone can join, including non-players. Each winner will get a prize and 10000 points counted towards the final score of the entire event. Every participant will receive some points. Read more here: <br><b><a href="./pages/Costume contest details.html" style="text-decoration: underline;">Costume contest</a></b> | <b><a href="./pages/Moupai contest details.html" style="text-decoration: underline;">Moupai contest</a></b></b>.
-            </p>
-            <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 11px;" data-astro-cid-vlihtyhp="">
-                <b>The Dead Wall Champion 2025:</b> The attendee with the largest total sum of points from the riichi games, costume contest and moupai contest will be crowned The Dead Wall Champion 2025.
-            </p>
-            <p><br></p>
             <a href="#top">
             <img src="./files/three_bats.svg" class="dice js-scroll-animation active" data-astro-cid-vlihtyhp=""></a>
         </div>
