@@ -11,9 +11,9 @@
 /* Subtle Minimalist Registration Form Styles */
 .registration-card {
   background: #f8f8fa;
-  border-radius: 8px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-  padding: 12px;
+  border-radius: 4px;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.06);
+  padding: 18px;
   width: 440px;
   margin: 28px auto;
   display: flex;
@@ -21,44 +21,44 @@
   gap: 14px;
 }
 .registration-card label {
-  font-size: 1rem;
-  color: #444;
-  margin-bottom: 4px;
-  font-weight: 500;
-  display: block;
+  font-size: 16px;
+  margin-bottom: 1px;
 }
 .registration-card input,
 .registration-card textarea {
   width: 100%;
-  padding: 8px;
-  border-radius: 6px;
+  padding: 3px;
+  border-radius: 2px;
   border: 1px solid #e0e0e0;
   background: #fff;
-  font-size: 0.98rem;
-  margin-bottom: 10px;
+  font-size: 16px;
+  margin-bottom: 12px;
   transition: border-color 0.2s;
 }
 .registration-card input:focus,
 .registration-card textarea:focus {
-  border-color: #b7a6e7;
+  border-color: #000000;
   outline: none;
 }
 .registration-card button[type="submit"] {
   background: #ece9f6;
-  color: #2a1a2a;
+  color: #000000;
   border: none;
-  border-radius: 6px;
-  padding: 12px;
-  font-size: 0.98rem;
-  font-weight: 600;
+  border-radius: 4px;
+  padding: 8px 14px 8px 14px;
+  margin-top: 40px !important;
+  font-size: 16px;
+  font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 1px 4px rgba(124,58,237,0.04);
+  box-shadow: 0 2px 2px rgba(0,0,0,0.06);
   transition: background 0.2s, transform 0.1s;
   margin-top: 3%;
 }
 .registration-card button[type="submit"]:hover {
   background: #e3e0f0;
-  transform: translateY(-1px) scale(1.01);
+}
+#faq-btn:hover {
+text-decoration: underline;
 }
 .registration-card .form-row {
   display: flex;
@@ -135,11 +135,6 @@
     <meta property="og:type" content="website">
     <title>The Dead Wall 2025</title>
     <script>
-
-        // var fonts = ['Roboto', 'Open_Sans', 'Raleway'];
-        // var rand = fonts[Math.floor(Math.random() * fonts.length)];
-        // var bodyElement = document.getElementById("logo");
-        // bodyElement.className = rand;
 const W = window.innerWidth;
 const H = window.innerHeight
 
@@ -181,100 +176,59 @@ document.addEventListener('mousemove', e => {
     <link href="../files/css2" rel="stylesheet">
     <link rel="stylesheet" href="../files/index.C5_7h7bT.css">
     <style>
-
-    .breathing {
-      animation: fade 7s ease-out forwards infinite;
-    }
-    .containing-box {
-    border: 0px solid rgba(255, 255, 255, 0.15);
-    background: rgba(0, 0, 0, 0.4);
-    border-radius: 24px;
-    backdrop-filter: blur(20px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 40px rgba(255, 255, 255, 0.05), inset 0 0 40px rgba(255, 255, 255, 0.02);
-    padding:45px 135px 45px 135px;
-    }
-    .containing-box p{
-    font-weight: bold;
-    font-size: 62px;
-    color: whitesmoke;
-    }
-
-    @keyframes fade {
-      0%   { opacity: 0.8; }
-      50%  { opacity: 1.0; transform: scale(1.02) translateY(-4px)}
-      90%  { opacity: 0.8; transform: translateY(0);}
-    }
     </style>
-    <script>
-</script>
 </head>
 <body style="overflow: visible;">
     <main data-astro-cid-dhfotatx="" style="justify-content: center;">
         <div id="rule" class="rule content-wrapper" data-astro-cid-vlihtyhp="" style="padding: 5%;justify-content: center;background: transparent"> 
            <h2 class="title undefined" data-astro-cid-azbpcp4f=""> <a href="../index.html#map"><img src="../the dead wall.gif" alt="The Dead Wall 2025 logo"></a> <br> The Dead Wall 2025 <br>Event Registration</h2>
-           <div style="width: 100%; display: flex; justify-content: center; align-items: center; flex-direction: row;">
+           <div style="width: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column;">
 <div class="registration-card">
   <form action="https://formspree.io/f/mqkvaewl" method="POST">
   <label for="name">Name</label>
   <input type="text" id="name" name="name" required autocomplete="name" oninvalid="this.setCustomValidity('Please enter your name.')" oninput="this.setCustomValidity('')">
-  <span id="nameError" style="color:#e11d48;font-size:0.95em;display:none;">Please enter your name.</span>
+  <span id="nameError" style="color:#e11d48;font-size:16px;display:none;">Please enter your name.</span>
   <label for="email">Email</label>
   <input type="email" id="email" name="email" required autocomplete="email" oninvalid="this.setCustomValidity('Please enter a valid email address.')" oninput="this.setCustomValidity('')">
-  <span id="emailError" style="color:#e11d48;font-size:0.95em;display:none;">Please enter a valid email address.</span>
+  <span id="emailError" style="color:#e11d48;font-size:16px;display:none;">Please enter a valid email address.</span>
     <label for="message">Additional Information (optional)</label>
-    <textarea id="message" name="message" rows="3" placeholder="Anything you'd like us to know? Allergies?"></textarea>
-    <div style="display: flex; gap: 24px; align-items: center; margin-bottom: 10px;">
-    <label for="role">Type of attendance</label>
-    <select id="role" name="role" style="width:100%;padding:8px;border-radius:6px;border:1px solid #e0e0e0;background:#fff;font-size:0.98rem;margin-bottom:10px;">
-      <option value="" selected disabled>Not selected</option>
-      <option value="Playing">Playing</option>
-      <option value="Non-playing">Non-playing</option>
-    </select>
-    <span id="roleError" style="color:#e11d48;font-size:0.95em;display:none;">Please select your role.</span>
-    <script>
-      // Custom error messages for all required fields
-      document.querySelector('form').addEventListener('submit', function(e) {
-        var valid = true;
-        var name = document.getElementById('name');
-        var email = document.getElementById('email');
-        var role = document.getElementById('role');
-        var nameError = document.getElementById('nameError');
-        var emailError = document.getElementById('emailError');
-        var roleError = document.getElementById('roleError');
+    <textarea id="message" name="message" rows="3" placeholder="Anything you'd like us to know? Allergies? Dietary&nbsp;restrictions?"></textarea>
+    <div style="display: flex; align-items: left; margin-bottom: 12px; flex-direction: column;">
+  <label for="role">Type of attendance</label>
+  <select id="role" name="role" style="width:100%;padding:8px;border-radius:2px;border:1px solid #e0e0e0;background:#fff;font-size:16px;margin-bottom:12px;">
+    <option value="" selected disabled>Not selected</option>
+    <option value="Playing">Playing</option>
+    <option value="Non-playing">Non-playing</option>
+  </select>
+  <span id="roleError" style="color:#e11d48;font-size:16px;display:none;">Please select your type of attendance.</span>
 
-        if (!name.value.trim()) {
-          nameError.style.display = 'inline';
-          valid = false;
-        } else {
-          nameError.style.display = 'none';
-        }
-        if (!email.value.trim()) {
-          emailError.style.display = 'inline';
-          valid = false;
-        } else {
-          emailError.style.display = 'none';
-        }
-        if (!role.value) {
-          roleError.style.display = 'inline';
-          role.setCustomValidity('Please select your role.');
-          valid = false;
-        } else {
-          roleError.style.display = 'none';
-          role.setCustomValidity('');
-        }
-        if (!valid) {
-          e.preventDefault();
-        }
-      });
-    </script>
-    </select>
-    </div>
-    <!-- Add more fields as needed -->
-    <button type="submit">Register!</button>
-  </form>
+  <label for="role2">Costume contest participant? (optional)</label>
+  <select id="role2" name="role2" style="width:100%;padding:8px;border-radius:2px;border:1px solid #e0e0e0;background:#fff;font-size:16px;margin-bottom:12px;">
+    <option value="" selected disabled>Not selected</option>
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+    <option value="Haven't decided">Haven't decided</option>
+  </select>
+
+  <label for="role3">Moupai contest participant? (optional)</label>
+  <select id="role3" name="role3" style="width:100%;padding:8px;border-radius:2px;border:1px solid #e0e0e0;background:#fff;font-size:16px;margin-bottom:0px;">
+    <option value="" selected disabled>Not selected</option>
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+    <option value="Haven't decided">Haven't decided</option>
+  </select>
 </div>
-
-
+    <!-- Add more fields as needed -->
+    <button type="submit">Register</button>
+  </form>
+  <span style="font-size: 11px;margin-top: 6px;"><i>**Registration closes October 20th.</i></span>
+  <span style="font-size: 11px;margin-top: 6px;"><i>**Payment deadline is October 20th. After that we assume you are not coming. If there is an issue paying, contact: count.doracula@gmail.com</i></span>
+  <span style="font-size: 11px;margin-top: 6px;"><i>**Costume and Moupai contest attendence can be changed up until the start of the contests. It is just for helping us get a rough estimate.</i></span>
+</div>
+<a href="../index.html#bottom">
+<button id="faq-btn" style="margin: 18px auto 0 auto; display: block; background: transparent; color: #222; border: none; border-radius: 4px; padding: 8px 18px; font-size: 16px; font-weight: 600; cursor: pointer;transition: background 0.2s, transform 0.1s;">
+    FAQ <img style="width: 20px;margin: 3px;" src="../files/redirect.png" alt="redirect icon">
+  </button></a>
               <a href="../index.html#map">
              <img src="../files/three_bats.svg" class="dice js-scroll-animation active" data-astro-cid-vlihtyhp=""></a>
             </div>
