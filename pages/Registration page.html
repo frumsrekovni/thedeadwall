@@ -50,9 +50,10 @@
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 2px 2px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 1px rgba(0,0,0,0.16);
   transition: background 0.2s, transform 0.1s;
   margin-top: 3%;
+  
 }
 .registration-card button[type="submit"]:hover {
   background: #e3e0f0;
@@ -135,6 +136,45 @@ text-decoration: underline;
     <meta property="og:type" content="website">
     <title>The Dead Wall 2025</title>
     <script>
+  // Custom error messages for all required fields
+  document.querySelector('form').addEventListener('submit', function(e) {
+    var valid = true;
+    var name = document.getElementById('name');
+    var email = document.getElementById('email');
+    var role = document.getElementById('role');
+    var nameError = document.getElementById('nameError');
+    var emailError = document.getElementById('emailError');
+    var roleError = document.getElementById('roleError');
+
+    // Email validation regex: basic check for legal email structure
+    var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    if (!name.value.trim()) {
+      nameError.style.display = 'inline';
+      valid = false;
+    } else {
+      nameError.style.display = 'none';
+    }
+    if (!email.value.trim() || !emailPattern.test(email.value.trim())) {
+      emailError.style.display = 'inline';
+      email.setCustomValidity('Please enter a valid email address.');
+      valid = false;
+    } else {
+      emailError.style.display = 'none';
+      email.setCustomValidity('');
+    }
+    if (!role.value) {
+      roleError.style.display = 'inline';
+      role.setCustomValidity('Please select your type of attendance.');
+      valid = false;
+    } else {
+      roleError.style.display = 'none';
+      role.setCustomValidity('');
+    }
+    if (!valid) {
+      e.preventDefault();
+    }
+  });
 const W = window.innerWidth;
 const H = window.innerHeight
 
@@ -195,7 +235,7 @@ document.addEventListener('mousemove', e => {
     <textarea id="message" name="message" rows="3" placeholder="Anything you'd like us to know? Allergies? Dietary&nbsp;restrictions?"></textarea>
     <div style="display: flex; align-items: left; margin-bottom: 12px; flex-direction: column;">
   <label for="role">Type of attendance</label>
-  <select id="role" name="role" style="width:100%;padding:8px;border-radius:2px;border:1px solid #e0e0e0;background:#fff;font-size:16px;margin-bottom:12px;">
+  <select id="role" name="role" required style="width:100%;padding:8px;border-radius:2px;border:1px solid #e0e0e0;background:#fff;font-size:16px;margin-bottom:12px;">
     <option value="" selected disabled>Not selected</option>
     <option value="Playing">Playing</option>
     <option value="Non-playing">Non-playing</option>
