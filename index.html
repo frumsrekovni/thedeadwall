@@ -273,6 +273,7 @@ document.addEventListener('mousemove', e => {
       animation: fade 7s ease-out forwards infinite;
     }
     .containing-box {
+        opacity: 0.8;
     border: 0px solid rgba(255, 255, 255, 0.15);
     background: rgba(0, 0, 0, 0.4);
     border-radius: 24px;
@@ -455,7 +456,48 @@ document.addEventListener('mousemove', e => {
         padding-right: 3% !important;
     }
     }
+#countdown {
+    color: #000000;
+    opacity: 0.85;
+    width: 100%;
+    font-weight: bold;
+    text-align: center;
+    background: transparent;
+    font-size: 22px;
+    margin-top: 40px;
+    text-shadow:
+        -1px -1px 0 #780606,
+         1px -1px 0 #780606,
+        -1px  1px 0 #780606,
+         1px  1px 0 #780606;
+    animation: heartbeat 3.0s ease-in-out infinite;
+}
 
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    5% {
+        transform: scale(1.02);
+        opacity: 0.90;
+    }
+    10% {
+        transform: scale(0.99);
+        opacity: 0.85;
+    }
+    15% {
+        transform: scale(1.01);
+        opacity: 0.90;
+    }
+    20% {
+        transform: scale(1);
+        opacity: 0.85;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.85;
+    }
+}
     </style>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -486,6 +528,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
 </script>
 </head>
 <body style="overflow: visible;">
@@ -500,7 +543,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p>2025</p>
                 <div class="second" data-astro-cid-ndqbrlb2=""> 
                 </div>
+                            <div id="countdown">
+                            </div>
+                            
             </div>
+
         </div>
         <div class="description" style="background: transparent;" data-astro-cid-c3abghta="">
             <h1 class="top en" data-astro-cid-c3abghta="">Survive Count Doracula's riichi dungeon here in Stockholm, October&nbsp;25th&nbsp;2025</h1>
@@ -639,6 +686,28 @@ document.addEventListener('DOMContentLoaded', function() {
             <img src="./files/three_bats.svg" class="dice js-scroll-animation active" data-astro-cid-vlihtyhp=""></a>
         </div>
     </main>
+    <script>
+        function updateCountdown() {
+  const now = new Date();
+  let year = now.getFullYear();
+  const target = new Date(year, 9, 1, 0, 0, 0); // October 1st, 00:00:00
+
+  const diff = target - now;
+  if (diff <= 0) {
+    document.getElementById('countdown').textContent = "REGISTRATION IS NOW OPEN!";
+    return;
+  }else{
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+    const pad = n => n.toString().padStart(2, '0');
+      document.getElementById('countdown').textContent =
+    `Registration opens in: ${hours}h ${pad(minutes)}m ${pad(seconds)}s`;
+  }
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+    </script>
 </body>
 
 </html>
