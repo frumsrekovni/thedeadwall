@@ -457,21 +457,45 @@ document.addEventListener('mousemove', e => {
     }
     }
 #countdown {
-    color: #000000;
-    opacity: 0.85;
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    background: none;
+    font-size: 22px;
     font-weight: bold;
     text-align: center;
-    background: transparent;
-    font-size: 22px;
-    margin-top: 40px;
-    text-shadow:
-        -1px -1px 0 #780606,
-         1px -1px 0 #780606,
-        -1px  1px 0 #780606,
-         1px  1px 0 #780606;
-    animation: heartbeat 3.0s ease-in-out infinite;
+    padding: 0;
+    opacity: 0.9;
+    border-radius: 8px;
+    
 }
+
+#countdown button {
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 16px 38px;
+    
+    box-shadow: 0 3px 3px rgba(255, 255, 255, 0.18);
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+
+#countdown button:hover {
+    background: #222;
+box-shadow: 0 3px 3px rgba(255, 255, 255, 0.18);
+    cursor: pointer;
+}
+#countdown button:active {
+    transform: scale(0.98);
+    box-shadow: 0 1px 1px rgba(255, 255, 255, 0.18);
+}
+
 
 @keyframes heartbeat {
     0% {
@@ -544,6 +568,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="second" data-astro-cid-ndqbrlb2=""> 
                 </div>
                             <div id="countdown">
+                                <a href="./pages/Registration page.html"><button>Register here</button></a>
+                                
                             </div>
                             
             </div>
@@ -615,7 +641,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <b>Date:</b> October&nbsp;25th,&nbsp;2025
             </p>
             <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
-                <b>Registration:</b> Opens October 1st
+                <b>Registration:</b> Register <a style="text-decoration: underline;" href="./pages/Registration page.html">here</a>! Closes October 20th.
             </p>
             <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
                 <b>Registration fee:</b> Playing fee is 200&nbsp;SEK/150&nbsp;CNY. Non-playing fee is 80&nbsp;SEK/60&nbsp;CNY. Both includes food, snacks and drinks. The registration fee is non-refundable after October&nbsp;20th,&nbsp;2025.
@@ -656,7 +682,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">How do I register?</button>
-                    <div class="faq-answer">Registration opens October 1st!</div>
+                    <div class="faq-answer">See <a style="text-decoration: underline;" href="./pages/Registration page.html">here!</a> </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">What is the prize?</button>
@@ -705,8 +731,6 @@ document.addEventListener('DOMContentLoaded', function() {
     `Registration opens in: ${hours}h ${pad(minutes)}m ${pad(seconds)}s`;
   }
 }
-updateCountdown();
-setInterval(updateCountdown, 1000);
     </script>
 </body>
 
