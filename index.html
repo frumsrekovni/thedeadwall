@@ -48,7 +48,7 @@
     .demand b{
       font-size: 22px;
     }
-    .demand img{
+    .demand .demand-gif {
     width: 300px;
     height: auto;
     border-radius: 18px;
@@ -59,7 +59,7 @@
     z-index: 2;
 }
 
-.demand img:hover {
+.demand .demand-gif:hover {
     box-shadow: 0 0 8px 2px rgba(255,0,120,0.05), 0 0 16px 4px rgba(255,255,255,0.04), 0 2px 8px rgba(0,0,0,0.22);
 }
 .faq-accordion {
@@ -114,7 +114,7 @@
     from { opacity: 0; }
     to { opacity: 1; }
 }
-.demand img:hover {
+.demand .demand-gif:hover {
     box-shadow: 0 0 8px 2px rgba(255,0,120,0.05), 0 0 16px 4px rgba(255,255,255,0.04), 0 2px 8px rgba(0,0,0,0.22);
     filter: brightness(1.01) drop-shadow(0 0 2px #ff00a0) drop-shadow(0 0 1px #fff);
     animation: shimmerGlow 3s linear infinite;
@@ -273,7 +273,7 @@ document.addEventListener('mousemove', e => {
       animation: fade 7s ease-out forwards infinite;
     }
     .containing-box {
-        opacity: 0.8;
+    opacity: 0.8;
     border: 0px solid rgba(255, 255, 255, 0.15);
     background: rgba(0, 0, 0, 0.4);
     border-radius: 24px;
@@ -343,7 +343,23 @@ document.addEventListener('mousemove', e => {
         padding-right: 15%;
         padding-top: 11px;
     }
-
+    #rule a:hover{
+        opacity: 0.6;
+    }
+    #rule a:active{
+        text-shadow: 1px 1px 5px black;
+    }
+    #schedule .demand-title:hover{
+        opacity: 0.6;
+    }
+    #schedule .demand-title:active{
+        text-shadow: 1px 1px 5px black;
+    }
+    #schedule .redirect-icon{
+        width: 17px;
+        margin: 8px;
+        height: auto;
+    }
     #timetable span{
         font-weight: bold;
         padding: 3%;
@@ -376,48 +392,48 @@ document.addEventListener('mousemove', e => {
             gap: 1em;
         }
         .demand {
-      display: flex;
-      flex-direction: column;
-      padding: 10vw;
+        display: flex;
+        flex-direction: column;
+        padding: 10vw;
         }
-        .demand img{
+        .demand .demand-gif {
             width: 100%;
             height: auto;
         }
-    .demand .description{
-        padding-left:0% !important;
-        padding-right: 11% !important;
-        padding-bottom: 0%;
-        font-size: 16px;
-    }
-    #timetable .description{
-        padding-left:20vw !important;
-        padding-right: 0% !important;
-        padding-top: 3% !important;
-    }
-    #timetable span{
-        font-weight: bold;
-        padding: 3%;
-    }
-    #timetable{
-        padding: 3% 3% !important;
-    }
-    #rule .description{
-        padding-left:2% !important;
-        padding-right: 0% !important;
-        padding-top: 3% !important;
+        .demand .description{
+            padding-left:0% !important;
+            padding-right: 11% !important;
+            padding-bottom: 0%;
+            font-size: 16px;
+        }
+        #timetable .description{
+            padding-left:20vw !important;
+            padding-right: 0% !important;
+            padding-top: 3% !important;
+        }
+        #timetable span{
+            font-weight: bold;
+            padding: 3%;
+        }
+        #timetable{
+            padding: 3% 3% !important;
+        }
+        #rule .description{
+            padding-left:2% !important;
+            padding-right: 0% !important;
+            padding-top: 3% !important;
 
-    }
-    .containing-box {
-    padding:45px 2% 45px 8% !important;
-    }
+        }
+        .containing-box {
+        padding:45px 2% 45px 8% !important;
+        }
     }
 
     @media only screen and (max-width: 530px) {
     .demand{
         padding: 10px;
     }   
-    .demand img{
+    .demand .demand-gif{
         margin-bottom: 76px;
         }
     }
@@ -488,9 +504,9 @@ document.addEventListener('mousemove', e => {
 
 #countdown button:hover {
     background: #222;
-box-shadow: 0 3px 3px rgba(255, 255, 255, 0.18);
+    box-shadow: 0 3px 3px rgba(255, 255, 255, 0.18);
     cursor: pointer;
-}
+}s
 #countdown button:active {
     transform: scale(0.98);
     box-shadow: 0 1px 1px rgba(255, 255, 255, 0.18);
@@ -586,24 +602,24 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="demands">
                 <div class="demand">
                     
-                    <p class="description"> <b>Riichi Mahjong</b> <br>Witnessing agony at the hands of dora is a must for Count Doracula. Therefore, the participants must partake in riichi mahjong heavily modified to suit his own needs</p>
+                    <p class="description"><b><a class="demand-title" href="./pages/Rulecards details.html">Riichi Mahjong<img class="redirect-icon" src="./files/redirect_white.png" alt="redirect"></a></b><br>Witnessing agony at the hands of dora is a must for Count Doracula. Therefore, the participants must partake in riichi mahjong heavily modified to suit his own needs</p>
                     <a href="./pages/Rulecards details.html">
-                    <img src="./files/doracula mahjong.gif" alt="playing mahjong" title="only Doracula is allowed to win with 18 tiles">
+                    <img class="demand-gif" src="./files/doracula mahjong.gif" alt="playing mahjong" title="only Doracula is allowed to win with 18 tiles">
                     </a>
 
                 </div>
                 <div class="demand">
-                    <p class="description"><b>Costume Contest</b><br>Only the most suitable souls end up in Doracula's dead walls. There must be a judgement of character and soul</p>
+                    <p class="description"><b><a class="demand-title" href="./pages/Costume contest details.html">Costume Contest<img class="redirect-icon" src="./files/redirect_white.png" alt="redirect"></a></b><br>Only the most suitable souls end up in Doracula's dead walls. There must be a judgement of character and soul</p>
                     <a href="./pages/Costume contest details.html">
-                    <img src="./files/costume contest.gif" alt="costume contest">
+                    <img class="demand-gif" src="./files/costume contest.gif" alt="costume contest">
                     </a>
                 </div>
                 
                 <div class="demand">
-                    <p class="description"><b>Moupai Contest</b><br>Nothing marinates the soul better than the deep running anxiety and stress from a <span class="moupai-popup">Moupai<span class="moupai-popup-text" style="text-shadow: none;">Moupai(盲牌) is the practice of rubbing your fingers on the front of a mahjong tile and only using your sense of touch to figure out which tile it is.</span>
+                    <p class="description"><b><a class="demand-title" href="./pages/Moupai contest details.html">Moupai Contest<img class="redirect-icon" src="./files/redirect_white.png" alt="redirect"></a></b><br>Nothing marinates the soul better than the deep running anxiety and stress from a <span class="moupai-popup">Moupai<span class="moupai-popup-text" style="text-shadow: none;">Moupai(盲牌) is the practice of rubbing your fingers on the front of a mahjong tile and only using your sense of touch to figure out which tile it is.</span>
               </span></p>
                     <a href="./pages/Moupai contest details.html">
-                    <img src="./files/moupai.gif" alt="moupai contest">
+                    <img class="demand-gif" src="./files/moupai.gif" alt="moupai contest">
                     </a>
                 </div>
             </div>
@@ -641,13 +657,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 <b>Date:</b> October&nbsp;25th,&nbsp;2025
             </p>
             <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
-                <b>Registration:</b> Register <a style="text-decoration: underline;" href="./pages/Registration page.html">here</a>! Closes October 20th.
+                <b>Registration:</b> Register <b><a style="text-decoration: underline;" href="./pages/Registration page.html">here</a>!</b> Closes October 20th.
             </p>
             <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
                 <b>Registration fee:</b> Playing fee is 200&nbsp;SEK/150&nbsp;CNY. Non-playing fee is 80&nbsp;SEK/60&nbsp;CNY. Both includes food, snacks and drinks. The registration fee is non-refundable after October&nbsp;20th,&nbsp;2025.
             </p>
             <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
-                <b>Payment:</b> Payment is done by Swish or Wechat. See <a href="./pages/Payment QR codes.html" style="text-decoration: underline;">here</a> for QR-codes.
+                <b>Payment:</b> Payment is done by Swish or Wechat. See <b><a href="./pages/Payment QR codes.html" style="text-decoration: underline;">here</a></b> for QR-codes.
             </p>
             <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
                 <b>Max participants:</b> No max for attending non-playing attendees. The maximum playing attendees is 36&nbsp;players, where having some experience playing basic riichi mahjong is expected. Other than that, anyone can register as playing.
@@ -665,7 +681,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <b>Mahjong games:</b> Modified WRC 2025 Rules + Rulecards. More details <b><a href="./pages/Rulecards details.html" style="text-decoration: underline;">here</a></b>.
             </p>
             <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 11px;" data-astro-cid-vlihtyhp="">
-                <b>Contests:</b> Non-mandatory contests that everyone can join, including non-playing attendees. Each winner will get a prize and 10000&nbsp;points counted towards the final score of the entire event. Every participant will receive some points. Read more here: <br><b><a href="./pages/Costume contest details.html" style="text-decoration: underline;">Costume contest</a></b> | <b><a href="./pages/Moupai contest details.html" style="text-decoration: underline;">Moupai contest</a></b></b>.
+                <b>Contests:</b> Non-mandatory contests that everyone can join and earn points, including non-playing attendees. Winners will get a prize and 10000&nbsp;points counted towards the final score of the entire event. Every participant will receive points. Read more here: <br><b><a href="./pages/Costume contest details.html" style="text-decoration: underline;">Costume contest</a></b> | <b><a href="./pages/Moupai contest details.html" style="text-decoration: underline;">Moupai contest</a></b></b>.
             </p>
             <p class="description" style="padding-bottom: 15%;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 11px; " data-astro-cid-vlihtyhp="">
                 <b>The Dead Wall Champion 2025:</b> The attendee with the largest total sum of points from the riichi games, costume contest and moupai contest will be crowned The Dead Wall Champion 2025.
@@ -709,7 +725,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             <br><br>
             <a href="#top">
-            <img src="./files/three_bats.svg" class="dice js-scroll-animation active" data-astro-cid-vlihtyhp=""></a>
+            <img id="bottom" src="./files/three_bats.svg" class="dice js-scroll-animation active" data-astro-cid-vlihtyhp=""></a>
         </div>
     </main>
     <script>
