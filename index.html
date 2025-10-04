@@ -367,6 +367,106 @@ document.addEventListener('mousemove', e => {
     #timetable{
         padding: 10% 15% 10% 15%;
     }
+#countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    background: none;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    padding: 0;
+    opacity: 0.9;
+    border-radius: 8px;
+    
+}
+
+#countdown button {
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 16px 38px;
+    
+    box-shadow: 0 3px 3px rgba(255, 255, 255, 0.18);
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+
+#countdown button:hover {
+    background: #222;
+    box-shadow: 0 3px 3px rgba(255, 255, 255, 0.18);
+    cursor: pointer;
+}s
+#countdown button:active {
+    transform: scale(0.98);
+    box-shadow: 0 1px 1px rgba(255, 255, 255, 0.18);
+}
+.green-dot {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #19e65b;
+    box-shadow: 0 0 1px 1px #19e65b, 0 0 1px 1px #fff;
+    animation: greenGlow 1s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 2;
+    margin-left: 22px;
+    opacity: 1;
+}
+#spots-available{
+    font-size: 15px;
+    text-align: center;
+    margin-top: 8px;
+    color: #19e65b;
+    text-shadow: 1px 1px 2px black;
+    font-weight: bold;
+    opacity: 0.9;
+}
+
+@keyframes greenGlow {
+    0%, 100% {
+            box-shadow: 0 0 1px 1px #19e65b, 0 0 1px 1px #fff;
+        opacity: 1;
+    }
+    50% {
+        box-shadow: 0 0 2px 1px #19e65b, 0 0 1px 1px #fff;
+        opacity: 0.7;
+    }
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    5% {
+        transform: scale(1.02);
+        opacity: 0.90;
+    }
+    10% {
+        transform: scale(0.99);
+        opacity: 0.85;
+    }
+    15% {
+        transform: scale(1.01);
+        opacity: 0.90;
+    }
+    20% {
+        transform: scale(1);
+        opacity: 0.85;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.85;
+    }
+}
     @media only screen and (max-width: 1300px) {
     #timetable .description{
         padding-left:20vw !important;
@@ -451,6 +551,9 @@ document.addEventListener('mousemove', e => {
     .containing-box p{
         font-size: 60px !important;
     }
+    #spots-available{
+        font-size: 14px !important;
+    }
     #timetable span{
         font-weight: bold;
         padding: 3%;
@@ -472,72 +575,6 @@ document.addEventListener('mousemove', e => {
         padding-right: 3% !important;
     }
     }
-#countdown {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 40px;
-    background: none;
-    font-size: 22px;
-    font-weight: bold;
-    text-align: center;
-    padding: 0;
-    opacity: 0.9;
-    border-radius: 8px;
-    
-}
-
-#countdown button {
-    background: #111;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-size: 22px;
-    font-weight: bold;
-    padding: 16px 38px;
-    
-    box-shadow: 0 3px 3px rgba(255, 255, 255, 0.18);
-    cursor: pointer;
-    transition: background 0.2s, box-shadow 0.2s;
-}
-
-
-#countdown button:hover {
-    background: #222;
-    box-shadow: 0 3px 3px rgba(255, 255, 255, 0.18);
-    cursor: pointer;
-}s
-#countdown button:active {
-    transform: scale(0.98);
-    box-shadow: 0 1px 1px rgba(255, 255, 255, 0.18);
-}
-
-
-@keyframes heartbeat {
-    0% {
-        transform: scale(1);
-    }
-    5% {
-        transform: scale(1.02);
-        opacity: 0.90;
-    }
-    10% {
-        transform: scale(0.99);
-        opacity: 0.85;
-    }
-    15% {
-        transform: scale(1.01);
-        opacity: 0.90;
-    }
-    20% {
-        transform: scale(1);
-        opacity: 0.85;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 0.85;
-    }
-}
     </style>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -578,16 +615,18 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="mainVisual" id="top" data-astro-cid-ndqbrlb2="">
             <div class="mainVisualTop containing-box breathing" data-astro-cid-ndqbrlb2="">
                 <img src="the dead wall.gif" alt="animation of the dead wall flipping" style="width: 100%;">
-                <p>Doracula's</p>
-                <p>DEAD&nbsp;WALL</p>
-                <p>2025</p>
-                <div class="second" data-astro-cid-ndqbrlb2=""> 
+                    <p>Doracula's</p>
+                    <p>DEAD&nbsp;WALL</p>
+                    <p>2025</p>
+                <div id="countdown">
+                    <a href="./pages/Registration page.html" style="position: relative; display: inline-block;">
+                        <button style="position: relative;">
+                            Register here
+                            <span class="green-dot"></span>
+                        </button>
+                    </a>
                 </div>
-                            <div id="countdown">
-                                <a href="./pages/Registration page.html"><button>Register here</button></a>
-                                
-                            </div>
-                            
+                <p id="spots-available">Playing spots available</p>                 
             </div>
 
         </div>
