@@ -489,7 +489,7 @@
 						html: '<b>Max participants:</b> 36\u00A0Space Mahjong seats available.',
 					},
 					{
-						html: '<b>Prize:</b> Golden compass and the title of The Dead Wall\u00A0champion\u00A02026.',
+						html: '<b>Prize:</b> Golden mahjong compass and the title of The Dead Wall\u00A0champion\u00A02026.',
 					},
 					{
 						html: '<b>Dress code:</b> Halloween costume is encouraged, but not mandatory. Halloween accessories will be provided at the venue if you want to use them.',
@@ -497,7 +497,9 @@
 					{
 						html: '<b>Food &amp; Drinks:</b> Food, snacks and drinks are available at your own discretion throughout the event. Alcohol consumption is allowed within moderation, but alcohol will not be sold at the venue. Bringing your own snacks and drinks is allowed.',
 					},
-					{ html: '<b>Contact:</b> count.doracula@gmail.com' },
+					{
+						html: '<b>Contact:</b> If there are any questions or concerns, please contact <a href="mailto:count.doracula@gmail.com">count.doracula@gmail.com</a>',
+					},
 					{
 						html: "<b>Mahjong games:</b> Modified WRC 2025 Rules + Space Mahjong rules. More details <a href='./pages/Space mahjong details.html'>here</a>.",
 					},
@@ -512,15 +514,15 @@
 				faq: [
 					{
 						q: 'How do I register?',
-						a: 'Head to the <a href="#register">registration form</a> and claim your seat. Registered names appear on the wall.',
+						a: 'Head to the <a href="#register">registration form</a> and claim your seat. Registered names appear on the wall.<br><br>Unpaid registrations will not be considered confirmed and assumed no-show.',
 					},
 					{
 						q: 'Do I have to register?',
-						a: 'Yes, you have to be registered and paid to enter the event venue.<br><br>The venue will not be open for public booking during the event.',
+						a: 'Yes, you have to be registered and paid to enter the event venue.<br><br>The venue will not be open for the public through booking or walk-in during the event.',
 					},
 					{
 						q: 'What is the prize?',
-						a: 'The Dead Wall 2026 champion wins a golden compass. <br><br> The winners of the costume contest and quiz bowl receive prizes and points counted towards the total event.',
+						a: 'The Dead Wall 2026 champion wins a golden mahjong compass. <br><br> The winners of the costume contest and quiz bowl receive prizes and points counted towards the total event.',
 					},
 					{
 						q: 'What is Yaku trick-or-treating?',
@@ -644,9 +646,6 @@
 							`<span class="term" tabindex="0" title="${def.replace(/"/g, '&quot;')}">${word}</span>`,
 					);
 				}
-
-				/* ---- Dramatic intro: writes itself out, then reveals the finale ----
-				   Wrap the phrase you want emphasized in [[ ]] inside EVENT.intro. */
 				function setupIntro(raw) {
 					const el = $('[data-field="intro"]');
 					if (!el) return;
@@ -668,7 +667,6 @@
 					if (last < raw.length)
 						segs.push({ t: raw.slice(last), reveal: false });
 
-					// build the DOM: one span per character, plus a reveal span
 					const steps = [];
 					segs.forEach((s) => {
 						if (s.reveal) {
