@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en" style="background: linear-gradient(to bottom, #020202 27%, #ffffff 120%);">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Roboto" rel="stylesheet">
+    <style>
+        html{
+            scroll-behavior: smooth;
+            cursor: default;
+            overflow-x: hidden;
+            text-shadow: 1px 1px 2px black;
+        }
+.moupai-popup {
+  position: relative;
+  cursor: pointer;
+  text-decoration: underline dotted;
+}
+.moupai-popup-text {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  background: #fffbe9;
+  color: #222;
+  border: 1px solid #e1c48b;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  padding: 14px 18px;
+  font-size: 1rem;
+  width: 320px;
+  max-width: 90vw;
+  line-height: 1.5;
+  font-family: 'Open Sans', 'Roboto', sans-serif;
+  pointer-events: none;
+}
+.demands{
+    justify-content: center;
+}
+.demand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    text-align: left;
+    gap: 2em;
+    font-size: 18px;
+    padding: 5% 15%;
+    }
+    .demand b{
+      font-size: 22px;
+    }
+    .demand .demand-gif {
+    width: 300px;
+    height: auto;
+    border-radius: 18px;
+    border: 4px solid rgba(40, 0, 40, 0.25);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.45), 0 0 24px rgba(255,0,80,0.12), 0 2px 8px rgba(255,255,255,0.08);
+    transition: box-shadow 0.3s, filter 0.3s;
+    position: relative;
+    z-index: 2;
+}
+
+.demand .demand-gif:hover {
+    box-shadow: 0 0 8px 2px rgba(255,0,120,0.05), 0 0 16px 4px rgba(255,255,255,0.04), 0 2px 8px rgba(0,0,0,0.22);
+}
+.faq-accordion {
+    margin-top: 22px;
+    border-radius: 8px;
+    justify-self: center;
+    padding-left:30%;
+    padding-right:30%;
+    width: 100%;
+}
+.faq-item {
+    margin-bottom: 4px;
+    border-radius: 8px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+.faq-question {
+    background: linear-gradient(120deg, #7a7d85 0%, #bfc2c7 100%);
+    background-size: 100% 100%;
+    border: none;
+    width: 100%;
+    text-align: left;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    text-shadow: 1px 1px 2px black;
+    border-radius: 8px;
+    box-shadow: 1px 2px 8px rgba(80,80,80,0.08);
+    font-weight: 600;
+    background-size: 150% 100%;
+    transition: background-position 1.2s cubic-bezier(.4,2,.6,1), color 0.3s;
+}
+.faq-question:hover {
+    box-shadow: 0 2px 12px rgba(180,180,180,0.10);
+}
+.faq-question:active {
+    opacity: 0.8;
+}
+.faq-answer {
+    display: none;
+    background: transparent;
+    color: #fff;
+    font-size: 16px;
+    text-align: left;
+    padding: 12px;
+    font-family: 'Open Sans', 'Raleway', 'Roboto', sans-serif;
+    animation: fadeIn 0.3s;
+    
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.demand .demand-gif:hover {
+    box-shadow: 0 0 8px 2px rgba(255,0,120,0.05), 0 0 16px 4px rgba(255,255,255,0.04), 0 2px 8px rgba(0,0,0,0.22);
+    filter: brightness(1.01) drop-shadow(0 0 2px #ff00a0) drop-shadow(0 0 1px #fff);
+    animation: shimmerGlow 3s linear infinite;
+    cursor: pointer;
+}
+
+@keyframes shimmerGlow {
+    0% {
+        filter: brightness(1.01) drop-shadow(0 0 2px #ff00a0) drop-shadow(0 0 1px #fff);
+    }
+    50% {
+        filter: brightness(1.03) drop-shadow(0 0 4px #ff00a0) drop-shadow(0 0 2px #fff);
+    }
+    100% {
+        filter: brightness(1.01) drop-shadow(0 0 2px #ff00a0) drop-shadow(0 0 1px #fff);
+    }
+}
+    .demand .description{
+        width: 330px;
+        color: #ffffff;
+    }
+        .Roboto{
+            font-family: 'Roboto', sans-serif;
+        }
+        .Open_Sans{
+            font-family: 'Open Sans', sans-serif;
+        }
+        .Roboto{
+            font-family: 'Raleway', sans-serif;
+        }
+        .demand .description{
+            padding: 22px;
+        }
+        :root {
+  --cursorX: 50vw;
+  --cursorY: 50vh;
+  --cursorX2: 50vw;
+  --cursorY2: 50vh;
+  --animationDuration: 10s;
+  --animationDelay: 15s;
+}
+@keyframes torch {
+    0%, 1%, 2%, 3%, 4%, 5%, 20%, 21%, 60%, 61%, 62%, 100% { background-image:
+      radial-gradient(
+        circle 16vmax at 50vw 50vh,
+        rgba(0,0,0,0) 30%,
+        rgba(0,5,5,.1) 40%,
+        rgba(5,5,0,.5) 60%,
+        rgba(0,0,0,.75) 70%,
+        rgba(0,0,0,.95) 100%
+      ),
+      radial-gradient(
+        circle 12vmax at 50vw 50vh,
+        rgba(255,255,255,1) 30%,
+        rgba(255,255,255,.3) 50%,
+        rgba(255,255,255,.05) 100%
+      ),
+      url(./herobg.jpg);
+    }
+  
+    0.5%, 1.5%, 60.5% { background-image:
+      radial-gradient(
+        circle 12vmax at 50vw 50vh,
+        rgba(0,0,0,0) 30%,
+        rgba(0,5,5,.1) 40%,
+        rgba(5,5,0,.5) 60%,
+        rgba(0,0,0,.75) 70%,
+        rgba(0,0,0,.95) 100%
+      ),
+      radial-gradient(
+        circle 8vmax at 50vw 50vh,
+        rgba(255,255,255,1) 30%,
+        rgba(255,255,255,.3) 50%,
+        rgba(255,255,255,.05) 100%
+      ),
+      url(./herobg.jpg);
+    }
+  
+    2.5%, 3.5%, 4.5%, 20.5%, 61.5% { background-image:
+      radial-gradient(
+        circle 8vmax at 50vw 50vh,
+        rgba(0,0,0,0) 30%,
+        rgba(0,5,5,.1) 40%,
+        rgba(5,5,0,.5) 60%,
+        rgba(0,0,0,.75) 70%,
+        rgba(0,0,0,.95) 100%
+      ),
+      radial-gradient(
+        circle 4vmax at 50vw 50vh,
+        rgba(255,255,255,1) 0%,
+        rgba(255,255,255,.5) 50%,
+        rgba(255,255,255,.05) 100%
+      ),
+      url(./herobg.jpg);
+    }
+}
+    </style>
+    <meta name="description" content="Survive Count Doracula's riichi dungeon">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" type="image/svg+xml" href="coffinico.ico">
+    <meta name="author" content="The Dead Wall 2025">
+    <meta name="theme-color" content="#fff">
+    <meta property="og:title" content="The Dead Wall 2025">
+    <meta property="og:description" content="Survive Count Doracula's riichi dungeon">
+    <meta property="og:type" content="website">
+
+    <title>The Dead Wall 2025</title>
+    <script>
+
+        // var fonts = ['Roboto', 'Open_Sans', 'Raleway'];
+        // var rand = fonts[Math.floor(Math.random() * fonts.length)];
+        // var bodyElement = document.getElementById("logo");
+        // bodyElement.className = rand;
+const W = window.innerWidth;
+const H = window.innerHeight
+
+function updateAnimationTiming() {
+  const animationDuration = 5 + Math.random() * 5;
+  const animationDelay = 5 + Math.random() * 10;
+  
+  window.requestAnimationFrame(() => {
+    document.documentElement.style.setProperty('--animationDuration', animationDuration + 's');
+    document.documentElement.style.setProperty('--animationDelay', animationDelay + 's');
+  });
+  
+  const timeout = (animationDuration + animationDelay) * 1000 - 100;
+  setTimeout(updateAnimationTiming, timeout);
+}
+updateAnimationTiming();
+
+document.addEventListener('mousemove', e => {
+  window.requestAnimationFrame(() => {
+    const X = e.clientX;
+    const Y = e.clientY;
+
+    document.documentElement.style.setProperty('--cursorX', X + 'px');
+    document.documentElement.style.setProperty('--cursorY', Y + 'px');
+
+    const X2 = X - (12 * W / 100) * (X / W - 0.5);
+    const Y2 = Y - (12 * W / 100) * (Y / H - 0.5);
+
+    document.documentElement.style.setProperty('--cursorX2', X2 + 'px');
+    document.documentElement.style.setProperty('--cursorY2', Y2 + 'px');
+  });
+});
+
+    </script>
+        </script><link rel="stylesheet" href="./files/index.C5_7h7bT.css"><script type="module" src="./files/hoisted.ucgshFj1.js.nedladdning"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./files/css2" rel="stylesheet">
+    <link rel="stylesheet" href="./files/index.C5_7h7bT.css">
+    <style>
+
+    .breathing {
+      animation: fade 7s ease-out forwards infinite;
+    }
+    .containing-box {
+    opacity: 0.8;
+    border: 0px solid rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 24px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 40px rgba(255, 255, 255, 0.05), inset 0 0 40px rgba(255, 255, 255, 0.02);
+    padding:45px 135px 45px 135px;
+    }
+    .containing-box p{
+    font-weight: bold;
+    font-size: 62px;
+    color: whitesmoke;
+    }
+    .mainVisual {
+        justify-content: center;
+        position: relative;
+        width: 100%;
+        min-height: 60vh;
+        overflow: hidden;
+    }
+    .mainVisual::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        display: block;
+        background-blend-mode: normal, overlay;
+        background-position: center center;
+        background-size: cover;
+        background-image:
+        radial-gradient(
+            circle 16vmax at var(--cursorX) var(--cursorY),
+            rgba(255,255,255,0.15) 0%,
+            rgba(255,255,255,0.05) 30%,
+            rgba(0,0,0,0.5) 60%,
+            rgba(0,0,0,0.85) 100%
+        ),
+        url(./herobg.jpg);
+        filter: brightness(0.1);
+        transition: background-image 0.2s;
+    }
+    .mainVisual > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    @keyframes fade {
+      0%   { opacity: 0.8; }
+      50%  { opacity: 1.0; transform: scale(1.02) translateY(-4px)}
+      90%  { opacity: 0.8; transform: translateY(0);}
+    }
+    #timetable .description{
+        padding-bottom: 2px;
+        text-align: left;
+        padding-left:37%;
+        padding-right: 30%;
+        padding-top: 0%;
+        font-size: 18px;
+        line-height: 2.5;
+    }
+    #rule {
+        color: #ffffff;
+    }
+    #rule .faq-accordion{
+        padding-bottom: 2px;
+        text-align: left;
+        padding-left:15%;
+        padding-right: 15%;
+        padding-top: 11px;
+    }
+    #rule a:hover{
+        opacity: 0.6;
+    }
+    #rule a:active{
+        text-shadow: 1px 1px 5px black;
+    }
+    #schedule .demand-title:hover{
+        opacity: 0.6;
+    }
+    #schedule .demand-title:active{
+        text-shadow: 1px 1px 5px black;
+    }
+    #schedule .redirect-icon{
+        width: 17px;
+        margin: 8px;
+        height: auto;
+    }
+    #timetable span{
+        font-weight: bold;
+        padding: 3%;
+    }
+    #timetable{
+        padding: 10% 15% 10% 15%;
+    }
+#countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    background: none;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    padding: 0;
+    opacity: 0.9;
+    border-radius: 8px;
+    
+}
+
+#countdown button {
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 16px 38px;
+    
+    box-shadow: 0 3px 3px rgba(255, 255, 255, 0.18);
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+
+#countdown button:hover {
+    background: #222;
+    box-shadow: 0 3px 3px rgba(255, 255, 255, 0.18);
+    cursor: pointer;
+}s
+#countdown button:active {
+    transform: scale(0.98);
+    box-shadow: 0 1px 1px rgba(255, 255, 255, 0.18);
+}
+.green-dot {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #19e65b;
+    box-shadow: 0 0 1px 1px #19e65b, 0 0 1px 1px #fff;
+    animation: greenGlow 1s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 2;
+    margin-left: 22px;
+    opacity: 1;
+}
+#spots-available{
+    font-size: 15px;
+    text-align: center;
+    margin-top: 8px;
+    color: #19e65b;
+    text-shadow: 1px 1px 2px black;
+    font-weight: bold;
+    opacity: 0.9;
+}
+
+@keyframes greenGlow {
+    0%, 100% {
+            box-shadow: 0 0 1px 1px #19e65b, 0 0 1px 1px #fff;
+        opacity: 1;
+    }
+    50% {
+        box-shadow: 0 0 2px 1px #19e65b, 0 0 1px 1px #fff;
+        opacity: 0.7;
+    }
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    5% {
+        transform: scale(1.02);
+        opacity: 0.90;
+    }
+    10% {
+        transform: scale(0.99);
+        opacity: 0.85;
+    }
+    15% {
+        transform: scale(1.01);
+        opacity: 0.90;
+    }
+    20% {
+        transform: scale(1);
+        opacity: 0.85;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.85;
+    }
+}
+    @media only screen and (max-width: 1300px) {
+    #timetable .description{
+        padding-left:20vw !important;
+        padding-right: 0% !important;
+        padding-top: 3% !important;
+    }
+    .faq-item {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    }
+    @media only screen and (max-width: 900px) {
+        .faq-accordion {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            max-width: 100% !important;
+        }
+        
+        .demands{
+            display: flex;
+            flex-direction: column;
+            padding: 0% 5% 0% 5%;
+            gap: 1em;
+        }
+        .demand {
+        display: flex;
+        flex-direction: column;
+        padding: 10vw;
+        }
+        .demand .demand-gif {
+            width: 100%;
+            height: auto;
+        }
+        .demand .description{
+            padding-left:0% !important;
+            padding-right: 11% !important;
+            padding-bottom: 0%;
+            font-size: 16px;
+        }
+        #timetable .description{
+            padding-left:20vw !important;
+            padding-right: 0% !important;
+            padding-top: 3% !important;
+        }
+        #timetable span{
+            font-weight: bold;
+            padding: 3%;
+        }
+        #timetable{
+            padding: 3% 3% !important;
+        }
+        #rule .description{
+            padding-left:2% !important;
+            padding-right: 0% !important;
+            padding-top: 3% !important;
+
+        }
+        .containing-box {
+        padding:45px 2% 45px 8% !important;
+        }
+    }
+
+    @media only screen and (max-width: 530px) {
+    .demand{
+        padding: 10px;
+    }   
+    .demand .demand-gif{
+        margin-bottom: 76px;
+        }
+    }
+
+    
+    @media only screen and (max-width: 380px) {
+        #timetable .description{
+        padding-left:1vw !important;
+        padding-right: 0% !important;
+        padding-top: 3% !important;
+    }
+        .containing-box {
+        padding:5% !important;
+    }
+    .containing-box p{
+        font-size: 60px !important;
+    }
+    #spots-available{
+        font-size: 14px !important;
+    }
+    #timetable span{
+        font-weight: bold;
+        padding: 3%;
+    }
+    #timetable{
+        padding: 3% 3% !important;
+    }
+    .demand .description{
+        text-align: center;
+    }
+    .demand{
+        padding: 0;
+    }   
+    .demand img{
+        margin-bottom: 76px;
+        }
+    #rule {
+        padding-left:3% !important;
+        padding-right: 3% !important;
+    }
+    }
+    </style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.faq-answer').forEach(function(a) {
+        a.style.display = 'none';
+    });
+    var questions = document.querySelectorAll('.faq-question');
+    questions.forEach(function(q) {
+        q.addEventListener('click', function() {
+            var answer = this.nextElementSibling;
+            var isOpen = answer.style.display === 'block';
+            answer.style.display = isOpen ? 'none' : 'block';
+        });
+    });
+});
+document.addEventListener('DOMContentLoaded', function() {
+  var umaPopups = document.querySelectorAll('.moupai-popup');
+  umaPopups.forEach(function(uma) {
+    var popup = uma.querySelector('.moupai-popup-text');
+    if (!popup) return;
+    uma.addEventListener('mousemove', function(e) {
+      popup.style.display = 'block';
+      popup.style.left = (e.clientX + 18) + 'px';
+      popup.style.top = (e.clientY + 18) + 'px';
+    });
+    uma.addEventListener('mouseleave', function() {
+      popup.style.display = 'none';
+    });
+  });
+});
+
+</script>
+</head>
+<body style="overflow: visible;">
+    <header style="display: none;" class="js-header" id="header" data-astro-cid-5blmo7yk="">
+    </header>
+    <main data-astro-cid-dhfotatx="">
+        <div class="mainVisual" id="top" data-astro-cid-ndqbrlb2="">
+            <div class="mainVisualTop containing-box breathing" data-astro-cid-ndqbrlb2="">
+                <img src="the dead wall.gif" alt="animation of the dead wall flipping" style="width: 100%;">
+                    <p>Doracula's</p>
+                    <p>DEAD&nbsp;WALL</p>
+                    <p>2025</p>
+                <!-- <div id="countdown">
+                    <a href="./pages/standings.html" style="position: relative; display: inline-block;">
+                        <button style="position: relative;">
+                            Current standings
+                        </button>
+                    </a>
+                </div>         -->
+            </div>
+
+        </div>
+        <div class="description" style="background: transparent;" data-astro-cid-c3abghta="">
+            <h1 class="top en" data-astro-cid-c3abghta="">Survive Count Doracula's riichi dungeon here in Stockholm, October&nbsp;25th&nbsp;2025</h1>
+            <div class="bottom en" data-astro-cid-c3abghta="">
+                Tempted by everlasting glory, creatures from all over find themselves captured in Count Doracula's dungeon. Many will fail and become eternalized in his dead walls, but if you are up to the task and make it through Doracula's demands, you will forever earn your claim to the title of The&nbsp;Dead&nbsp;Wall&nbsp;champion&nbsp;2025.
+            </div>
+        </div>
+        <div id="schedule" class="schedule" style="background: transparent;" data-astro-cid-s4x4txsv="">
+            <h2 class="title white" style="color: #ffffff;" data-astro-cid-azbpcp4f="">Count Doracula's demands</h2>
+            <div class="demands">
+                <div class="demand">
+                    
+                    <p class="description"><b><a class="demand-title" href="./pages/Rulecards details.html">Riichi Mahjong<img class="redirect-icon" src="./files/redirect_white.png" alt="redirect"></a></b><br>Witnessing agony at the hands of dora is a must for Count Doracula. Therefore, the participants must partake in riichi mahjong heavily modified to suit his own needs</p>
+                    <a href="./pages/Rulecards details.html">
+                    <img class="demand-gif" src="./files/doracula mahjong.gif" alt="playing mahjong" title="only Doracula is allowed to win with 18 tiles">
+                    </a>
+
+                </div>
+                <div class="demand">
+                    <p class="description"><b><a class="demand-title" href="./pages/Costume contest details.html">Costume Contest<img class="redirect-icon" src="./files/redirect_white.png" alt="redirect"></a></b><br>Only the most suitable souls end up in Doracula's dead walls. There must be a judgement of character and soul</p>
+                    <a href="./pages/Costume contest details.html">
+                    <img class="demand-gif" src="./files/costume contest.gif" alt="costume contest">
+                    </a>
+                </div>
+                
+                <div class="demand">
+                    <p class="description"><b><a class="demand-title" href="./pages/Moupai contest details.html">Moupai Contest<img class="redirect-icon" src="./files/redirect_white.png" alt="redirect"></a></b><br>Nothing marinates the soul better than the deep running anxiety and stress from a <span class="moupai-popup">Moupai<span class="moupai-popup-text" style="text-shadow: none;">Moupai(盲牌) is the practice of rubbing your fingers on the front of a mahjong tile and only using your sense of touch to figure out which tile it is.</span>
+              </span></p>
+                    <a href="./pages/Moupai contest details.html">
+                    <img class="demand-gif" src="./files/moupai.gif" alt="moupai contest">
+                    </a>
+                </div>
+            </div>
+            <div class="bottom" data-astro-cid-s4x4txsv="">  </div>
+            <img
+            src="./files/night.svg" class="sun js-scroll-animation active" data-astro-cid-s4x4txsv=""> <img src="./files/doracula.svg" class="fuji js-scroll-animation active"   data-astro-cid-s4x4txsv=""> </div>
+        <div id="timetable" class="timetable" style="background: transparent;" data-astro-cid-frvuzgag="">
+            <h2 class="title white" data-astro-cid-azbpcp4f="">Schedule</h2>
+            <p class="description" data-astro-cid-vlihtyhp="">
+                <br>
+                <span>15:00 - 15:30</span> Welcome&nbsp;ceremony<br>
+                <span>15:30 - 17:00</span> Riichi&nbsp;game&nbsp;1 <br>
+                <span>17:00 - 17:45</span> Costume&nbsp;contest<br>
+                <span>17:45 - 19:15</span> Riichi&nbsp;game&nbsp;2<br>
+                <span>19:15 - 20:00</span> Moupai&nbsp;contest <br>
+                <span>20:00 - 21:30</span> Riichi&nbsp;game&nbsp;3<br>
+                <span>21:30 - 22:00</span> Closing&nbsp;ceremony <br>
+            </p>
+        </div>
+        <div id="map" class="map" style="background: transparent;" data-astro-cid-kbkfje74="">
+            <h2 class="title white" data-astro-cid-azbpcp4f="">Venue</h2>
+            <h3 class="place" data-astro-cid-kbkfje74="" style="font-size: 22px;">Tiger Mahjong</h3>
+            <p class="address" data-astro-cid-kbkfje74="">
+                Bråvallagatan 12, 113 36
+                <br class="only_mobile">Stockholm, Sweden
+            </p>
+        <img src="./files/tiger.svg" class="sumo js-scroll-animation active" data-astro-cid-kbkfje74=""> </div>
+        <div id="rule" class="rule content-wrapper" style="background: transparent;padding: 15%;" data-astro-cid-vlihtyhp="">
+            
+            <h2 class="title white" style="padding-top: 3%;" data-astro-cid-azbpcp4f="">Event Details</h2>
+                        <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 20px;" data-astro-cid-vlihtyhp="">
+                            The&nbsp;Dead&nbsp;Wall&nbsp;2025 is a halloween themed one-day event focusing on but not limited to mahjong related activities. Anyone is allowed to attend the event.<br><br> There is two registration options: playing and non-playing. Non-playing attendance costs less. With playing registrants there is an expectation that you have played basic riichi mahjong before.
+            </p>
+            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 20px;" data-astro-cid-vlihtyhp="">
+                <b>Date:</b> October&nbsp;25th,&nbsp;2025
+            </p>
+            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
+                <b>Registration:</b> Registration is now closed
+            </p>
+            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
+                <b>Registration fee:</b> Playing fee is 200&nbsp;SEK/150&nbsp;CNY. Non-playing fee is 80&nbsp;SEK/60&nbsp;CNY. Both includes food, snacks and drinks. The registration fee is non-refundable after October&nbsp;20th,&nbsp;2025.
+            </p>
+            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
+                <b>Payment:</b> Payment is done by Swish or Wechat. See <b><a href="./pages/Payment QR codes.html" style="text-decoration: underline;">here</a></b> for QR-codes.
+            </p>
+            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
+                <b>Max participants:</b> No max for attending non-playing attendees. The maximum playing attendees is 36&nbsp;players, where having some experience playing basic riichi mahjong is expected. Other than that, anyone can register as playing.
+            </p>
+            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
+                <b>Prize:</b> Trophy, coupon to Tiger Mahjong and the title of The Dead Wall&nbsp;champion&nbsp;2025.
+            </p>
+            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
+                <b>Dress code:</b> Halloween costume is encouraged, but, not mandatory. Halloween accessories will be provided at the venue if you want to use them.
+            </p>
+            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
+                <b>Food & Drinks:</b> Food, snacks and drinks are available at your own discretion throughout the event. Alcohol consumption is allowed within moderation, but, alcohol will not be sold at the venue. Bringing your own snacks and drinks is allowed.
+            </p>
+            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
+                <b>Contact:</b> count.doracula@gmail.com
+            </p>
+            <p class="description" style="padding-bottom: 8px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 0px;" data-astro-cid-vlihtyhp="">
+                <b>Mahjong games:</b> Modified WRC 2025 Rules + Rulecards. More details <b><a href="./pages/Rulecards details.html" style="text-decoration: underline;">here</a></b>.
+            </p>
+            <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 11px;" data-astro-cid-vlihtyhp="">
+                <b>Contests:</b> Non-mandatory contests that everyone can join and earn points, including non-playing attendees. Winners will get a prize and 10000&nbsp;points counted towards the final score of the entire event. Every participant will receive points. Read more here: <br><b><a href="./pages/Costume contest details.html" style="text-decoration: underline;">Costume contest</a></b> | <b><a href="./pages/Moupai contest details.html" style="text-decoration: underline;">Moupai contest</a></b></b>.
+            </p>
+            <p class="description" style="padding-bottom: 15%;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 11px; " data-astro-cid-vlihtyhp="">
+                <b>The Dead Wall Champion 2025:</b> The attendee with the largest total sum of points from the riichi games, costume contest and moupai contest will be crowned The Dead Wall Champion 2025.
+            </p>
+            <p><br><br></p>
+            <h2 class="title white" data-astro-cid-azbpcp4f="">FAQ</h2>
+            <div class="faq-accordion" >
+                <div class="faq-item">
+                    <button class="faq-question">What is a non-playing registration?</button>
+                    <div class="faq-answer" style="text-shadow: 1px 1px 2px black;">
+                        Non-playing attendees do not participate in the riichi mahjong competition games. Besides that, it's the same.<br><br>
+                        
+                        As a non-playing attendee, you can participate in all other activities such as joining the audience, participate in the costume and/or moupai contests and play social riichi mahjong. Food, snacks and drinks are included too.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">How do I register?</button>
+                    <div class="faq-answer">Registration is now closed!</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What is the prize?</button>
+                    <div class="faq-answer">The winners of the costume contest and moupai contest will receive prizes and points counted towards the total event. The overall winner of the event will receive a trophy, Tiger Mahjong coupon and the title of The Dead Wall 2025 champion.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What is the WRC Rulebook?</button>
+                    <div class="faq-answer">The <a href="https://www.worldriichi.org/wrc-rules" target="_blank" style="text-decoration: underline;">WRC Rulebook</a> is just one variation of guidelines and rules commonly used for riichi mahjong competitions worldwide. <br><br> It is used as the basis for this event's heavily modified ruleset. Using this rulebook simplifies the resolution of any potential disagreements or penalties, even though we will be much more lenient than described in the rulebook when it comes to these kinds of things.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Do I have to read the WRC rulebook?</button>
+                    <div class="faq-answer">Not really, if you are used to the rules from games like Mahjong Soul or Riichi City you are already 90% there. <br><br>
+                    Read more about how a game would flow <a href="./pages/Rulecards details.html" style="text-decoration: underline;">here</a>.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What is moupai?</button>
+                    <div class="faq-answer">Moupai(盲牌) is the practice of rubbing your fingers on the front of a mahjong tile and only using your sense of touch to figure out which tile it is.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Do I need a halloween costume?</button>
+                    <div class="faq-answer">No, any outfit is ok. <br><br>Halloween accessories will be provided at the venue if you want to use them.</div>
+                </div>
+            </div>
+            <br><br>
+            <a href="#top">
+            <img id="bottom" src="./files/three_bats.svg" class="dice js-scroll-animation active" data-astro-cid-vlihtyhp=""></a>
+        </div>
+    </main>
+    <script>
+        function updateCountdown() {
+  const now = new Date();
+  let year = now.getFullYear();
+  const target = new Date(year, 9, 1, 0, 0, 0); // October 1st, 00:00:00
+
+  const diff = target - now;
+  if (diff <= 0) {
+    document.getElementById('countdown').textContent = "REGISTRATION IS NOW OPEN!";
+    return;
+  }else{
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+    const pad = n => n.toString().padStart(2, '0');
+      document.getElementById('countdown').textContent =
+    `Registration opens in: ${hours}h ${pad(minutes)}m ${pad(seconds)}s`;
+  }
+}
+    </script>
+</body>
+
+</html>

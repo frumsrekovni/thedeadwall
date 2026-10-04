@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: #e1e1e1;">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Roboto" rel="stylesheet">
+    <style>
+  .toggle-optional-btn {
+    color: #000000;
+    cursor: pointer;
+    display: block;
+    padding: 3px 8px;
+    box-shadow: 2px 2px 2px rgb(204, 204, 204);
+    border-radius: 4px;
+  }
+  .toggle-optional-btn.flipped {
+    box-shadow: inset 2px 2px 5px rgb(204, 204, 204) !important;
+  }
+  .mostly-online {
+    display: none;
+    margin: 18px 0;
+    padding: 18px;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+  .mostly-online.visible {
+    display: block;
+  }
+/* Uma hover popup styles */
+.uma-popup {
+  position: relative;
+  cursor: pointer;
+  text-decoration: underline dotted;
+}
+.uma-popup-text {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  background: #fffbe9;
+  color: #222;
+  border: 1px solid #e1c48b;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  padding: 14px 18px;
+  font-size: 1rem;
+  width: 320px;
+  max-width: 90vw;
+  line-height: 1.5;
+  font-family: 'Open Sans', 'Roboto', sans-serif;
+  pointer-events: none;
+}
+@keyframes torch {
+    0%, 1%, 2%, 3%, 4%, 5%, 20%, 21%, 60%, 61%, 62%, 100% { background-image:
+      radial-gradient(
+        circle 16vmax at 50vw 50vh,
+        rgba(0,0,0,0) 30%,
+        rgba(0,5,5,.1) 40%,
+        rgba(5,5,0,.5) 60%,
+        rgba(0,0,0,.75) 70%,
+        rgba(0,0,0,.95) 100%
+      ),
+      radial-gradient(
+        circle 12vmax at 50vw 50vh,
+        rgba(255,255,255,1) 30%,
+        rgba(255,255,255,.3) 50%,
+        rgba(255,255,255,.05) 100%
+      ),
+      url(./tunnel\ image.jpg);
+    }
+  
+    0.5%, 1.5%, 60.5% { background-image:
+      radial-gradient(
+        circle 12vmax at 50vw 50vh,
+        rgba(0,0,0,0) 30%,
+        rgba(0,5,5,.1) 40%,
+        rgba(5,5,0,.5) 60%,
+        rgba(0,0,0,.75) 70%,
+        rgba(0,0,0,.95) 100%
+      ),
+      radial-gradient(
+        circle 8vmax at 50vw 50vh,
+        rgba(255,255,255,1) 30%,
+        rgba(255,255,255,.3) 50%,
+        rgba(255,255,255,.05) 100%
+      ),
+      url(./tunnel\ image.jpg);
+    }
+  
+    2.5%, 3.5%, 4.5%, 20.5%, 61.5% { background-image:
+      radial-gradient(
+        circle 8vmax at 50vw 50vh,
+        rgba(0,0,0,0) 30%,
+        rgba(0,5,5,.1) 40%,
+        rgba(5,5,0,.5) 60%,
+        rgba(0,0,0,.75) 70%,
+        rgba(0,0,0,.95) 100%
+      ),
+      radial-gradient(
+        circle 4vmax at 50vw 50vh,
+        rgba(255,255,255,1) 0%,
+        rgba(255,255,255,.5) 50%,
+        rgba(255,255,255,.05) 100%
+      ),
+      url(./tunnel\ image.jpg);
+    }
+}
+
+    </style>
+    <meta name="description" content="Survive Count Doracula's riichi dungeon">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" type="image/svg+xml" href="../coffinico.ico">
+    <meta name="author" content="The Dead Wall 2025">
+    <meta name="theme-color" content="#fff">
+    <meta property="og:title" content="The Dead Wall 2025">
+    <meta property="og:description" content="Survive Count Doracula's riichi dungeon">
+    <meta property="og:type" content="website">
+    <title>The Dead Wall 2025 | Doracula's Riichi Mahjong</title>
+    <script>
+
+        // var fonts = ['Roboto', 'Open_Sans', 'Raleway'];
+        // var rand = fonts[Math.floor(Math.random() * fonts.length)];
+        // var bodyElement = document.getElementById("logo");
+        // bodyElement.className = rand;
+const W = window.innerWidth;
+const H = window.innerHeight
+
+function updateAnimationTiming() {
+  const animationDuration = 5 + Math.random() * 5;
+  const animationDelay = 5 + Math.random() * 10;
+  
+  window.requestAnimationFrame(() => {
+    document.documentElement.style.setProperty('--animationDuration', animationDuration + 's');
+    document.documentElement.style.setProperty('--animationDelay', animationDelay + 's');
+  });
+  
+  const timeout = (animationDuration + animationDelay) * 1000 - 100;
+  setTimeout(updateAnimationTiming, timeout);
+}
+
+updateAnimationTiming();
+
+document.addEventListener('mousemove', e => {
+  window.requestAnimationFrame(() => {
+    const X = e.clientX;
+    const Y = e.clientY;
+
+    document.documentElement.style.setProperty('--cursorX', X + 'px');
+    document.documentElement.style.setProperty('--cursorY', Y + 'px');
+
+    const X2 = X - (12 * W / 100) * (X / W - 0.5);
+    const Y2 = Y - (12 * W / 100) * (Y / H - 0.5);
+
+    document.documentElement.style.setProperty('--cursorX2', X2 + 'px');
+    document.documentElement.style.setProperty('--cursorY2', Y2 + 'px');
+  });
+});
+
+    </script>
+        </script><link rel="stylesheet" href="../files/index.C5_7h7bT.css"><script type="module" src="../files/hoisted.ucgshFj1.js.nedladdning"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="../files/css2" rel="stylesheet">
+    <link rel="stylesheet" href="../files/index.C5_7h7bT.css">
+    <style>
+
+    .breathing {
+      animation: fade 7s ease-out forwards infinite;
+    }
+    .containing-box {
+    border: 0px solid rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 24px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 40px rgba(255, 255, 255, 0.05), inset 0 0 40px rgba(255, 255, 255, 0.02);
+    padding:45px 135px 45px 135px;
+    }
+    .containing-box p{
+    font-weight: bold;
+    font-size: 62px;
+    color: whitesmoke;
+    }
+
+    .mainVisual {
+        justify-content: center;
+        position: relative;
+        width: 100%;
+        min-height: 60vh;
+        overflow: hidden; /* Ensure pseudo-element doesn't overflow */
+    }
+
+    .mainVisual::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        display: block;
+        background-blend-mode: normal, overlay;
+        background-position: center center;
+        background-size: cover;
+        background-image:
+        radial-gradient(
+            circle 16vmax at var(--cursorX) var(--cursorY),
+            rgba(255,255,255,0.15) 0%,
+            rgba(255,255,255,0.05) 30%,
+            rgba(0,0,0,0.5) 60%,
+            rgba(0,0,0,0.85) 100%
+        ),
+        url(./tunnel\ image.jpg);
+        filter: brightness(0.1); /* Darken the background only */
+        transition: background-image 0.2s;
+    }
+    .mainVisual > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    @keyframes fade {
+      0%   { opacity: 0.8; }
+      50%  { opacity: 1.0; transform: scale(1.02) translateY(-4px)}
+      90%  { opacity: 0.8; transform: translateY(0);}
+    }
+    #rule{
+      padding: 5% 30% 5% 30%;
+    }
+    @media only screen and (max-width: 1500px) {
+        #rule{
+            padding: 3% !important;
+        }
+        .description{
+            padding: 3% !important;
+        }
+    }
+    @media only screen and (max-width: 900px) {
+        #rule{
+            padding: 3% !important;
+        }
+        .description{
+            padding: 3% !important;
+        }
+    }
+    </style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var umaPopups = document.querySelectorAll('.uma-popup');
+  umaPopups.forEach(function(uma) {
+    var popup = uma.querySelector('.uma-popup-text');
+    if (!popup) return;
+    uma.addEventListener('mousemove', function(e) {
+      popup.style.display = 'block';
+      popup.style.left = (e.clientX + 18) + 'px';
+      popup.style.top = (e.clientY + 18) + 'px';
+    });
+    uma.addEventListener('mouseleave', function() {
+      popup.style.display = 'none';
+    });
+  });
+});
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var btn = document.getElementById('toggleOptional');
+        var rules = document.getElementById('extraRules');
+        btn.addEventListener('click', function() {
+          rules.classList.toggle('visible');
+          btn.classList.toggle('flipped', rules.classList.contains('visible'));
+        });
+      });
+    </script>
+<style>
+@keyframes ukraine-shine {
+  0% {
+    background-position: 1150% 0;
+  }
+  100% {
+    background-position: -150% 0;
+  }
+}
+@keyframes ukraine-glow {
+  0%, 100% {
+    box-shadow:
+      0 0 0px 0px #0057b7,
+      0 0 0px 0px #ffd700;
+  }
+  20% {
+    box-shadow:
+      0 0 12px 4px #0057b7,
+      0 0 24px 8px #ffd700;
+  }
+  50% {
+    box-shadow:
+      0 0 24px 12px #ffd700,
+      0 0 12px 4px #0057b7;
+  }
+  80% {
+    box-shadow:
+      0 0 12px 4px #0057b7,
+      0 0 24px 8px #ffd700;
+  }
+}
+.anna-courtesy {
+  position: relative;
+  color: #393939;
+  background: none;
+  font-size: 12px;
+}
+</style>
+</head>
+<body style="overflow: visible;">
+    <main data-astro-cid-dhfotatx="">
+        <div id="rule" class="rule content-wrapper" data-astro-cid-vlihtyhp="" style="background: transparent"> 
+           <h2 class="title undefined" data-astro-cid-azbpcp4f=""> <a href="../index.html#schedule"><img src="../the dead wall.gif" alt="The Dead Wall 2025 logo"></a> <br> The Dead Wall 2025 <br> Doracula's Riichi Mahjong</h2>
+            <p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 11px;" data-astro-cid-vlihtyhp="">
+              In the spirit of halloween and frightening luck, here is Doracula's riichi mahjong.  <br><br>
+              
+              <b>The rules:</b> <br> The riichi mahjong games will be played with modified <a href="https://www.worldriichi.org/wrc-rules" target="_blank" style="text-decoration: underline;">WRC 2025 rules</a> + Rulecards(randomly drawn additional rules for each game). The&nbsp;modifications&nbsp;are&nbsp;as&nbsp;follows:<br><br><i>
+              - Three red fives are used (1 for each suit).<br>
+              - No head-bump. (Multiple Ron is allowed)<br>
+              - Nagashi Mangan (流し満貫) is used. (Doesn't count as a win, your hand can be open, none of your discards have been called)<br>
+              - Kokushi(Thirteen Orphans) can be won by robbing a concealed kan.<br>
+              - Double yakuman is applied for: Single-wait Suuankou, Thirteen-wait Kokushi, True Nine Gates, and Four Big Winds.<br>
+              - The Uma is: +30P / +10P / -10P / -30P, split in case of a tie.<br>
+              - The time limit is 80 minutes. When the time ends, the players only finish their current hand.<br>
+              - Live audience is allowed.
+              <br>
+              - 1 han special yaku: <span style="color: #4b0101;" >Bloody Mary</span> - Hand entirely of manzu(characters) and Red dragon. Red dragon is not required. — <span class="
+              anna-courtesy">courtesy of Anna</span>
+              <br><br></i>
+              <button class="toggle-optional-btn" id="toggleOptional" data-astro-cid-vlihtyhp="">Mostly play online? Click to see what to pay attention to</button>
+              <p class="mostly-online description" id="extraRules" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 11px;" data-astro-cid-vlihtyhp="">
+                <i>- Each player starts with 30,000 points. <br>
+                - No abortive draw (途中流局): A hand only ends when someone wins or no more tiles are left to draw.<br>
+                - The game only ends when it goes past South 4 or hit time limit.<br>
+                - No bankruptcy: play continues with negative scores.<br>
+                - Mangan rounding up: 4 han 30 fu and 3 han 60 fu are scored mangan. <br>
+                - Kandora is flipped before the discard. <br>
+                - It is allowed to declare riichi with less than four tiles left in the live wall. <br>
+                - Liability payment applies for Big Dragons, Big Winds and Four Quads. <br>
+                              - A double wind pair is worth 2 fu. <br></i>
+              </p>
+              <br><br><p class="description" style="padding-bottom: 2px;text-align: left;padding-left:15%;padding-right: 15%;padding-top: 11px;" data-astro-cid-vlihtyhp="">
+              <b>Rulecards:</b><br>Every game will be played with rulecards. Rulecards are an additional random 3 rules that are added at East 1 and replaced in South 1 with 3 new random rulecards. <br><br> It's a modification of the Dreamland Odyssey mode released to Mahjong Souls.
+              There are 3 decks. <b><span style="color: rgb(218, 186, 8);">Dealer</span></b>, <b><span style="color: rgb(23, 196, 46);">Fortune</span></b> and <b><span style="color: rgb(9, 21, 131);">Curse</span></b>. Dealer only affects the dealer, Fortune has positive effects and Curse has negative effects.
+              <br><br>
+               <b>How a game of Doracula's riichi mahjong will play out:</b> <br>
+               There will be 3 separate deck of cards at your table. When the organizer starts the game timer 1 random card from each deck is drawn immediately and placed face up in the middle of the table or wherever is agreed upon amongst the 4 players. After that East 1 may start as normal.<br><br> When the game reaches South 1 the existing cards are discarded and 3 new cards are drawn, one from each deck, and applies until the game ends. <br><br> The organizer will announce when the game timer hits 80 minutes. That means that you finish your current hand and then end the game.<br><br> When the game ends you sum up all your score and subtract your starting points(30000), this number is written down on the provided scoresheet. Below this number you write down your <span class="uma-popup">Uma<span class="uma-popup-text">Winner of a game gets 30000 extra points, 2nd place gets 10000 extra points, 3rd place gets -10000 points and last place gets -30000 points. These points are what players often call "Uma"</span>
+              </span>. The point sticks and rulecards are then reset to their starting position.<br><br> Lastly, the scoresheet is handed to the organizer.<br><br>
+              <b>All rulecards:</b> <br>
+              <b style="color: rgb(218, 186, 8);">Dealer deck:</b><br>
+                <span style="text-decoration: underline;">Discipline:</span> Dealer can only Ron with Riichi or open hand. Tsumo(Self-draw) is not affected. <br>
+                <span style="text-decoration: underline;">Long Night:</span> When dealership continues honba(continuance counter) increases by 5.<br>
+                <span style="text-decoration: underline;">Forfeit:</span> If dealer is in tenpai at exhaustive draw they get the Riichi deposit.<br>
+                <span style="text-decoration: underline;">Speculation:</span> Every time dealer calls Pon or Kan, an extra Dora indicator will immediately be revealed (maximum 4 can be revealed).<br>
+                <span style="text-decoration: underline;">Glass Cannon:</span> When dealer wins with Ron their hand gets an extra 1 han, but when hit by Ron that hand gets an extra 1 han.<br>
+              <br>
+              <b style="color: rgb(23, 196, 46);">Fortune:</b><br>
+                <span style="text-decoration: underline;">Shadow World:</span> When player wins with Riichi, normal Dora is ignored, but Ura Dora is doubled. (Red Five is not affected)<br>
+                <span style="text-decoration: underline;">Open up:</span> Iipeikou(Twin sequences) and Ryanpeikou(Double twin sequences) can be open.<br>
+                <span style="text-decoration: underline;">Goldmine:</span> Dora and Ura Dora indicators are also counted as Dora.<br>
+                <span style="text-decoration: underline;">Super All Simples:</span> Tanyao(All Simples) is counted as 3 han.<br>
+                <span style="text-decoration: underline;">Risktaker:</span> Riichi is counted as 2 han, Ippatsu(Unbroken) as 2 han, Double Riichi as 4 han.<br><br>
+
+
+                <b style="color: rgb(9, 21, 131);">Curse:</b><br>
+                <span style="text-decoration: underline;">Boast:</span> Noten payments and winning points for Nagashi Mangan(流し満貫) are doubled.<br>
+                <span style="text-decoration: underline;">Overpreparation:</span> The Riichi bet is 2000 points.<br>
+                <span style="text-decoration: underline;">Slow down:</span> Winning hand has to be 3 han or higher. If not, you win no points, pay everyone 4000 points each and the dealer rotates.<br>
+                <span style="text-decoration: underline;">Toll of Love:</span> When player calls Chii, Pon, or Open Kan on a Dora, the discarder has to pay the caller 2000 points.<br>
+                <span style="text-decoration: underline;">Hoarder:</span> When hit by Ron pay an extra 1000 points per dora in your hand.<br>
+            </p></p>
+            <br><br>
+            <a href="../index.html#schedule">
+             <img src="../files/three_bats.svg" class="dice js-scroll-animation active" data-astro-cid-vlihtyhp="">
+        </div>
+    </main>
+    
+</body>
+
+</html>
