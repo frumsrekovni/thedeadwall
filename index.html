@@ -69,7 +69,7 @@
 		/>
 
 		<!-- Preload the hero background (largest first paint) -->
-		<link rel="preload" as="image" href="media/herobg.jpg" />
+		<link rel="preload" as="image" href="media/herobg.jpg" fetchpriority="high" />
 
 		<link rel="stylesheet" href="style.css" />
 
@@ -188,7 +188,7 @@
 				<p class="demand-aside" id="demand-aside"></p>
 
 				<div class="decor-row">
-					<img src="files/night.svg" alt="" loading="lazy" aria-hidden="true" />
+					<img src="files/night.svg" alt="" width="120" height="120" loading="lazy" aria-hidden="true" />
 				</div>
 			</section>
 
@@ -381,6 +381,8 @@
 					<img
 						src="files/three_bats.svg"
 						alt=""
+						width="120"
+						height="110"
 						loading="lazy"
 						aria-hidden="true"
 					/>
@@ -483,7 +485,7 @@
 						html: '<b>Registration fee:</b> The fee is 200\u00A0SEK. This includes food, snacks and drinks. The registration fee is non-refundable after October\u00A029th,\u00A02026.',
 					},
 					{
-						html: "<b>Payment:</b> Payment is done via Swish or at the venue before the event. See <a href='./pages/Payment QR codes.html'>here</a> for QR-codes.",
+						html: "<b>Payment:</b> Payment is done via Swish or at the venue before the event. See the <a href='./pages/Payment QR codes.html'>payment QR&nbsp;codes</a>.",
 					},
 					{
 						html: '<b>Max participants:</b> 36\u00A0Space Mahjong seats available.',
@@ -501,7 +503,7 @@
 						html: '<b>Contact:</b> If there are any questions or concerns, please contact <a href="mailto:count.doracula@gmail.com">count.doracula@gmail.com</a>',
 					},
 					{
-						html: "<b>Mahjong games:</b> Modified WRC 2025 Rules + Space Mahjong rules. More details <a href='./pages/Space mahjong details.html'>here</a>.",
+						html: "<b>Mahjong games:</b> Modified WRC 2025 Rules + Space Mahjong rules. Read the <a href='./pages/Space mahjong details.html'>Space Mahjong rules</a>.",
 					},
 					{
 						html: "<b>Contests:</b> Non-mandatory contests that everyone can join and earn points. Winners get a prize and 10000\u00A0points counted towards the final score. Read more: <a href='./pages/Costume contest details.html'>Costume contest</a> | <a href='./pages/Quiz bowl details.html'>Quiz bowl</a>.",
@@ -526,7 +528,7 @@
 					},
 					{
 						q: 'What is Yaku trick-or-treating?',
-						a: "Yaku trick-or-treating is an ongoing event where players collect yaku while playing to earn treats and rewards.<br><br>A yaku is a winning combination or condition, see <a href='./pages/Yaku trick or treat details.html'>here</a> for all the valid trick-or-treat combinations.<br><br>Each player keeps a simple tally of their yaku throughout the event.",
+						a: "Yaku trick-or-treating is an ongoing event where players collect yaku while playing to earn treats and rewards.<br><br>A yaku is a winning combination or condition, see the <a href='./pages/Yaku trick or treat details.html'>trick-or-treat yaku list</a> for all the valid combinations.<br><br>Each player keeps a simple tally of their yaku throughout the event.",
 					},
 					{
 						q: 'What is the WRC Rulebook?',
@@ -534,7 +536,7 @@
 					},
 					{
 						q: 'Do I have to read the WRC rulebook?',
-						a: "Not really — if you are used to the rules from games like Mahjong Soul or Riichi City you are already 90% there.<br><br>See what the modifications are <a href='./pages/Space mahjong details.html'>here</a>.",
+						a: "Not really — if you are used to the rules from games like Mahjong Soul or Riichi City you are already 90% there.<br><br>See the <a href='./pages/Space mahjong details.html'>Space Mahjong rules</a>.",
 					},
 					{
 						q: 'Do I need a Halloween costume?',
@@ -651,7 +653,10 @@
 					if (!el) return;
 					el.classList.add('typing');
 					const plain = raw.replace(/\[\[|\]\]/g, '').replace(/\u00A0/g, ' ');
-					el.setAttribute('aria-label', plain);
+					const srFull = document.createElement('span');
+					srFull.className = 'sr-only';
+					srFull.textContent = plain;
+					el.appendChild(srFull);
 
 					// parse into plain / [[reveal]] segments
 					const segs = [];
@@ -781,7 +786,7 @@
         <source src="media/${d.video}.mp4" type="video/mp4">
       </video>
       <div class="demand-body">
-        <h3><a href="${d.href}">${d.title}<img class="redirect-icon" src="files/redirect_white.png" alt="(details)"></a></h3>
+        <h3><a href="${d.href}">${d.title}<img class="redirect-icon" src="files/redirect_white.png" alt="(details)" width="15" height="15"></a></h3>
         <p>${glossary(d.desc)}</p>
       </div>
     </article>`,
@@ -1245,7 +1250,20 @@
 							}
 						});
 
-					loadList();
+					const regSection = document.getElementById('register');
+					if ('IntersectionObserver' in window && regSection) {
+						let loaded = false;
+						const lio = new IntersectionObserver((ents) => {
+							if (ents[0].isIntersecting && !loaded) {
+								loaded = true;
+								loadList();
+								lio.disconnect();
+							}
+						}, { rootMargin: '400px' });
+						lio.observe(regSection);
+					} else {
+						loadList();
+					}
 				})();
 
 				/* --- Floating burger quick-nav --- */
