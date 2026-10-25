@@ -1,4 +1,3 @@
-
 :root {
 	--ink: #06060a;
 	--ink-2: #0d0b12;
@@ -2124,14 +2123,30 @@ body::after {
 	background: rgba(150, 120, 255, 0.16);
 	border: 1px solid rgba(150, 120, 255, 0.35);
 }
-.treat-kitkat { --accent: #e0503a; }
-.treat-snack { --accent: #ff8a2b; }
-.treat-pastry { --accent: #e9b949; }
-.treat-skull { --accent: #c7b8e6; }
-.treat-plush { --accent: #ff7fb6; }
-.treat-bracelet { --accent: var(--blood); }
-@media (max-width: 520px) {
-	.treat-table { font-size: 0.88rem; }
-	.treat-table td, .treat-table th { padding: 0.55rem 0.65rem; }
+.treat-kitkat {
+	--accent: #e0503a;
 }
+.treat-snack {
+	--accent: #ff8a2b;
+}
+.treat-pastry {
+	--accent: #e9b949;
+}
+.treat-skull {
+	--accent: #c7b8e6;
+}
+.treat-plush {
+	--accent: #ff7fb6;
+}
+.treat-bracelet {
+	--accent: var(--blood);
+}
+@media (max-width: 520px) {
+	.treat-table {
+		font-size: 0.88rem;
+	}
+	.treat-table td,
+	.treat-table th {
+		padding: 0.55rem 0.65rem;
+	}
 }
