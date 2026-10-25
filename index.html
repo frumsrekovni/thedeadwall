@@ -7,9 +7,6 @@
 			content="width=device-width, initial-scale=1, viewport-fit=cover"
 		/>
 
-		<!-- ============================================================
-       SOCIAL / SEO  — update the year & description here each year
-       ============================================================ -->
 		<title>
 			The Dead Wall 2026 — Halloween Riichi &amp; Space Mahjong · Stockholm
 		</title>
@@ -25,7 +22,6 @@
 		<meta name="theme-color" content="#06060a" />
 		<link rel="canonical" href="https://www.dead-wall.com/" />
 
-		<!-- Open Graph / social -->
 		<meta property="og:site_name" content="The Dead Wall" />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://www.dead-wall.com/" />
@@ -60,7 +56,6 @@
 
 		<link rel="icon" href="files/coffinico.ico" />
 
-		<!-- Fonts: one display family (Cinzel, engraved-stone caps) + system body -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -68,12 +63,10 @@
 			rel="stylesheet"
 		/>
 
-		<!-- Preload the hero background (largest first paint) -->
 		<link rel="preload" as="image" href="media/herobg.jpg" fetchpriority="high" />
 
 		<link rel="stylesheet" href="style.css" />
 
-		<!-- Structured data: the event (helps search engines show rich results) -->
 		<script type="application/ld+json">
 			{
 				"@context": "https://schema.org",
@@ -106,7 +99,6 @@
 		</script>
 	</head>
 	<body>
-		<!-- Floating quick-nav -->
 		<nav class="burger" id="burger">
 			<button
 				class="burger-btn"
@@ -137,7 +129,6 @@
 		</nav>
 
 		<main>
-			<!-- ===================== HERO ===================== -->
 			<header class="hero" id="top">
 				<div class="hero-plate">
 					<img
@@ -154,13 +145,11 @@
 				</div>
 			</header>
 
-			<!-- ===================== INTRO ===================== -->
 			<section class="section intro">
 				<h2 class="section-title" data-field="tagline"></h2>
 				<p class="lede" data-field="intro"></p>
 			</section>
 
-			<!-- ===================== DEMANDS ===================== -->
 			<section class="section" id="demands">
 				<h2 class="section-title">Count Doracula's demands</h2>
 
@@ -192,13 +181,11 @@
 				</div>
 			</section>
 
-			<!-- ===================== SCHEDULE ===================== -->
 			<section class="section" id="schedule">
 				<h2 class="section-title">Schedule</h2>
 				<dl class="schedule-list" id="schedule-list"></dl>
 			</section>
 
-			<!-- ===================== VENUE ===================== -->
 			<section class="section" id="venue">
 				<h2 class="section-title">Venue</h2>
 				<h3 class="venue-name" data-field="venueName"></h3>
@@ -215,19 +202,16 @@
 				/>
 			</section>
 
-			<!-- ===================== EVENT DETAILS ===================== -->
 			<section class="section" id="details">
 				<h2 class="section-title">Event Details</h2>
 				<div class="details" id="details-list"></div>
 			</section>
 
-			<!-- ===================== FAQ ===================== -->
 			<section class="section" id="faq">
 				<h2 class="section-title">FAQ</h2>
 				<div class="faq" id="faq-list"></div>
 			</section>
 
-			<!-- ===================== PAST YEARS ===================== -->
 			<section class="section" id="past">
 				<h2 class="section-title">Past years</h2>
 				<p class="lede" data-field="pastBlurb"></p>
@@ -258,7 +242,6 @@
 				</div>
 			</section>
 
-			<!-- Lightbox (built once, shared) -->
 			<div
 				class="lightbox"
 				id="lightbox"
@@ -289,7 +272,6 @@
 				</button>
 			</div>
 
-			<!-- ===================== REGISTER (bottom of page) ===================== -->
 			<section class="section" id="register">
 				<h2 class="section-title">Enter the dungeon</h2>
 				<p class="lede" data-field="registerBlurb"></p>
@@ -393,22 +375,11 @@
 		</main>
 
 		<script>
-			/* ============================================================================
-   ★★★  EDIT EVERYTHING FOR 2026 HERE  ★★★
-   This single object holds all the text on the page. Change the words,
-   dates, links and video names below — you never have to touch the HTML
-   or CSS above. Add/remove items in the arrays freely.
-   ---------------------------------------------------------------------------
-   • Each "demand" video needs media/<name>.mp4 + media/<name>-poster.jpg
-   • To turn the registration button on:  registrationOpen: true
-   • Use \u00A0 (in HTML: &nbsp;) inside text to stop awkward line breaks.
-   ============================================================================ */
 			const EVENT = {
 				owner: "Doracula's",
 				title: 'DEAD\u00A0WALL',
 				year: '2026',
 
-				// Registration button in the hero (jumps to the on-page form)
 				registrationOpen: true,
 				registrationUrl: '#register',
 				registerLabel: 'Register now',
@@ -423,7 +394,6 @@
 					"if you are up to the task and make it through Doracula's demands, you will forever earn " +
 					'your claim as [[The\u00A0Dead\u00A0Wall\u00A0champion]]',
 
-				// ---- The three contests. `video` = filename stem inside /media ----
 				demands: [
 					{
 						title: 'Space Mahjong',
@@ -449,7 +419,6 @@
 					},
 				],
 
-				// Small side-event shown as text under the demands carousel
 				yakuAside: {
 					title: 'Yaku trick-or-treating',
 					href: './pages/Yaku trick or treat details.html',
@@ -472,7 +441,6 @@
 				venueName: 'Tiger Mahjong',
 				venueAddress: ['Bråvallagatan 12, 113 36', 'Stockholm, Sweden'],
 
-				// Event-detail rows. `html` may contain links/bold.
 				details: [
 					{
 						html: 'The\u00A0Dead\u00A0Wall\u00A02026 is a Halloween-themed one-day event focusing on, but not limited to, mahjong-related activities. Come and join us for a day of festivities. <br><br>Anyone is allowed to attend, but if you intend to play Space Mahjong there is an expectation that you know the basics of riichi mahjong.<br><br>',
@@ -546,23 +514,16 @@
 
 				footer: 'The Dead Wall · Stockholm · Yossha AB · 2026',
 
-				// ---- Front-page registration + public "wall of names" ----
-				// The wall needs a tiny free backend (a Google Apps Script — see README).
-				// Paste its /exec URL into `endpoint`. Leave it empty to run in DEMO
-				// mode (saves to this browser only) so you can preview the flow.
 				registration: {
 					endpoint:
 						'https://script.google.com/macros/s/AKfycbw3QThA_WhI4gLjyUNTnmk8629ky3hZ3x_CoLY_4OmmmVvxHyjmunsRaJ9BjSS_Rvey/exec',
-					seats: 36, // playing seats (for the counter)
+					seats: 36,
 					blurb:
 						'Claim your seat in Doracula\u2019s dungeon. Registered souls appear on the wall.',
 					closedNotice:
 						'Registration opens October\u00A01st,\u00A02026. Check back then.',
 				},
 
-				// ---- Past years: a link + a carousel of photos/clips ----
-				// Add or remove items freely. type is "image" or "video".
-				// Videos need a poster image. Files live in media/past/.
 				pastYears: {
 					url: 'https://www.dead-wall.com/2025',
 					linkLabel: 'Explore the 2025 site  →',
@@ -605,14 +566,15 @@
 							src: 'media/past/1000005486.jpg',
 							alt: 'A game in progress with the Dealer, Fortune and Curse rulecards laid out on the table',
 						},
+						{
+							type: 'image',
+							src: 'media/past/snacks-2025.webp',
+							alt: 'The 2025 Halloween snack table — cobweb brownies, witch-finger cookies and mummy biscuits',
+						},
 					],
 				},
 			};
-			/* ============================  end of editable content  ==================== */
 
-			/* ---------------------------------------------------------------------------
-   Rendering + behaviour. You shouldn't need to edit below this line.
-   --------------------------------------------------------------------------- */
 			(function () {
 				const $ = (s, r = document) => r.querySelector(s);
 				const setText = (field, val) =>
@@ -620,16 +582,14 @@
 						.querySelectorAll(`[data-field="${field}"]`)
 						.forEach((el) => (el.textContent = val));
 
-				// Simple fields
 				setText('owner', EVENT.owner);
 				setText('title', EVENT.title);
 				setText('year', EVENT.year);
 				setText('tagline', EVENT.tagline);
-				setupIntro(EVENT.intro); // dramatic typewriter (see function below)
+				setupIntro(EVENT.intro);
 				setText('venueName', EVENT.venueName);
 				setText('footer', EVENT.footer);
 
-				// CTA button
 				const cta = $('[data-field="cta"]');
 				if (EVENT.registrationOpen) {
 					cta.textContent = EVENT.registerLabel;
@@ -640,7 +600,6 @@
 					cta.removeAttribute('href');
 				}
 
-				// Turn {Word:definition} into an inline hover/tap glossary term
 				function glossary(text) {
 					return text.replace(
 						/\{([^:}]+):([^}]+)\}/g,
@@ -658,7 +617,6 @@
 					srFull.textContent = plain;
 					el.appendChild(srFull);
 
-					// parse into plain / [[reveal]] segments
 					const segs = [];
 					const re = /\[\[([^\]]+)\]\]/g;
 					let last = 0,
@@ -697,12 +655,10 @@
 						'(prefers-reduced-motion: reduce)',
 					).matches;
 					if (reduce) {
-						// show everything at rest, no animation
 						steps.forEach((s) => s.node.classList.add(s.reveal ? 'in' : 'on'));
 						return;
 					}
 
-					// schedule each step on a punctuation-aware timeline
 					let t = 0;
 					steps.forEach((s) => {
 						if (s.reveal) {
@@ -710,7 +666,7 @@
 							s.time = t;
 							t += 1200;
 							return;
-						} // long dramatic pause + hold
+						}
 						const c = s.chr;
 						if (c === ' ' || c === '\u00A0') t += 28;
 						else if ('.!?'.includes(c)) t += 750;
@@ -748,7 +704,6 @@
 						})(start);
 					}
 
-					// start when the paragraph scrolls into view (so the visitor sees it)
 					if ('IntersectionObserver' in window) {
 						const io = new IntersectionObserver(
 							(entries) => {
@@ -768,7 +723,6 @@
 					}
 				}
 
-				// Demands — stacked carousel (arrows / swipe to spin)
 				(function demands() {
 					const stage = $('#demand-stage');
 					const dotsWrap = $('#demand-dots');
@@ -855,7 +809,6 @@
 						d.addEventListener('click', () => goTo(+d.dataset.i)),
 					);
 
-					// swipe (touch)
 					let sx = 0,
 						sy = 0,
 						sw = false;
@@ -882,7 +835,6 @@
 						},
 						{ passive: true },
 					);
-					// drag (mouse)
 					let md = false,
 						mx = 0;
 					stage.addEventListener('mousedown', (e) => {
@@ -895,13 +847,11 @@
 						const dx = e.clientX - mx;
 						if (Math.abs(dx) > 60) go(dx < 0 ? 1 : -1);
 					});
-					// keyboard
 					$('#demand-carousel').addEventListener('keydown', (e) => {
 						if (e.key === 'ArrowLeft') go(-1);
 						else if (e.key === 'ArrowRight') go(1);
 					});
 
-					// size the stage to the tallest card (cards are absolute)
 					function sizeStage() {
 						let h = 0;
 						cards.forEach((c) => {
@@ -912,7 +862,6 @@
 						stage.style.height = h + 'px';
 					}
 
-					// play only while the carousel is on screen
 					if ('IntersectionObserver' in window) {
 						new IntersectionObserver(
 							(en) => {
@@ -930,27 +879,22 @@
 					setTimeout(sizeStage, 400);
 					window.addEventListener('resize', sizeStage);
 
-					// Yaku side-event text under the carousel
 					const A = EVENT.yakuAside,
 						aside = $('#demand-aside');
 					if (A && aside)
 						aside.innerHTML = `<a href="${A.href}"><b>${A.title}</b></a> — ${A.text}`;
 				})();
 
-				// Schedule
 				$('#schedule-list').innerHTML = EVENT.schedule
 					.map(([t, l]) => `<dt>${t}</dt><dd>${l}</dd>`)
 					.join('');
 
-				// Venue address
 				$('#venue-address').innerHTML = EVENT.venueAddress.join('<br>');
 
-				// Details
 				$('#details-list').innerHTML = EVENT.details
 					.map((d) => `<div class="row">${d.html}</div>`)
 					.join('');
 
-				// FAQ
 				$('#faq-list').innerHTML = EVENT.faq
 					.map(
 						(f) => `
@@ -961,7 +905,6 @@
 					)
 					.join('');
 
-				/* --- Past years: link, carousel, and click-to-open lightbox --- */
 				(function past() {
 					const P = EVENT.pastYears;
 					if (!P) return;
@@ -992,7 +935,6 @@
 						'(prefers-reduced-motion: reduce)',
 					).matches;
 
-					// arrows scroll the filmstrip
 					const prev = $('#past-prev'),
 						next = $('#past-next');
 					const page = () => Math.max(track.clientWidth * 0.8, 240);
@@ -1017,7 +959,6 @@
 					window.addEventListener('resize', updateArrows);
 					updateArrows();
 
-					// ---- Lightbox ----
 					const lb = $('#lightbox'),
 						stage = $('#lb-stage');
 					let cur = 0,
@@ -1081,10 +1022,6 @@
 					});
 				})();
 
-				/* --- Registration form + public wall of names ---------------------
-				   Live mode talks to a Google Apps Script (see README): the list is
-				   read with JSONP (works cross-origin) and sign-ups are POSTed.
-				   With no endpoint set it runs in demo mode via localStorage. */
 				(function register() {
 					const R = EVENT.registration || {};
 					setText('registerBlurb', R.blurb || '');
@@ -1103,7 +1040,6 @@
 					const DEMO = !/^https?:\/\//.test(endpoint);
 					if (DEMO && demoNote) demoNote.hidden = false;
 
-					// Closed state (driven by the same flag as the hero button)
 					if (!EVENT.registrationOpen) {
 						form.hidden = true;
 						closed.hidden = false;
@@ -1126,11 +1062,13 @@
 								({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c],
 						);
 
-					function jsonp(url) {
+					function jsonp(url, timeout = 9000) {
 						return new Promise((resolve, reject) => {
 							const cb = '__reg_cb_' + Math.random().toString(36).slice(2);
 							const s = document.createElement('script');
+							let timer;
 							const done = (ok, d) => {
+								clearTimeout(timer);
 								try {
 									delete window[cb];
 								} catch (e) {}
@@ -1139,12 +1077,13 @@
 							};
 							window[cb] = (d) => done(true, d);
 							s.onerror = () => done(false, new Error('network'));
+							timer = setTimeout(() => done(false, new Error('timeout')), timeout);
 							s.src = url + (url.includes('?') ? '&' : '?') + 'callback=' + cb;
 							document.body.appendChild(s);
 						});
 					}
 
-					let prevNames = null; // null until first render; then a Set of shown names
+					let prevNames = null;
 					function renderList(d) {
 						const names = (d && d.names) || [];
 						countN.textContent = d && d.count != null ? d.count : names.length;
@@ -1158,13 +1097,11 @@
 								const paid =
 									n.paid === true ||
 									/^(yes|true|paid|y|x|1|✓|✔)$/i.test(String(n.paid || ''));
-								// only names added since the last render get etched in
 								const isNew = prev && !prev.has(n.name);
 								return `<li class="reg-name${playing ? ' playing' : ''}${paid ? ' paid' : ''}${isNew ? ' etching' : ''}" title="${paid ? 'Paid' : 'Not paid yet'}"><span class="reg-name-t">${esc(n.name)}</span></li>`;
 							})
 							.join('');
 						prevNames = new Set(names.map((n) => n.name));
-						// if a new name was just etched in, scroll the stone down to reveal it
 						const fresh = wall.querySelector('.reg-name.etching');
 						if (fresh) {
 							requestAnimationFrame(() => {
@@ -1190,7 +1127,21 @@
 								renderList(await jsonp(endpoint + '?list=1'));
 							}
 						} catch (e) {
-							/* keep whatever is shown */
+							console.warn(
+								'[The Dead Wall] Could not load the wall from the Apps Script. ' +
+									'Open the endpoint URL with ?list=1 in a browser: if it shows a ' +
+									'Google sign-in or "need permission" page, redeploy the Web App with ' +
+									'Who-has-access = "Anyone".',
+								e,
+							);
+							if (!DEMO && countN && countN.textContent === '—') {
+								countN.textContent = '?';
+								if (empty) {
+									empty.hidden = false;
+									empty.textContent =
+										'Couldn’t reach the wall right now — registering still works.';
+								}
+							}
 						}
 					}
 
@@ -1230,7 +1181,6 @@
 									setStatus('You\u2019re in. Welcome to the dungeon. 🦇');
 									loadList();
 								} else {
-									// no-cors fire-and-forget (Apps Script has no CORS headers)
 									await fetch(endpoint, {
 										method: 'POST',
 										mode: 'no-cors',
@@ -1238,7 +1188,7 @@
 									});
 									form.reset();
 									setStatus('You\u2019re in. Welcome to the dungeon. 🦇');
-									setTimeout(loadList, 900); // let the sheet append
+									setTimeout(loadList, 900);
 								}
 							} catch (err) {
 								setStatus(
@@ -1266,7 +1216,6 @@
 					}
 				})();
 
-				/* --- Floating burger quick-nav --- */
 				(function burger() {
 					const nav = $('#burger'),
 						btn = $('#burger-btn'),
@@ -1292,7 +1241,6 @@
 					});
 				})();
 
-				/* --- Torch spotlight follows the cursor (desktop pointers only) --- */
 				if (window.matchMedia('(pointer: fine)').matches) {
 					let raf = null;
 					window.addEventListener('pointermove', (e) => {
