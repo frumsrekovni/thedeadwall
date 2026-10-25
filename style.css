@@ -1,27 +1,18 @@
-/* ============================================================
-   THE DEAD WALL — stylesheet
-   You normally won't need to touch this file to update the event.
-   All text/dates/content live in index.html (the EVENT object).
-   Design tokens you might want to tweak are right below.
-   ============================================================ */
 
 :root {
-	/* --- Palette (tweak these to re-skin the whole site) --- */
-	--ink: #06060a; /* dungeon background, darkest */
-	--ink-2: #0d0b12; /* secondary dark */
-	--stone: #17141f; /* raised panels */
-	--bone: #f3ede1; /* primary text ("bone white") */
-	--muted: #a39cae; /* secondary text */
-	--blood: #cf1730; /* primary accent (blood red) */
-	--ember: #ff5a36; /* warm torch highlight */
-	--edge: rgba(255, 255, 255, 0.08); /* hairline borders */
+	--ink: #06060a;
+	--ink-2: #0d0b12;
+	--stone: #17141f;
+	--bone: #f3ede1;
+	--muted: #a39cae;
+	--blood: #cf1730;
+	--ember: #ff5a36;
+	--edge: rgba(255, 255, 255, 0.08);
 
-	/* --- Type --- */
 	--display: 'Cinzel', 'Times New Roman', serif;
 	--body:
 		system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 
-	/* --- Rhythm --- */
 	--wrap: min(92vw, 1080px);
 	--radius: 14px;
 
@@ -63,7 +54,6 @@ a {
 	color: inherit;
 }
 
-/* ---------- Reusable section shell ---------- */
 .section {
 	width: var(--wrap);
 	margin-inline: auto;
@@ -104,9 +94,6 @@ h3 {
 	font-size: clamp(1rem, 1.6vw, 1.15rem);
 }
 
-/* ============================================================
-   HERO — the torchlit dungeon stage
-   ============================================================ */
 .hero {
 	position: relative;
 	min-height: 88vh;
@@ -118,7 +105,6 @@ h3 {
 	isolation: isolate;
 }
 
-/* Background image + moving torch spotlight, all in one layer */
 .hero::before {
 	content: '';
 	position: absolute;
@@ -139,7 +125,6 @@ h3 {
 	transition: background-position 0.12s linear;
 }
 
-/* Torch flicker: subtle brightness pulse on the whole stage */
 @media (prefers-reduced-motion: no-preference) {
 	.hero::before {
 		animation: flicker 6s steps(1) infinite;
@@ -214,7 +199,6 @@ h3 {
 	margin: 0 0 0 0.35em;
 }
 
-/* Registration button (shown when registrationOpen = true) */
 .cta {
 	display: inline-block;
 	margin-top: 1.6rem;
@@ -247,7 +231,6 @@ h3 {
 	pointer-events: none;
 }
 
-/* ---------- Intro ---------- */
 .intro {
 	max-width: 68ch;
 }
@@ -255,12 +238,6 @@ h3 {
 	font-size: clamp(1.5rem, 4vw, 2.2rem);
 }
 
-/* ============================================================
-   DEMANDS — responsive card grid (was 3 huge GIFs)
-   ============================================================ */
-/* ============================================================
-   🎠  DEMANDS CAROUSEL — stacked cards, swipe / arrows to spin
-   ============================================================ */
 .demand-carousel {
 	display: flex;
 	align-items: center;
@@ -275,7 +252,7 @@ h3 {
 	max-width: 540px;
 	perspective: 1400px;
 	touch-action: pan-y;
-	min-height: 320px; /* JS sets the real height */
+	min-height: 320px;
 }
 .dc-nav {
 	flex: 0 0 auto;
@@ -300,7 +277,7 @@ h3 {
 @media (max-width: 620px) {
 	.dc-nav {
 		display: none;
-	} /* swipe on phones */
+	}
 }
 .dc-dots {
 	display: flex;
@@ -318,7 +295,6 @@ h3 {
 	position: relative;
 	border-radius: 50%;
 }
-/* small visible dot centred inside the larger (accessible) tap target */
 .dc-dot::before {
 	content: '';
 	position: absolute;
@@ -376,7 +352,6 @@ h3 {
 	will-change: transform, opacity;
 	backface-visibility: hidden;
 }
-/* stack positions (set by JS) */
 .demand-card.pos-front {
 	transform: translateX(-50%) scale(1) rotateY(0);
 	z-index: 3;
@@ -395,7 +370,6 @@ h3 {
 	opacity: 0.5;
 	filter: brightness(0.55) blur(1.5px);
 }
-/* on phones the cards are big — tuck the back ones further behind */
 @media (max-width: 620px) {
 	.demand-card.pos-right {
 		transform: translateX(-38%) scale(0.8) rotateY(-20deg);
@@ -464,14 +438,12 @@ h3 {
 	opacity: 0.8;
 }
 
-/* Dotted-underline term with hover/tap definition (moupai) */
 .term {
 	text-decoration: underline dotted;
 	cursor: help;
 	color: var(--bone);
 }
 
-/* Decorative SVGs under a section */
 .decor-row {
 	display: flex;
 	justify-content: center;
@@ -484,9 +456,6 @@ h3 {
 	opacity: 0.9;
 }
 
-/* ============================================================
-   SCHEDULE
-   ============================================================ */
 .schedule-list {
 	display: grid;
 	grid-template-columns: max-content 1fr;
@@ -506,9 +475,6 @@ h3 {
 	color: var(--bone);
 }
 
-/* ============================================================
-   VENUE
-   ============================================================ */
 .venue-name {
 	font-size: clamp(1.4rem, 3vw, 1.8rem);
 	margin: 0.5rem 0 0.3rem;
@@ -523,9 +489,6 @@ h3 {
 	opacity: 0.92;
 }
 
-/* ============================================================
-   EVENT DETAILS  (term : value list)
-   ============================================================ */
 .details {
 	max-width: 720px;
 	margin: 2rem auto 0;
@@ -554,9 +517,6 @@ h3 {
 	color: var(--bone);
 }
 
-/* ============================================================
-   FAQ — native <details> accordion (accessible, no JS needed)
-   ============================================================ */
 .faq {
 	max-width: 720px;
 	margin: 2rem auto 0;
@@ -605,7 +565,6 @@ h3 {
 	text-decoration: underline;
 }
 
-/* ---------- Back-to-top bats ---------- */
 .to-top {
 	display: inline-block;
 	margin-top: 3rem;
@@ -629,7 +588,6 @@ footer {
 	font-size: 0.85rem;
 }
 
-/* ---------- Motion off ---------- */
 @media (prefers-reduced-motion: reduce) {
 	html {
 		scroll-behavior: auto;
@@ -641,14 +599,6 @@ footer {
 	}
 }
 
-/* ============================================================
-   ✦ SPACE MAHJONG — cosmic layer (starfield, sparkles, comet)
-   Subtle nods to this year's Space Mahjong ruleset.
-   Everything here respects prefers-reduced-motion.
-   ============================================================ */
-
-/* Fixed starfield behind everything. Two layers: a dense static field
-   and a sparser brighter field that twinkles very slowly. */
 body::before,
 body::after {
 	content: '';
@@ -673,8 +623,6 @@ body::after {
 	opacity: 0.7;
 }
 
-/* A handful of individual stars that flicker slowly — and a few that drift —
-   like the real night sky. Generated by cosmos.js. No cursor interaction. */
 .starlayer {
 	position: fixed;
 	inset: 0;
@@ -706,7 +654,6 @@ body::after {
 			drift var(--ddur, 60s) ease-in-out var(--delay, 0s) infinite alternate;
 	}
 }
-/* mostly steady, with an occasional slow flare — "every now and then" */
 @keyframes flicker {
 	0%,
 	58%,
@@ -732,7 +679,6 @@ body::after {
 	}
 }
 
-/* A rare, faint comet drifting across the hero — one quiet space moment */
 .hero::after {
 	content: '';
 	position: absolute;
@@ -774,7 +720,6 @@ body::after {
 	}
 }
 
-/* ---- Sparkle-on-hover for the contest links (esp. Space Mahjong) ---- */
 .demand-card h3 a,
 .demand-body a {
 	position: relative;
@@ -796,7 +741,6 @@ body::after {
 		0 0 22px rgba(120, 90, 220, 0.45);
 }
 
-/* the twinkling stars themselves, drawn with mask so they inherit a bright tint */
 .demand-card h3 a::before,
 .demand-card h3 a::after,
 .demand-body a::before,
@@ -835,7 +779,6 @@ body::after {
 		animation: spark 900ms ease-in-out 0.45s infinite;
 	}
 }
-/* reduced-motion users still get a static sparkle, just no twinkle */
 @media (prefers-reduced-motion: reduce) {
 	.demand-card h3 a:hover::before,
 	.demand-card h3 a:hover::after,
@@ -861,17 +804,12 @@ body::after {
 	}
 }
 
-/* Section titles get a faint cosmic halo to tie the theme together */
 .section-title {
 	text-shadow:
 		0 2px 24px rgba(120, 90, 220, 0.28),
 		0 0 2px rgba(232, 221, 255, 0.25);
 }
 
-/* ============================================================
-   SUB-PAGES  (Rules, Costume, Quiz, Payment, Registration, …)
-   Shared look so every page matches the home page.
-   ============================================================ */
 .subpage-nav {
 	position: sticky;
 	top: 0;
@@ -963,7 +901,6 @@ body::after {
 	color: var(--bone);
 }
 
-/* rule / bullet lists */
 .rules {
 	list-style: none;
 	margin: 0;
@@ -987,7 +924,6 @@ body::after {
 	top: 0.8rem;
 }
 
-/* rulecard deck pills */
 .decks {
 	display: flex;
 	flex-wrap: wrap;
@@ -1017,7 +953,6 @@ body::after {
 	background: rgba(255, 90, 120, 0.08);
 }
 
-/* collapsible extra section (native details) */
 .panel details {
 	border: 1px solid var(--edge);
 	border-radius: 10px;
@@ -1039,7 +974,6 @@ body::after {
 	padding-bottom: 1rem;
 }
 
-/* payment QR grid */
 .qr-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
@@ -1065,7 +999,6 @@ body::after {
 	font-size: 1.1rem;
 }
 
-/* standings table */
 .standings {
 	width: 100%;
 	border-collapse: collapse;
@@ -1096,7 +1029,6 @@ body::after {
 	width: 3ch;
 }
 
-/* forms */
 .form {
 	display: flex;
 	flex-direction: column;
@@ -1148,11 +1080,6 @@ body::after {
 	font-size: 0.9rem;
 }
 
-/* ============================================================
-   ✍  DRAMATIC INTRO  — character reveal + emphasized finale
-   The intro paragraph writes itself out, then reveals the
-   emphasized phrase (wrapped in [[ ]] in the EVENT.intro text).
-   ============================================================ */
 .lede.typing {
 	min-height: 1em;
 }
@@ -1160,7 +1087,6 @@ body::after {
 	position: relative;
 	opacity: 0;
 }
-/* each character flares softly as it lands — "oomph" without breaking wrapping */
 .lede .ch.on {
 	animation: chPop 0.5s ease both;
 }
@@ -1177,7 +1103,6 @@ body::after {
 		text-shadow: none;
 	}
 }
-/* blinking caret rides the currently-typed character (no layout shift) */
 .lede .ch.at::after {
 	content: '';
 	position: absolute;
@@ -1201,7 +1126,6 @@ body::after {
 	}
 }
 
-/* the emphasized finale — creeps through from the dark, then holds SHARP & readable */
 .lede .reveal {
 	display: inline-block;
 	font-family: var(--display);
@@ -1218,12 +1142,10 @@ body::after {
 		animation: revealEmerge 1.8s cubic-bezier(0.22, 0.66, 0.2, 1) both;
 	}
 }
-/* reduced-motion / fallback: just show the readable resting state */
 .lede .reveal.in {
 	opacity: 1;
 }
 @keyframes revealEmerge {
-	/* deep behind the wall: dark, blurred, small */
 	0% {
 		opacity: 0;
 		transform: scale(0.72);
@@ -1239,7 +1161,6 @@ body::after {
 		transform: scale(0.82);
 		filter: blur(4px) brightness(0.28);
 	}
-	/* pushing through, sharpening */
 	46% {
 		transform: scale(0.965);
 		filter: blur(0.4px) brightness(0.8);
@@ -1249,7 +1170,6 @@ body::after {
 			0 2px 5px rgba(0, 0, 0, 0.45),
 			0 0 24px rgba(215, 30, 50, 0.7);
 	}
-	/* eerie flicker + a glitchy jitter, as if breaking the screen */
 	55% {
 		transform: translateX(-1.6px) scale(0.982);
 		filter: blur(0) brightness(0.3);
@@ -1272,7 +1192,6 @@ body::after {
 	86% {
 		filter: blur(0) brightness(1);
 	}
-	/* settled in front of the wall: crisp, dark-edged, faint red menace */
 	100% {
 		opacity: 1;
 		transform: scale(1);
@@ -1285,7 +1204,6 @@ body::after {
 	}
 }
 
-/* Motion-off: no typing, show everything at rest */
 @media (prefers-reduced-motion: reduce) {
 	.lede .ch {
 		opacity: 1 !important;
@@ -1309,9 +1227,6 @@ body::after {
 	}
 }
 
-/* ============================================================
-   🎞  PAST YEARS  — link + horizontal media carousel + lightbox
-   ============================================================ */
 .past-link {
 	display: inline-block;
 	margin: 0.25rem 0 2rem;
@@ -1405,12 +1320,11 @@ body::after {
 	background: rgba(10, 8, 16, 0.55);
 	border: 1.5px solid rgba(255, 255, 255, 0.7);
 	border-radius: 50%;
-	padding-left: 4px; /* optical centering of ▶ */
+	padding-left: 4px;
 	backdrop-filter: blur(2px);
 	pointer-events: none;
 }
 
-/* prev / next arrows */
 .carousel-nav {
 	position: absolute;
 	top: calc(50% - 0.6rem);
@@ -1449,9 +1363,8 @@ body::after {
 	.carousel-nav {
 		display: none;
 	}
-} /* swipe on phones */
+}
 
-/* ---- Lightbox ---- */
 .lightbox {
 	position: fixed;
 	inset: 0;
@@ -1548,9 +1461,6 @@ body::after {
 	}
 }
 
-/* ============================================================
-   🩸  REGISTRATION  — front-page form + public "wall of names"
-   ============================================================ */
 .register-grid {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -1625,7 +1535,6 @@ body::after {
 	font-weight: 600;
 }
 
-/* ---- wall of names ---- */
 .reg-count {
 	display: flex;
 	align-items: baseline;
@@ -1695,9 +1604,6 @@ body::after {
 	margin: 0.5rem 0 0;
 }
 
-/* ============================================================
-   ☰  FLOATING BURGER QUICK-NAV (front page)
-   ============================================================ */
 .burger {
 	position: fixed;
 	z-index: 900;
@@ -1821,7 +1727,6 @@ body::after {
 	}
 }
 
-/* ---- paid / not-paid indicator on each registrant ---- */
 .reg-name {
 	display: inline-flex;
 	align-items: center;
@@ -1866,16 +1771,12 @@ body::after {
 	height: 13px;
 }
 
-/* ============================================================
-   🪦  TOMBSTONE — registered names on the carved stone
-   ============================================================ */
 .tombstone-wrap {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 
-/* souls-captured header — now OUTSIDE the stone, like before */
 .tombstone-wrap .reg-count {
 	display: flex;
 	align-items: baseline;
@@ -1902,7 +1803,6 @@ body::after {
 	font-size: 0.95rem;
 }
 
-/* the stone — larger, cropped tight, top-aligned with the form */
 .tombstone {
 	position: relative;
 	width: 100%;
@@ -1910,7 +1810,6 @@ body::after {
 	aspect-ratio: 457 / 637;
 	background: url('media/tombstone.webp') center / contain no-repeat;
 	filter: drop-shadow(0 16px 24px rgba(0, 0, 0, 0.5));
-	/* dissolve the hard bottom edge so it blends into the page */
 	-webkit-mask-image: linear-gradient(
 		to bottom,
 		#000 83%,
@@ -1924,7 +1823,6 @@ body::after {
 		transparent 100%
 	);
 }
-/* only the names live inside the stone now */
 .tombstone .reg-wall {
 	position: absolute;
 	left: 50%;
@@ -1932,7 +1830,6 @@ body::after {
 	transform: translate(-50%, -50%);
 	width: 82%;
 	flex-wrap: nowrap;
-	/* ~15 names fit; the rest scrolls */
 	max-height: 70%;
 	display: flex;
 	flex-direction: column;
@@ -1983,7 +1880,6 @@ body::after {
 .tombstone .reg-name.playing {
 	color: #08080c;
 }
-/* paid names are etched in Dracula red */
 .tombstone .reg-name.paid {
 	color: var(--blood);
 }
@@ -2021,13 +1917,11 @@ body::after {
 	margin: 0;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
 }
-/* legend below the stone */
 .tombstone-wrap .reg-legend {
 	justify-content: center;
 	margin-top: 0.9rem;
 }
 
-/* mahjong hand illustrations inside detail pages */
 .hand {
 	display: block;
 	max-width: min(100%, 430px);
@@ -2039,7 +1933,6 @@ body::after {
 	border-radius: 10px;
 }
 
-/* ---- newly added names get "etched" into the stone ---- */
 .tombstone .reg-name.etching {
 	position: relative;
 }
@@ -2056,7 +1949,6 @@ body::after {
 		filter: brightness(1);
 	}
 }
-/* a chisel-dust glint sweeping across as the name is carved */
 .tombstone .reg-name.etching::after {
 	content: '';
 	position: absolute;
@@ -2096,7 +1988,6 @@ body::after {
 	}
 }
 
-/* colour key under the tombstone: red = paid, black = not paid yet */
 .tombstone-wrap .reg-legend {
 	justify-content: center;
 	align-items: center;
@@ -2112,7 +2003,6 @@ body::after {
 	padding-right: 0.25rem;
 }
 
-/* visually-hidden text for screen readers (keeps content accessible without visible layout) */
 .sr-only {
 	position: absolute !important;
 	width: 1px;
@@ -2123,4 +2013,125 @@ body::after {
 	clip: rect(0, 0, 0, 0);
 	white-space: nowrap;
 	border: 0;
+}
+
+.example-hands .example-hand {
+	margin: 0 0 1.6rem;
+}
+.example-hands .example-hand:last-child {
+	margin-bottom: 0.4rem;
+}
+.example-hand-title {
+	font-family: var(--display);
+	font-weight: 700;
+	color: var(--bone);
+	margin-bottom: 0.2rem;
+}
+.example-hands .hand {
+	width: 100%;
+	max-width: 640px;
+	height: auto;
+}
+.example-hand-text {
+	margin: 0.4rem 0 0;
+	color: var(--muted);
+}
+.example-hand-text:empty {
+	display: none;
+}
+
+.treat-table-wrap {
+	margin-top: 1.25rem;
+	overflow-x: auto;
+	border: 1px solid var(--edge);
+	border-radius: var(--radius);
+}
+.treat-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 0.95rem;
+}
+.treat-table th {
+	padding: 0.8rem 1rem;
+	text-align: left;
+	font-family: var(--display);
+	font-size: 0.95rem;
+	letter-spacing: 0.06em;
+	color: var(--bone);
+	background: rgba(255, 255, 255, 0.05);
+	border-bottom: 1px solid var(--edge);
+}
+.treat-table th:last-child,
+.treat-table .treat-cell {
+	width: 34%;
+}
+.treat-table td {
+	padding: 0.65rem 1rem;
+	vertical-align: middle;
+	line-height: 1.45;
+	color: var(--bone);
+	border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+.treat-table tr.group-start td {
+	border-top: 1px solid var(--edge);
+}
+.treat-table tbody tr:first-child td {
+	border-top: 0;
+}
+.treat-row {
+	--accent: var(--ember);
+}
+.treat-row .yaku-cell {
+	border-left: 3px solid var(--accent);
+}
+.treat-row td {
+	background: color-mix(in srgb, var(--accent) 11%, transparent);
+}
+.treat-cell {
+	background: color-mix(in srgb, var(--accent) 16%, transparent) !important;
+	border-left: 1px solid var(--edge);
+}
+.treat-name {
+	display: block;
+	font-family: var(--display);
+	font-weight: 700;
+	color: var(--bone);
+}
+.treat-tier {
+	display: block;
+	margin-top: 0.15rem;
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--accent);
+}
+.treat-note {
+	display: block;
+	margin-top: 0.35rem;
+	font-size: 0.8rem;
+	font-style: italic;
+	color: var(--muted);
+}
+.wrap {
+	display: inline-block;
+	padding: 0 0.35rem;
+	border-radius: 5px;
+	font-variant-numeric: tabular-nums;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	color: #eae0ff;
+	background: rgba(150, 120, 255, 0.16);
+	border: 1px solid rgba(150, 120, 255, 0.35);
+}
+.treat-kitkat { --accent: #e0503a; }
+.treat-snack { --accent: #ff8a2b; }
+.treat-pastry { --accent: #e9b949; }
+.treat-skull { --accent: #c7b8e6; }
+.treat-plush { --accent: #ff7fb6; }
+.treat-bracelet { --accent: var(--blood); }
+@media (max-width: 520px) {
+	.treat-table { font-size: 0.88rem; }
+	.treat-table td, .treat-table th { padding: 0.55rem 0.65rem; }
+}
 }
