@@ -2,32 +2,20 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1, viewport-fit=cover"
-		/>
-		<title>The Dead Wall · Standings</title>
-  <meta name="description" content="Standings for The Dead Wall — final results." />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<title>Standings · The Dead Wall 2026</title>
+		<meta name="description" content="Live standings for The Dead Wall 2026." />
 		<meta name="theme-color" content="#06060a" />
 		<link rel="icon" href="../files/coffinico.ico" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&display=swap"
-			rel="stylesheet"
-		/>
+		<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&display=swap" rel="stylesheet" />
 		<link rel="stylesheet" href="../style.css" />
 	</head>
 	<body>
 		<nav class="subpage-nav">
 			<a class="brand" href="../index.html">
-				<img
-					src="../files/deadwall-logo.gif"
-					alt=""
-					width="116"
-					height="22"
-					aria-hidden="true"
-				/>
+				<img src="../files/deadwall-logo.gif" alt="" width="116" height="22" aria-hidden="true" />
 				<span>The Dead Wall</span>
 			</a>
 			<a class="back" href="../index.html">← Home</a>
@@ -35,59 +23,81 @@
 
 		<main class="subpage">
 			<h1 class="subpage-title">Standings</h1>
-			<p class="subpage-sub">The Dead Wall 2025 — final results</p>
+			<p class="subpage-sub">The Dead Wall 2026</p>
 
 			<div class="panel">
 				<table class="standings">
 					<thead>
 						<tr>
 							<th class="rank">#</th>
-							<th>Player</th>
-							<th>Score</th>
+							<th>Name</th>
+							<th>Total</th>
 						</tr>
 					</thead>
 					<tbody id="rows"></tbody>
 				</table>
+				<p class="standings-status" id="status" role="status" aria-live="polite">Loading…</p>
 			</div>
-
-			<a class="to-top" href="../index.html" aria-label="Home">
-				<img
-					src="../files/three_bats.svg"
-					alt=""
-					width="120"
-					aria-hidden="true"
-				/>
-			</a>
 		</main>
 
 		<script>
-			/* ✏️  Edit results here — [name, score]. Rows sort + rank automatically. */
-			const RESULTS = [
-				['Max Ihren', '+84.6'],
-				['Ryan Ren', '+81.8'],
-				['Jasper Germeys', '+79.5'],
-				['Lanslie Cai', '+50.3'],
-				['Vincent van Rijn', '+43.3'],
-				['Changjie Wang', '+37.6'],
-				['Erik', '+14.1'],
-				['Anna Hall', '+11.6'],
-				['Zhaoyuan Wan', '+5.0'],
-				['Akumu', '+0.0'],
-				['bad_fetus', '-2.1'],
-				['Mattias Mikkola', '-9.5'],
-				['Petter Ranefall', '-13.3'],
-				['Aleeza Arcangel', '-22.1'],
-				['Lihan', '-26.6'],
-				['Annika Ridell', '-35.1'],
-				['Cres', '-46.9'],
-				['Judy', '-53.9'],
-				['twenty', '-76.8'],
-				['Oskar Robsarve', '-88.7'],
-			];
-			document.getElementById('rows').innerHTML = RESULTS.map(
-				([n, s], i) =>
-					`<tr><td class="rank">${i + 1}</td><td>${n}</td><td>${s}</td></tr>`,
-			).join('');
+			(function () {
+				var ENDPOINT =
+					'https://script.google.com/macros/s/AKfycbw3QThA_WhI4gLjyUNTnmk8629ky3hZ3x_CoLY_4OmmmVvxHyjmunsRaJ9BjSS_Rvey/exec';
+				var rows = document.getElementById('rows');
+				var status = document.getElementById('status');
+
+				function esc(s) {
+					return String(s).replace(/[&<>"]/g, function (c) {
+						return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+					});
+				}
+				function fmt(n) {
+					return Math.round(n * 10) / 10 + '';
+				}
+
+				function render(d) {
+					var list = ((d && d.names) || []).map(function (n) {
+						return { name: n.name, total: typeof n.total === 'number' ? n.total : 0 };
+					});
+					list.sort(function (a, b) {
+						return b.total - a.total;
+					});
+					var rank = 0, prev = null;
+					rows.innerHTML = list
+						.map(function (p, i) {
+							if (p.total !== prev) rank = i + 1;
+							prev = p.total;
+							return '<tr><td class="rank">' + rank + '</td><td>' + esc(p.name) + '</td><td>' + fmt(p.total) + '</td></tr>';
+						})
+						.join('');
+					status.textContent = list.length ? '' : 'No standings yet.';
+				}
+
+				function load() {
+					var cb = '__st_' + Math.random().toString(36).slice(2);
+					var s = document.createElement('script');
+					var timer = setTimeout(function () {
+						cleanup();
+						if (!rows.children.length) status.textContent = 'Couldn’t load the standings right now.';
+					}, 9000);
+					function cleanup() {
+						clearTimeout(timer);
+						try { delete window[cb]; } catch (e) {}
+						s.remove();
+					}
+					window[cb] = function (d) {
+						cleanup();
+						render(d);
+					};
+					s.onerror = cleanup;
+					s.src = ENDPOINT + '?list=1&callback=' + cb;
+					document.body.appendChild(s);
+				}
+
+				load();
+				setInterval(load, 60000);
+			})();
 		</script>
 		<script src="../cosmos.js" defer></script>
 	</body>

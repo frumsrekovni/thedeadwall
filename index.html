@@ -123,7 +123,10 @@
 				<li role="none"><a role="menuitem" href="#faq">FAQ</a></li>
 				<li role="none"><a role="menuitem" href="#past">Past years</a></li>
 				<li role="none">
-					<a role="menuitem" class="burger-cta" href="#register">Register</a>
+					<a role="menuitem" href="#register">Souls captured</a>
+				</li>
+				<li role="none">
+					<a role="menuitem" class="burger-cta" href="./pages/standings.html">Standings</a>
 				</li>
 			</ul>
 		</nav>
@@ -380,10 +383,11 @@
 				title: 'DEAD\u00A0WALL',
 				year: '2026',
 
-				registrationOpen: true,
+				registrationOpen: false,
 				registrationUrl: '#register',
 				registerLabel: 'Register now',
-				closedLabel: 'Registration opens October 2026',
+				closedLabel: 'View standings',
+				closedUrl: './pages/standings.html',
 
 				tagline:
 					"Survive Count Doracula's mahjong dungeon here in Stockholm, October\u00A031st\u00A02026",
@@ -484,7 +488,7 @@
 				faq: [
 					{
 						q: 'How do I register?',
-						a: 'Head to the <a href="#register">registration form</a> and claim your seat. Registered names appear on the wall.<br><br>Unpaid registrations will not be considered confirmed and assumed no-show.',
+						a: 'Registration closed on October 29th, 2026. You can see everyone who signed up on the <a href="#register">wall of captured souls</a>, and follow the live <a href="./pages/standings.html">standings</a> during the event.',
 					},
 					{
 						q: 'Do I have to register?',
@@ -519,9 +523,9 @@
 						'https://script.google.com/macros/s/AKfycbw3QThA_WhI4gLjyUNTnmk8629ky3hZ3x_CoLY_4OmmmVvxHyjmunsRaJ9BjSS_Rvey/exec',
 					seats: 36,
 					blurb:
-						'Claim your seat in Doracula\u2019s dungeon. Registered souls appear on the wall.',
+						'These souls have been captured in Doracula\u2019s dungeon.',
 					closedNotice:
-						'Registration opens October\u00A01st,\u00A02026. Check back then.',
+						'Registration is closed \u2014 the dungeon doors are sealed.',
 				},
 
 				pastYears: {
@@ -596,8 +600,12 @@
 					cta.href = EVENT.registrationUrl;
 				} else {
 					cta.textContent = EVENT.closedLabel;
-					cta.classList.add('is-closed');
-					cta.removeAttribute('href');
+					if (EVENT.closedUrl) {
+						cta.href = EVENT.closedUrl;
+					} else {
+						cta.classList.add('is-closed');
+						cta.removeAttribute('href');
+					}
 				}
 
 				function glossary(text) {
@@ -1042,9 +1050,14 @@
 
 					if (!EVENT.registrationOpen) {
 						form.hidden = true;
-						closed.hidden = false;
-						closed.textContent =
-							R.closedNotice || 'Registration is currently closed.';
+						const wrap = $('.register-form-wrap');
+						if (wrap) wrap.hidden = true;
+						const grid = $('.register-grid');
+						if (grid) grid.classList.add('is-closed');
+						setText(
+							'registerBlurb',
+							(R.closedNotice || 'Registration is closed.') + ' ' + (R.blurb || ''),
+						);
 					}
 
 					const LS = 'deadwall_reg_demo';

@@ -2185,3 +2185,21 @@ body::after {
 	color: var(--bone);
 	text-shadow: 0 0 28px rgba(207, 23, 48, 0.55), 0 4px 2px #000;
 }
+
+.standings-status {
+	margin: 0.75rem 0 0;
+	text-align: center;
+	color: var(--muted);
+}
+.standings-status:empty {
+	display: none;
+}
+
+[hidden] {
+	display: none !important;
+}
+
+.register-grid.is-closed {
+	grid-template-columns: 1fr;
+	justify-items: center;
+}
