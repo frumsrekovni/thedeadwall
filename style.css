@@ -1,3 +1,4 @@
+
 :root {
 	--ink: #06060a;
 	--ink-2: #0d0b12;
@@ -2123,30 +2124,64 @@ body::after {
 	background: rgba(150, 120, 255, 0.16);
 	border: 1px solid rgba(150, 120, 255, 0.35);
 }
-.treat-kitkat {
-	--accent: #e0503a;
-}
-.treat-snack {
-	--accent: #ff8a2b;
-}
-.treat-pastry {
-	--accent: #e9b949;
-}
-.treat-skull {
-	--accent: #c7b8e6;
-}
-.treat-plush {
-	--accent: #ff7fb6;
-}
-.treat-bracelet {
-	--accent: var(--blood);
-}
+.treat-kitkat { --accent: #e0503a; }
+.treat-snack { --accent: #ff8a2b; }
+.treat-pastry { --accent: #e9b949; }
+.treat-skull { --accent: #c7b8e6; }
+.treat-plush { --accent: #ff7fb6; }
+.treat-bracelet { --accent: var(--blood); }
 @media (max-width: 520px) {
-	.treat-table {
-		font-size: 0.88rem;
-	}
-	.treat-table td,
-	.treat-table th {
-		padding: 0.55rem 0.65rem;
-	}
+	.treat-table { font-size: 0.88rem; }
+	.treat-table td, .treat-table th { padding: 0.55rem 0.65rem; }
+}
+
+.hunt {
+	width: min(92vw, 560px);
+	min-height: 100vh;
+	min-height: 100svh;
+	margin: 0 auto;
+	padding: clamp(2.5rem, 10vh, 6rem) 0 3rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
+.hunt-eyebrow {
+	margin: 0 0 0.75rem;
+	font-family: var(--display);
+	font-size: 0.85rem;
+	letter-spacing: 0.3em;
+	text-transform: uppercase;
+	color: var(--blood);
+}
+.hunt-question {
+	margin: 0 0 1.75rem;
+	font-family: var(--display);
+	font-size: clamp(1.5rem, 5.5vw, 2.2rem);
+	line-height: 1.25;
+	color: var(--bone);
+	text-shadow: 0 0 22px rgba(207, 23, 48, 0.35);
+}
+.hunt-form {
+	width: 100%;
+	box-sizing: border-box;
+	text-align: left;
+}
+.hunt-form .cta {
+	align-self: stretch;
+	text-align: center;
+}
+.hunt-form [aria-invalid] {
+	border-color: var(--blood);
+}
+.hunt-deadwait {
+	align-items: center;
+}
+.hunt-whisper {
+	margin: 0;
+	font-family: var(--display);
+	font-size: clamp(2.2rem, 10vw, 4.2rem);
+	line-height: 1.15;
+	color: var(--bone);
+	text-shadow: 0 0 28px rgba(207, 23, 48, 0.55), 0 4px 2px #000;
 }
