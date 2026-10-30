@@ -1020,7 +1020,7 @@ body::after {
 	text-align: right;
 	font-variant-numeric: tabular-nums;
 }
-.standings tr:nth-child(-n + 4) td:first-child {
+.standings tr.top td:first-child {
 	color: var(--ember);
 	font-weight: 700;
 }
@@ -1807,7 +1807,7 @@ body::after {
 	position: relative;
 	width: 100%;
 	max-width: 430px;
-	aspect-ratio: 457 / 637;
+	aspect-ratio: 385 / 518;
 	background: url('media/tombstone.webp') center / contain no-repeat;
 	filter: drop-shadow(0 16px 24px rgba(0, 0, 0, 0.5));
 	-webkit-mask-image: linear-gradient(
@@ -1829,11 +1829,8 @@ body::after {
 	top: 45%;
 	transform: translate(-50%, -50%);
 	width: 82%;
-	flex-wrap: nowrap;
 	max-height: 70%;
-	display: flex;
-	flex-direction: column;
-	gap: 0;
+	display: block;
 	margin: 0;
 	padding: 0;
 	overflow-y: auto;
@@ -2202,4 +2199,149 @@ body::after {
 .register-grid.is-closed {
 	grid-template-columns: 1fr;
 	justify-items: center;
+}
+
+.standings .player-row {
+	cursor: pointer;
+	transition: background 0.15s ease;
+}
+.standings .player-row:hover,
+.standings .player-row.open {
+	background: rgba(255, 255, 255, 0.045);
+}
+.standings .player-row.open td {
+	border-bottom-color: transparent;
+}
+.player-btn {
+	display: flex;
+	align-items: center;
+	gap: 0.65rem;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: none;
+	color: inherit;
+	font: inherit;
+	text-align: left;
+	cursor: pointer;
+}
+.player-btn:focus-visible {
+	outline: 2px solid var(--ember);
+	outline-offset: 4px;
+	border-radius: 4px;
+}
+.chev {
+	flex: 0 0 auto;
+	width: 0.45rem;
+	height: 0.45rem;
+	border-right: 2px solid var(--muted);
+	border-bottom: 2px solid var(--muted);
+	transform: rotate(45deg) translate(-2px, -2px);
+	transition: transform 0.2s ease;
+}
+.player-row.open .chev {
+	transform: rotate(-135deg) translate(-1px, -1px);
+}
+.standings .detail-row td {
+	padding: 0.2rem 0.8rem 1rem;
+	text-align: left;
+	background: rgba(255, 255, 255, 0.03);
+}
+.detail-row:not([hidden]) td {
+	animation: detailIn 0.25s ease;
+}
+.detail-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 0.5rem;
+	margin: 0;
+}
+.detail-grid .stat.total {
+	grid-column: 1 / -1;
+}
+@media (max-width: 360px) {
+	.detail-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+@media (min-width: 760px) {
+	.detail-grid {
+		grid-template-columns: repeat(7, minmax(0, 1fr));
+	}
+	.detail-grid .stat.total {
+		grid-column: auto;
+	}
+}
+.detail-grid .stat {
+	padding: 0.55rem 0.75rem;
+	border: 1px solid var(--edge);
+	border-radius: 10px;
+	background: rgba(255, 255, 255, 0.04);
+}
+.detail-grid dt {
+	font-size: 0.7rem;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--muted);
+}
+.detail-grid dd {
+	margin: 0.15rem 0 0;
+	font-family: var(--display);
+	font-size: 1.15rem;
+	font-variant-numeric: tabular-nums;
+	color: var(--bone);
+}
+.detail-grid dd.empty {
+	color: var(--muted);
+}
+.detail-grid .stat.total {
+	border-color: rgba(207, 23, 48, 0.5);
+	background: rgba(207, 23, 48, 0.12);
+}
+@keyframes detailIn {
+	from {
+		opacity: 0;
+		transform: translateY(-4px);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+@media (prefers-reduced-motion: reduce) {
+	.detail-row:not([hidden]) td {
+		animation: none;
+	}
+	.chev {
+		transition: none;
+	}
+}
+
+.wall-copy {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.tombstone .reg-wall.looping {
+	overflow: hidden;
+	-webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 14%, #000 86%, transparent 100%);
+	mask-image: linear-gradient(to bottom, transparent 0, #000 14%, #000 86%, transparent 100%);
+}
+.reg-wall.looping .wall-track {
+	animation: wallLoop 30s linear infinite;
+	will-change: transform;
+}
+.reg-wall.looping:hover .wall-track {
+	animation-play-state: paused;
+}
+@keyframes wallLoop {
+	from {
+		transform: translateY(0);
+	}
+	to {
+		transform: translateY(-50%);
+	}
 }

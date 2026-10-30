@@ -352,7 +352,7 @@
 							>
 						</div>
 						<div class="tombstone">
-							<ul class="reg-wall" id="reg-wall" aria-live="polite"></ul>
+							<div class="reg-wall" id="reg-wall" aria-live="polite"></div>
 							<p class="reg-empty" id="reg-empty" hidden>
 								No souls captured yet — be the first.
 							</p>
@@ -1053,7 +1053,11 @@
 						const wrap = $('.register-form-wrap');
 						if (wrap) wrap.hidden = true;
 						const grid = $('.register-grid');
-						if (grid) grid.classList.add('is-closed');
+						if (grid) {
+							grid.classList.add('is-closed');
+							grid.style.gridTemplateColumns = '1fr';
+							grid.style.justifyItems = 'center';
+						}
 						setText(
 							'registerBlurb',
 							(R.closedNotice || 'Registration is closed.') + ' ' + (R.blurb || ''),
@@ -1096,6 +1100,31 @@
 						});
 					}
 
+					const wallReduce = window.matchMedia(
+						'(prefers-reduced-motion: reduce)',
+					).matches;
+					function wallShouldLoop() {
+						const first = wall.querySelector('.wall-copy');
+						if (wallReduce || !first || !first.children.length) return false;
+						return first.offsetHeight > wall.clientHeight + 1;
+					}
+					function layoutWall() {
+						const track = wall.querySelector('.wall-track');
+						if (!track) return;
+						const on = wallShouldLoop();
+						const copies = track.querySelectorAll('.wall-copy');
+						if (on && copies.length === 1) {
+							const clone = copies[0].cloneNode(true);
+							clone.setAttribute('aria-hidden', 'true');
+							track.appendChild(clone);
+							track.style.animationDuration = copies[0].children.length * 1.6 + 's';
+						} else if (!on) {
+							for (let i = 1; i < copies.length; i++) copies[i].remove();
+							track.style.animationDuration = '';
+						}
+						wall.classList.toggle('looping', on);
+					}
+					window.addEventListener('resize', () => requestAnimationFrame(layoutWall));
 					let prevNames = null;
 					function renderList(d) {
 						const names = (d && d.names) || [];
@@ -1104,7 +1133,7 @@
 							filled.textContent = d && d.playing != null ? d.playing : '0';
 						empty.hidden = names.length > 0;
 						const prev = prevNames;
-						wall.innerHTML = names
+						const items = names
 							.map((n) => {
 								const playing = /^Playing/i.test(n.type || '');
 								const paid =
@@ -1114,9 +1143,11 @@
 								return `<li class="reg-name${playing ? ' playing' : ''}${paid ? ' paid' : ''}${isNew ? ' etching' : ''}" title="${paid ? 'Paid' : 'Not paid yet'}"><span class="reg-name-t">${esc(n.name)}</span></li>`;
 							})
 							.join('');
+						wall.innerHTML = `<div class="wall-track"><ul class="wall-copy">${items}</ul></div>`;
 						prevNames = new Set(names.map((n) => n.name));
+						layoutWall();
 						const fresh = wall.querySelector('.reg-name.etching');
-						if (fresh) {
+						if (fresh && !wall.classList.contains('looping')) {
 							requestAnimationFrame(() => {
 								wall.scrollTo({ top: wall.scrollHeight, behavior: 'smooth' });
 							});

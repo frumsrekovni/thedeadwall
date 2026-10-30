@@ -46,44 +46,103 @@
 					'https://script.google.com/macros/s/AKfycbw3QThA_WhI4gLjyUNTnmk8629ky3hZ3x_CoLY_4OmmmVvxHyjmunsRaJ9BjSS_Rvey/exec';
 				var rows = document.getElementById('rows');
 				var status = document.getElementById('status');
+				var FIELDS = [
+					['game1', 'Game 1'],
+					['quiz', 'Quiz'],
+					['game2', 'Game 2'],
+					['costume', 'Costume'],
+					['game3', 'Game 3'],
+					['secret', 'Secret'],
+					['total', 'Total'],
+				];
+				var expanded = {};
+				var lastJson = '';
 
 				function esc(s) {
 					return String(s).replace(/[&<>"]/g, function (c) {
 						return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
 					});
 				}
-				function fmt(n) {
-					return Math.round(n * 10) / 10 + '';
+				function num(v) {
+					return typeof v === 'number' && isFinite(v) ? v : null;
+				}
+				function fmt(v) {
+					if (v === null) return '\u2013';
+					return String(Math.round(v * 100) / 100);
 				}
 
 				function render(d) {
-					var list = ((d && d.names) || []).map(function (n) {
-						return { name: n.name, total: typeof n.total === 'number' ? n.total : 0 };
+					var seen = {};
+					var list = ((d && d.players) || []).map(function (p) {
+						var o = { name: String(p.name) };
+						seen[o.name] = (seen[o.name] || 0) + 1;
+						o.key = o.name + '#' + seen[o.name];
+						FIELDS.forEach(function (f) {
+							o[f[0]] = num(p[f[0]]);
+						});
+						if (o.total === null) o.total = 0;
+						return o;
 					});
+					var json = JSON.stringify(list);
+					if (json === lastJson) return;
+					lastJson = json;
 					list.sort(function (a, b) {
-						return b.total - a.total;
+						return b.total - a.total || a.name.localeCompare(b.name);
 					});
-					var rank = 0, prev = null;
+					var rank = 0,
+						prev = null;
 					rows.innerHTML = list
 						.map(function (p, i) {
 							if (p.total !== prev) rank = i + 1;
 							prev = p.total;
-							return '<tr><td class="rank">' + rank + '</td><td>' + esc(p.name) + '</td><td>' + fmt(p.total) + '</td></tr>';
+							var open = !!expanded[p.key];
+							var detail = FIELDS.map(function (f) {
+								var v = p[f[0]];
+								var cls = 'stat' + (f[0] === 'total' ? ' total' : '');
+								return (
+									'<div class="' + cls + '"><dt>' + f[1] + '</dt><dd' +
+									(v === null ? ' class="empty"' : '') + '>' + fmt(v) + '</dd></div>'
+								);
+							}).join('');
+							return (
+								'<tr class="player-row' + (rank <= 3 ? ' top' : '') + (open ? ' open' : '') +
+								'" data-key="' + esc(p.key) + '"><td class="rank">' + rank +
+								'</td><td><button class="player-btn" type="button" aria-expanded="' + open +
+								'" aria-controls="detail-' + i + '"><span>' + esc(p.name) +
+								'</span><span class="chev" aria-hidden="true"></span></button></td><td>' +
+								fmt(p.total) + '</td></tr>' +
+								'<tr class="detail-row" id="detail-' + i + '"' + (open ? '' : ' hidden') +
+								'><td colspan="3"><dl class="detail-grid">' + detail + '</dl></td></tr>'
+							);
 						})
 						.join('');
 					status.textContent = list.length ? '' : 'No standings yet.';
 				}
+
+				rows.addEventListener('click', function (e) {
+					var tr = e.target.closest('.player-row');
+					if (!tr) return;
+					var detail = tr.nextElementSibling;
+					var open = detail.hidden;
+					detail.hidden = !open;
+					tr.classList.toggle('open', open);
+					tr.querySelector('.player-btn').setAttribute('aria-expanded', open ? 'true' : 'false');
+					if (open) expanded[tr.dataset.key] = true;
+					else delete expanded[tr.dataset.key];
+				});
 
 				function load() {
 					var cb = '__st_' + Math.random().toString(36).slice(2);
 					var s = document.createElement('script');
 					var timer = setTimeout(function () {
 						cleanup();
-						if (!rows.children.length) status.textContent = 'Couldn’t load the standings right now.';
+						if (!rows.children.length) status.textContent = 'Couldn\u2019t load the standings right now.';
 					}, 9000);
 					function cleanup() {
 						clearTimeout(timer);
-						try { delete window[cb]; } catch (e) {}
+						try {
+							delete window[cb];
+						} catch (e) {}
 						s.remove();
 					}
 					window[cb] = function (d) {
@@ -91,7 +150,7 @@
 						render(d);
 					};
 					s.onerror = cleanup;
-					s.src = ENDPOINT + '?list=1&callback=' + cb;
+					s.src = ENDPOINT + '?standings=1&callback=' + cb;
 					document.body.appendChild(s);
 				}
 
